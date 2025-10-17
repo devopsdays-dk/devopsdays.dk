@@ -1,0 +1,25 @@
+# Authors
+Lars Kruse:
+  name        : Lars Kruse
+  avatar      : /assets/images/avatars/lakruzz.png
+  bio         : Software is Eating the world - we need more software!
+  location    : Copenhagen, Denmark
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:lars@lakruzz.com"
+    - label: "Phone"
+      icon: "fas fa-fw fa-phone-square"
+      url: "tel:+45 2087 2530"
+#    - label: "Website"
+#      icon: "fas fa-fw fa-link"
+#      url: "https://www.lakruzz.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/lakruzz"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/lakruzz"
+#    - label: "Twitter"
+#      icon: "fab fa-fw fa-twitter-square"
+#      url: "https://twitter.com/lakruzz"
