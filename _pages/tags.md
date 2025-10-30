@@ -1,5 +1,5 @@
 ---
-title: "Continuous Delivery Stories by tags"
+title: "DevOpsDays DK - Stories by tags"
 permalink: /tags/
 layout: tags
 author_profile: false

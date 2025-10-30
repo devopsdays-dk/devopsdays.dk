@@ -1,36 +1,31 @@
 ---
-title: "I'd ❤️ to chat with you"
+title: "We'd ❤️ to chat with you"
 ---
 
-[Send an email to the Editor in Chief](mailto:lars@lakruzz.com){: .btn .btn--primary target="_blank"}
+[Join our slack](https://join.slack.com/t/devopsdays-dk/shared_invite/zt-3ccd7udqv-RV1tMfoIKO8w273HiUrQng){: .btn .btn--primary target="_blank"}
 
-## Get perspective on a tech challenge
+## Meet us on Slack
 
-Let's grab a coffee or a lunch - In real life - Away From Keyboard.
+The Danish chapter of DevOpsDays has our on public slack - with full history of chats. You'll find it at [devopsdays-dk.slack.com](https://join.slack.com/t/devopsdays-dk/shared_invite/zt-3ccd7udqv-RV1tMfoIKO8w273HiUrQng){: target="_blank"}
 
-This is like a free coaching session - we will talk about you and your challenges - not mine. I offer that (professional) shoulder you can cry on. Let go! I'll listen and support you, and offer perspective.
+## Send the organizers a mail
 
-[Book a meeting](https://calendly.com/lakruzz){: .btn .btn--warning target="_blank" title="Opens in a new tab"}
+You can reach the entire group of Danish organisers at [denmark@devopsdays.org](mailto:denmark@devopsdays.org)
 
-## Get a free workshop for your team
+## Our GitHub organization
 
-We have a series of workshop and speaks that I have prepared, and done publicly and for free. I'll be happy to do it again. Despite that they are free in the literal meaning "costless" they are not cheap in the meaning "inferior" or "low quality". Quite the opposite, they showcase the seriousness and high quality I aim for in my engagement.
+We have our stuff on [@devopsdays-dk](https://github.com/devopsdays-dk){: target="_blank"}
 
-I offer them as a private V.I.P. session. Only condition is that you sign up min 6 people (no max!) and that you set aside time to both prepare well before the workshop, and evaluate with me after.
+## Our Google Drive public DataRoom
 
-[Book a meeting](https://calendly.com/lakruzz){: .btn .btn--warning target="_blank" title="Opens in a new tab"}
+We have our public DataRoom on Google Drive: [DevOpsDays Denmark - Public Data Room](https://drive.google.com/drive/folders/0AA1B_EhCmLh2Uk9PVA){: target="_blank"}. This drive is open to everyone and it's where you'll typically find stuff related to the different conferences.
 
-## Give feedback on the website
+## Our Organizers Google Drive (not public)
 
-Ohhh - thanks :pray: I'm crazy about feedback.
+Organizers also have shared drive on Google Drive: [DevOpsDays DK - Organizers](https://drive.google.com/drive/folders/0AMBdBwB0a7ZrUk9PVA){: target="_blank"}. This is secured and only accessible to the organizers.
 
-I have turned on public comments on the pages using GitHub. You will need an account on GitHub to use this option - [create one for free](https://github.com/signup){: target="_blank"}.
+## Want to become an organizer too?
 
-## Reach out to the Editor in Chief
+We keep the core organizer team small and efficient. But that doesn't mean that we're a closed group. Quite the opposite! We would love to hear from you if you would like to volunteer with some work, either in planning or during the execution of our events.
 
-- Would you like me to cover a specific topic?
-- Do you have questions regarding any of the content on this web?
-- Do you have wishes for a workshop or hackaton I could host?
-- _Anything...._
-
-[Send an email to the Editor in Chief](mailto:lars@lakruzz.com){: .btn .btn--primary target="_blank"}
+Just reach out!
