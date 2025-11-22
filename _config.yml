@@ -22,7 +22,7 @@ title_separator          : "-"
 description              : &description "The Danish Chapter of the DevOpsDays community conference series"
 subtitle                 : &subtitle "Part of Something Bigger" # site tagline that appears below site title in masthead
 name                     : *title # can be overriden by site.client.name
-url                      : "https://devopsdays.dk"
+url                      : "https://www.devopsdays.dk"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "devopsdays-dk/devopsdays.dk" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -92,18 +92,18 @@ analytics:
 
 # Site Author
 author:
-  name             : "Lars Kruse"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Continuous Delivery Evangelist"
-  location         : "Copenhagen, Denmark"
+  name             : "DevOpsDays Denmark"
+  avatar           : "/assets/images/devopsdays-cph.png"
+  bio              : "Part of Something Bigger"
+  location         : "Copenhagen + Aarhus. Denmark"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-      url: "mailto:lars@lakruzz.com"
+      url: "mailto:denmark@devopsdays.org"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://www.lakruzz.com"
+      url: "https://www.devopsdays.dk"
 #    - label: "Twitter"
 #      icon: "fab fa-fw fa-twitter-square"
 #      url: "https://twitter.com/"
@@ -112,10 +112,10 @@ author:
 #      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/lakruzz"
+      url: "https://github.com/devopsdays-dk"
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/lakruzz"
+      url: "https://www.linkedin.com/company/79701062"
 #    - label: "Instagram"
 #      icon: "fab fa-fw fa-instagram"
 #      url: "https://instagram.com/"

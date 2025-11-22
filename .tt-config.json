@@ -2,5 +2,15 @@
     "project": {
         "owner": "devopsdays-dk",
         "number": 2
-    }
+    },
+    "wrapup": {
+      "policies": {
+        "poll": true
+      }
+    },
+    "deliver": {
+      "policies": {
+        "poll": true
+      }
+    }   
 }
