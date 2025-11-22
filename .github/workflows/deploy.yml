@@ -1,0 +1,25 @@
+
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - 'main'
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+
+  call_deploy_pages:
+    name: Deploy
+    permissions:
+      statuses: write
+      pages: write
+      id-token: write
+    secrets:
+      READY_PUSHER: ${{ secrets.READY_PUSHER }}
+    uses: lakruzz/workflows/.github/workflows/deploy_pages.yml@experimental
+

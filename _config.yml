@@ -1,0 +1,365 @@
+# Build and serve your site with:
+#     bundle update
+#     bundle exec jekyll serve
+
+# This config file affect your entire site. It is only read when Jekyll is started
+# If you change this file, you must restart the server process.
+
+# The build is slightly different if you are running in production mode or in development mode
+# Set the JEKYLL_ENV environment variable to 'production' to enable a production build - like this
+#      JEKYLL_ENV=production bundle exec jekyll serve  
+
+
+
+# remote_theme: thetechcollective/minimal-mistakes
+minimal_mistakes_skin    : plum
+remote_theme             : devopsdays-dk/minimal-mistakes
+
+# Site Settings
+locale                   : "en-US"
+title                    : &title "DevOpsDays Denmark"
+title_separator          : "-"
+description              : &description "The Danish Chapter of the DevOpsDays community conference series"
+subtitle                 : &subtitle "Part of Something Bigger" # site tagline that appears below site title in masthead
+name                     : *title # can be overriden by site.client.name
+url                      : "https://devopsdays.dk"
+baseurl                  : # the subpath of your site, e.g. "/blog"
+repository               : "devopsdays-dk/devopsdays.dk" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+logo                     : "/assets/images/devopsdays-cph.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
+# breadcrumbs            : false # true, false (default)
+words_per_minute         : 200
+comments:
+  provider               : false # "giscus" # false (default)
+  ## https://giscus.app/ 
+  giscus:
+    repo                  : #"lakruzz/giscussions"
+    repo_id               : #"R_kgDOPNVyKw"
+    category              : #"lakruzz.com"
+    category_id           : #"DIC_kwDOPNVyK84CtA9_"
+    mapping               : #"pathname"
+    strict                : #"0"
+    reactions_enabled     : #"1"
+    emit_metadata         : #"0"
+    input_position        : #"top"
+    theme                 : #"catppuccin_latte"
+    lang                  : #"en"
+    loading               : #"lazy"
+
+atom_feed:
+  path                   : # blank (default) uses feed.xml
+  hide                   : # true, false (default)
+search                   : true # true, false (default)
+search_full_content      : true # true, false (default)
+search_provider          : lunr 
+lunr:
+  search_within_pages    : # true, false (default)
+font_awesome_kit_id      : 17b5a92563 # Font Awesome Kit ID
+head_scripts:
+  - https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js
+  - https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js
+
+# SEO Related
+google_site_verification :
+bing_site_verification   :
+naver_site_verification  :
+yandex_site_verification :
+baidu_site_verification  :
+
+# Social Sharing
+twitter:
+  username               :
+facebook:
+  username               :
+  app_id                 :
+  publisher              :
+og_image                 : /assets/images/devopsdays-cph.png # Open Graph/Twitter default site image
+# For specifying social profiles
+# - https://developers.google.com/structured-data/customize/social-profiles
+social:
+  type                   : # Person or Organization (defaults to Person)
+  name                   : # If the user or organization name differs from the site's name
+  links: # An array of links to social media profiles
+
+# Analytics
+analytics:
+  provider               : google-gtag # false (default), "google", "google-universal", "google-gtag", "custom"
+  google:
+    tracking_id          : #G-GK79T086HC
+    anonymize_ip         : true # true, false (default)
+
+
+# Site Author
+author:
+  name             : "Lars Kruse"
+  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Continuous Delivery Evangelist"
+  location         : "Copenhagen, Denmark"
+  email            :
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
+      url: "mailto:lars@lakruzz.com"
+    - label: "Website"
+      icon: "fas fa-fw fa-link"
+      url: "https://www.lakruzz.com"
+#    - label: "Twitter"
+#      icon: "fab fa-fw fa-twitter-square"
+#      url: "https://twitter.com/"
+#    - label: "Facebook"
+#      icon: "fab fa-fw fa-facebook-square"
+#      # url: "https://facebook.com/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/lakruzz"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/lakruzz"
+#    - label: "Instagram"
+#      icon: "fab fa-fw fa-instagram"
+#      url: "https://instagram.com/"
+
+# Site Footer
+footer:
+  powered_by: # Enabled if both name and url are defined
+    name: "DevOpsDays"
+    url:  "https://devopsdays.org/denmark"
+  links:
+#   - label: "Lars Kruse"
+#     icon: "fas fa-fw fa-link"
+#     url: "https://www.lakruzz.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/devopsdays-dk"
+    - label: "Linkedin"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/company/79701062"
+
+
+# Reading Files
+include:
+  - 
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - vendor
+  - .asset-cache
+  - .bundle
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
+  - Capfile
+  - CHANGELOG
+  - config
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - log
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README
+  - tmp
+  - cspell.json
+  - /docs # ignore Minimal Mistakes /docs
+  - /test # ignore Minimal Mistakes /test
+keep_files:
+  - .git
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+
+# Sass/SCSS
+# https://github.com/jekyll/jekyll-sass-converter
+sass:
+  sass_dir: _sass
+  style: compressed 
+  sourcemap: development
+  quiet_deps: true
+  quiet: true
+
+# Outputting
+permalink: /:categories/:title/
+paginate: 4 # amount of posts to show
+paginate_path: /stories/page:num/
+timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+
+# Plugins (previously gems:)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+
+# Archives
+#  Type
+#  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
+#  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
+#  Path (examples)
+#  - Archive page should exist at path when using Liquid method or you can
+#    expect broken links (especially with breadcrumbs enabled)
+#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
+#  - <base_path>/categories/my-awesome-category/index.html ~> path: /categories/
+#  - <base_path>/my-awesome-category/index.html ~> path: /
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+# https://github.com/jekyll/jekyll-archives
+# jekyll-archives:
+#   enabled:
+#     - categories
+#     - tags
+#   layouts:
+#     category: archive-taxonomy
+#     tag: archive-taxonomy
+#   permalinks:
+#     category: /categories/:name/
+#     tag: /tags/:name/
+
+
+# HTML Compression
+# - https://jch.penibelst.de/
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
+
+collections:
+  pages:
+    output: true
+    permalink: /:title/
+  posts:
+    output: true
+    permalink: /stories/:title/
+
+
+# Defaults
+defaults:
+# model
+  - scope:
+      type: pages
+    values:
+      layout: single
+      author_profile: # true
+      read_time: # true
+      comments: # true
+      share: # true
+      related: # true
+      search: true # true
+      pagination: false # true  # next/prev buttons    
+      header:
+        teaser: /assets/images/cards/codememo.png
+  # minimal mistakes
+  - scope:
+      type: posts
+      path: ""
+    values:
+      layout: single
+      author_profile: false
+      read_time: true
+      comments:  true
+      share: true
+      related: true
+
+responsive_image:
+  # [Required]
+  # Path to the image template.
+  template: _includes/responsive-image.html
+
+  # [Optional, Default: 85]
+  # Quality to use when resizing images.
+  default_quality: 90
+
+  # [Optional, Default: []]
+  # An array of resize configuration objects. Each object must contain at least
+  # a `width` value.
+  sizes:
+    - width: 255
+    - width: 510
+    - width: 1020
+
+  # [Optional, Default: false]
+  # Rotate resized images depending on their EXIF rotation attribute. Useful for
+  # working with JPGs directly from digital cameras and smartphones
+  auto_rotate: false
+
+  # [Optional, Default: false]
+  # Strip EXIF and other JPEG profiles. Helps to minimize JPEG size and win friends
+  # at Google PageSpeed.
+  strip: false
+
+  # [Optional, Default: assets]
+  # The base directory where assets are stored. This is used to determine the
+  # `dirname` value in `output_path_format` below.
+  base_path: assets
+
+  # [Optional, Default: assets/resized/%{filename}-%{width}x%{height}.%{extension}]
+  # The template used when generating filenames for resized images. Must be a
+  # relative path.
+  #
+  # Parameters available are:
+  #   %{dirname}     Directory of the file relative to `base_path` (assets/sub/dir/some-file.jpg => sub/dir)
+  #   %{basename}    Basename of the file (assets/some-file.jpg => some-file.jpg)
+  #   %{filename}    Basename without the extension (assets/some-file.jpg => some-file)
+  #   %{extension}   Extension of the file (assets/some-file.jpg => jpg)
+  #   %{width}       Width of the resized image
+  #   %{height}      Height of the resized image
+  #
+  output_path_format: assets/responsive/%{width}/%{basename}
+
+  # [Optional, Default: true]
+  # Whether or not to save the generated assets into the source folder.
+  save_to_source: false
+
+  # [Optional, Default: false]
+  # Cache the result of {% responsive_image %} and {% responsive_image_block %}
+  # tags. See the "Caching" section of the README for more information.
+  cache: false
+
+  # [Optional, Default: []]
+  # By default, only images referenced by the responsive_image and responsive_image_block
+  # tags are resized. Here you can set a list of paths or path globs to resize other
+  # images. This is useful for resizing images which will be referenced from stylesheets.
+  extra_images:
+    - assets/foo/bar.png
+    - assets/bgs/*.png
+    - assets/avatars/*.{jpeg,jpg}

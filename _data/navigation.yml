@@ -1,0 +1,17 @@
+# cspell:ignore Codememo
+# main links
+main:
+
+  # - title: "Table of Contents"
+  #   url: /toc/
+  - title: "Conferences"
+    url: /events/
+  - title: "Stories"
+    url: /stories/
+
+  - title: "💬"
+    url: /contact/
+  - title: "🍪"
+    url: /terms/
+
+
