@@ -5,7 +5,7 @@ When in agent mode, and you are asked to create issues or comments to issues, al
 
 When agent mode and I ask to _annotate a comment on the current changeset to the issue_ or if I male a reference to this specific instruction file, you can always read the implied issue number from the current git branch - development branches are prefixed with an integer, and that is a reference to the issue being worked on. The branch name is part of the zsh prompt in the terminal, and can be directly accessed; The `$PS1` is set up to show the branch name too (e.g. `user ➜ /workspaces/gh-tt (321-Update_summary_instructions) $` equals issue 321). Let summary serve as a work log note to future self and current colleagues. It should summarize the changes made in the branch we're working on since we left `main`.
 
-Awalys run  `git git diff main...HEAD` to learn the chageses to be summarized.
+Awalys run `git diff main...HEAD` to learn the chageses to be summarized.
 
 Only summarize on the accumulated change set in the branch. Do not dive into - or reference - the individual commits on the branch. The branch will be squashed into one commit before it hits main so no BOM (Bill of Material) is need - just a summary in prose. Make it a high-level overview of what was done (describe the changes), why it was done (the rationale behind our decisions), and any relevant context (maybe external links of general architectural or design decisions). The summary should have the header `## Change log summary` and even if I did ask you to create such a summary earlier on this branch, you should always create the full change set summary again (don't just summarize the increment since last).
 
