@@ -1,4 +1,5 @@
 ---
+permalink: /contact/
 title: "We'd ❤️ to chat with you"
 ---
 

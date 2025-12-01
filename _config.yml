@@ -270,7 +270,7 @@ collections:
     permalink: /stories/:title/
   events:
     output: true
-    permalink: /:collection/:path/
+    permalink: /:collection/:path/    
 
 # Defaults
 defaults:
@@ -289,8 +289,9 @@ defaults:
     values:
       layout: event
       author_profile: false
-      share: true
+      share: # true
       comments: false
+      related: true
   # _posts
   - scope:
       path: ""

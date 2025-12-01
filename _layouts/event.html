@@ -22,7 +22,7 @@ layout: single
 
 
             <h5 class="yellow-text">
-                <i class="far fa-calendar-alt event-icon"></i> {{ page.event.date  | date: '%d %B %Y' }}<br/>
+                <i class="far fa-calendar-alt event-icon"></i> {{ page.event.date  | date: '%d %B %Y' }}{% if page.event.enddate %} — {{  page.event.enddate  | date: '%d %B %Y' }}{% endif %} <br/>
                 <i class="far fa-clock"></i> {{ page.event.time }} <br/>
                 <i class="fas fa-map-marker-alt"></i> {{ page.event.place }}
             </h5>

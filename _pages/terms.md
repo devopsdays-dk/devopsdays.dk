@@ -1,5 +1,6 @@
 ---
 title: "Terms and Privacy Policy"
+permalink: /terms/
 last_modified_at: 2025-11-01
 ---
 

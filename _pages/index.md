@@ -31,18 +31,18 @@ feature_row:
     btn_label: "🎭 Read our stories"
     btn_class: "btn--primary align-center"
   - image_path: /assets/images/index/events.jpeg
-    alt: "Events"
-    title: "Events"
-    excerpt: "We host an annual uncoference CPH and Aarhus - and we post a lot of DevOpsy free events too."
-    url: "/events/"
-    btn_label: "🎪 Join our events"
+    alt: "Next up..."
+    title: "Next up..."
+    excerpt: "Next event is DevOpsDays in Copenhagen in April. Registration is open and CFP is still open"
+    url: "/events/2026-cph/"
+    btn_label: "🎪 Copenhangen 2026"
     btn_class: "btn--primary align-center"
-  - image_path: /assets/images/index/sponsorship.jpg
-    alt: "Sponsors"
-    title: "Sponsors"
-    excerpt: "We offer a growing library of free hands-on self-paced tutorials. Learn what we know."
-    url: "/sponsors/"
-    btn_label: "🙏 Sponsors"
+  - image_path: /assets/images/index/slack.devopsdays.dk.png
+    alt: "Slack"
+    title: "Slack"
+    excerpt: "We have our own slack, free and open to everyone. With full history preserved"
+    url: "https://join.slack.com/t/devopsdays-dk/shared_invite/zt-3ccd7udqv-RV1tMfoIKO8w273HiUrQng"
+    btn_label: "💬 Slack"
     btn_class: "btn--primary align-center"
 ---
 {% include feature_row id="intro" type="center" %}
