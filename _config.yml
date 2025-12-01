@@ -86,7 +86,7 @@ social:
 analytics:
   provider               : google-gtag # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          : #G-GK79T086HC
+    tracking_id          : G-2FM92L1EDB # denmark@devopsdays.dk -> www.devopsdays.dk -> web
     anonymize_ip         : true # true, false (default)
 
 
@@ -140,6 +140,7 @@ footer:
 # Reading Files
 include:
   - _pages
+  - .well-known
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
