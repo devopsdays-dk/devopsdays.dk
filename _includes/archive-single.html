@@ -1,0 +1,40 @@
+{% if post.header.teaser %}
+  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% else %}
+  {% assign teaser = site.teaser %}
+{% endif %}
+
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<div class="{{ include.type | default: 'list' }}__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    {% if include.type == "grid" and teaser %}
+      <div class="archive__item-teaser">
+        <img src="{{ teaser | relative_url }}" alt="">
+      </div>
+    {% endif %}
+    <h2 style="font-size:smaller;" class="archive__item-title no_toc" itemprop="headline">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h2>
+    {% include page__meta.html type=include.type %}
+    <div style="font-size:smaller">
+    {% if post.event.date %}<p><span class="archive__item-excerpt" itemprop="event-date"><i class="far fa-calendar-alt event-icon"></i>  {{ post.event.date | date: '%d %B %Y' | markdownify | strip_html | truncate: 160 }}</span>{% endif %}
+    {% if post.event.time %}<span class="archive__item-excerpt" itemprop="event-time"><i class="far fa-clock"></i> {{ post.event.time | markdownify | strip_html | truncate: 160 }}</span>{% endif %}
+    {% if post.event.place %}<span class="archive__item-excerpt" itemprop="event-place"><i class="fas fa-map-marker-alt"></i> {{ post.event.place | markdownify | strip_html | truncate: 160 }}</span>{% endif %}
+    {% if post.event.date %}</p>{% endif %}
+    </div>
+    
+
+
+
+    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+  </article>
+</div>

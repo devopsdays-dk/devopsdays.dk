@@ -1,0 +1,20 @@
+---
+layout: archive
+---
+{{ content }}
+
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% include documents-collection.html collection=page.collection sort_by=page.sort_by sort_order=page.sort_order type=entries_layout only='future' %}
+</div>
+
+<br clear="all"/>
+<details open><summary>👈 <span style="font-size:smaller;">click to expand/collapse</span><br/><b>Past events ...</b></summary>
+
+{% assign entries_layout = page.entries_layout | default: 'list' %}
+<div class="entries-{{ entries_layout }}">
+  {% include documents-collection.html collection=page.collection sort_by=page.sort_by sort_order='reverse' type=entries_layout only='past' %}
+</div>
+
+</details>

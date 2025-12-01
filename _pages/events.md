@@ -1,12 +1,11 @@
 ---
-title: "Conferences"
-author_profile: false
-entries_layout: wide
+title: Conferences
+layout: events
+permalink: /events/
+collection: events
+entries_layout: grid
 show_excerpts: true
-redirect_from:
-  - /registration/
-  - /propose/
-  - /program/
+classes: wide
+author_profile: false
+sort_by: event.date
 ---
-
-Next up is in April 2026.

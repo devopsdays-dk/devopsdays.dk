@@ -139,7 +139,7 @@ footer:
 
 # Reading Files
 include:
-  - 
+  - _pages
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -264,33 +264,36 @@ compress_html:
     envs: development
 
 collections:
-  pages:
-    output: true
-    permalink: /:title/
   posts:
     output: true
     permalink: /stories/:title/
-
+  events:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
+  # _pages
+  # _pages
   - scope:
+      path: "_pages"
       type: pages
     values:
       layout: single
-      author_profile: # true
-      read_time: # true
-      comments: # true
-      share: # true
-      related: # true
-      search: true # true
-      pagination: false # true  # next/prev buttons    
-      header:
-        teaser: /assets/images/cards/codememo.png
-  # minimal mistakes
+      author_profile: false
+  # _events
   - scope:
-      type: posts
       path: ""
+      type: events
+    values:
+      layout: event
+      author_profile: false
+      share: true
+      comments: false
+  # _posts
+  - scope:
+      path: ""
+      type: posts
     values:
       layout: single
       author_profile: false

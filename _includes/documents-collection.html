@@ -1,0 +1,31 @@
+
+{% assign entries = site[include.collection] %}
+
+{% if include.sort_by %}
+    {% assign entries = entries | sort: include.sort_by %}
+{% endif %}
+
+{% if include.sort_order == 'reverse' %}
+    {% assign entries = entries | reverse %}
+{% endif %}
+
+{% assign curDate = site.time | date: '%s' | plus: 0 %}
+
+{%- for post in entries -%}
+    {%- unless post.hidden -%}
+      {% assign postEventDate = post.event.date | date: '%s' | plus: 86400 %}
+
+        {% if include.only == 'future' %}
+          {% if postEventDate >= curDate %}
+                {% include archive-single.html %}
+          {% endif %}
+        {% elsif include.only == 'past' %}
+            {% if postEventDate < curDate %}
+                {% include archive-single.html %}
+            {% endif %}
+        {% else %}
+            {% include archive-single.html %}
+        {% endif %}
+    {%- endunless -%}
+{%- endfor -%}
+  

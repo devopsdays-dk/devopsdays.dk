@@ -1,0 +1,36 @@
+{% assign curDate = site.time | date: '%s' | plus:0 %}
+{% assign postEventDate = page.event.date | date: '%s' | plus: 86400 %}
+{% assign unique =  "now" | date: "%N" | modulo: 10000 %}
+
+{% if postEventDate >= curDate %}
+  
+  <!-- Noscript content for added SEO -->
+  <noscript><a href="https://www.eventbrite.dk/e/{{ page.event.eventbrite-id }}" rel="noopener noreferrer" target="_blank">Register on Eventbrite</a></noscript>
+  
+  <!-- You can customize this button any way you like -->
+  <button class="btn btn--success" id="{{unique}}-{{ page.event.eventbrite-id }}" type="button">Register to save your free spot</button>
+  
+  <script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+  
+  <script type="text/javascript">
+    var callBack = function() {
+        console.log('Order complete!');
+
+    };  
+    window.EBWidgets.createWidget({
+      widgetType: 'checkout',
+      eventId: '{{ page.event.eventbrite-id }}',
+      modal: true,
+      modalTriggerElementId: '{{unique}}-{{ page.event.eventbrite-id }}',
+      onOrderComplete: callBack
+    });
+  </script>
+
+{% else %}
+  ⚠️This event is in the past.⚠️<br/>
+  <a class="btn btn--warning" href="/events/">See what else we have cooking</a>
+
+{% endif %}
+
+
+
