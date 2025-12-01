@@ -19,11 +19,11 @@ The `.devcontainer/postCreateCommand.sh` script is run on devcontainer creation.
 
 - **pre-commit**: Runs cspell and markdownlint checks the exact same way that the `wrapup` workflow runs them. It's takes 2 seconds, and it prevents you from committing stuff that will fail.
 
-## Hooks in combination with [tt](https://github.com/thetechcollective/gh-tt) GitHub CLI extension
+## Hooks in combination with [tt](https://github.com/devx-cafe/gh-tt) GitHub CLI extension
 
-`tt` is delibertely non-verbose, so you will not get an output to `STDOUT` if it passes - but you _will_ get an error if it doesn't.
+`gh tt` is delibertely non-verbose, so you will not get an output to `STDOUT` if it passes - but you _will_ get an error if it doesn't.
 
-`tt` supports a `--verbose|-v` switch you can apply to get the chatty output.
+`gh tt` supports a `--verbose|-v` switch you can apply to get the chatty output.
 
 ## Manual setup
 
