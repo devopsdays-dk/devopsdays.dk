@@ -56,4 +56,4 @@ If you are a leader or a manger of initiatives or teams even remotely related to
 
 The event is kept cozy and mingle-friendly. The seats are limited to 25. We have a waiting list that opens when they are all taken. Sign up to that if you cant get a ticket. We will get you in if at all possible.
 
-Any questions? Please don't hesitate to reach out to me [lakr@thetechcollective.eu](mailto:lakr@thetechcollective.eu){: target="_blank"}.
+Any questions? Please don't hesitate to reach out to me [lars@lakruzz.com](mailto:lars@lakruzz.com){: target="_blank"}.
