@@ -27,7 +27,7 @@ layout: single
                 <i class="fas fa-map-marker-alt"></i> {{ page.event.place }}
             </h5>
 
-            <p>{% include meetup-signup.html %}</p>
+            <p>{% include eventbrite-signup.html %}</p>
 
 
             <h1>{{ page.title }}</h1>
@@ -36,9 +36,9 @@ layout: single
             {{ page.content }}
 
 
-            <span class="event-id" style="display: none;">{{ page.event.meetup-group }}/{{ page.event.meetup-event-id }}</span>
+            <span class="event-id" style="display: none;">{{ page.event.eventbrite-id }}</span>
 
-            <p>{% include meetup-signup.html unique="bottom"%}</p>
+            <p>{% include eventbrite-signup.html unique="bottom"%}</p>
 
 
 </div>
