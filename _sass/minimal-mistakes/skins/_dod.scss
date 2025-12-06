@@ -24,17 +24,6 @@ $sans-serif-narrow: $lato !default;
 $sans-serif: $lato !default;
 $monospace: $ubuntu-mono !default;
 
-
-$area-10:          #fb001d !default;
-$area-20:           $area-10 !default;
-$area-30:           $area-10;
-$area-40:          #fa8b00 !default;
-$area-50:          #00e675 !default;
-$area-60:          #00a8ff !default;
-$area-70:          #d136f5 !default;
-$area-80:          #424242 !default;
-$area-90:            $area-80;
-
 /* type scale */
 $type-size-1: 39px !default; // ~39.056px
 $type-size-2: 31px !default; // ~31.248px
@@ -55,78 +44,62 @@ $h-size-6: $type-size-5 !default; // ~16px
 
 $doc-font-size: 16px !default;
 
+$dod-purple-100: #4100ff !default;
+$dod-purple-80:  #6733ff !default;
+$dod-purple-60:  #8d66ff !default;
+$dod-purple-40:  #b399ff !default;
+$dod-purple-20:  #d9ccff !default;
+
+$dod-orange-100: #fbb086 !default;
+$dod-orange-80:  #fcc09e !default;
+$dod-orange-60:  #fdd0b6 !default;
+$dod-orange-40:  #fddfcf !default;
+$dod-orange-20:  #feefe7 !default;
+
+$dod-red-100:      #e63333 !default;
+
+$dod-green-100:    #33d37f !default;
+
 
 $lakruzz-red:         #a0221a !default;
 $lakruzz-dark-grey:   #1f1f1f !default;
 $lakruzz-light-grey:  #e0dfdc !default;
-$lakruzz-grey-2:      #8f8f91 !default;
 $lakruzz-cappuccino-3: #ede9e5 !default;
 
 
-$ttc-light-grey:   #e0dfdc !default;
-$ttc-dark-grey:    #1f1f23 !default;
-$ttc-grey:         #a3a2a0 !default;
-$ttc-mint:         #b9d2c3 !default;
-$ttc-purple:       #af9eb4 !default;
-$ttc-plum:         #64505a !default;
-$ttc-cappuccion:   #b6a798 !default;
-$ttc-mustard:      #deb778 !default;
+$dod-dark-grey:    #1f1f23 !default;
+$dod-grey-2:       #8f8f91 !default;
+$dod-grey:         #a3a2a0 !default;
+$dod-light-grey:   #e0dfdc !default;
 
-/* variants (lighter shades) */
-$ttc-light-grey-1: #e8e7e5 !default;
-$ttc-light-grey-2: #efefed !default;
-$ttc-light-grey-3: #f7f7f6 !default;
 
-$ttc-grey-1:       #57585a !default;
-$ttc-grey-2:       #8f8f91 !default;
-$ttc-grey-3:       #c7c7c8 !default;
-
-$ttc-mint-1:       #cbddd2 !default;
-$ttc-mint-2:       #dce8e1 !default;
-$ttc-mint-3:       #edf4f0 !default;
-
-$ttc-purple-1:     #c3b6c7 !default;
-$ttc-purple-2:     #d7ced9 !default;
-$ttc-purple-3:     #af9eb4 !default;
-
-$ttc-plum-1:       #8b7c83 !default;
-$ttc-plum-2:       #b1a7ac !default;
-$ttc-plum-3:       #d8d3d6 !default;
-
-$ttc-cappuccion-1: #c8bdb2 !default;
-$ttc-cappuccion-2: #dad3cb !default;
-$ttc-cappuccion-3: #ede9e5 !default;
-
-$ttc-mustard-1:    #e6c99a !default;
-$ttc-mustard-2:    #eedbbb !default;
-$ttc-mustard-3:    #f7eddd !default;
 
 /* Colors */
-$background-color: $lakruzz-light-grey !default;
-$text-color: $lakruzz-dark-grey !default;
-$primary-color: $lakruzz-red !default;
+$background-color: $dod-orange-60 !default;
+$text-color: $dod-dark-grey !default;
+$primary-color: $dod-purple-60 !default;
 $border-color: mix($primary-color, $background-color, 20%) !default;
-$code-background-color: $lakruzz-cappuccino-3 !default;
+$code-background-color: $dod-orange-20 !default;
 $code-background-color-dark: mix(#000, $background-color, 20%) !default;
 $form-background-color: mix(#000, $background-color, 15%) !default;
 // $link-color: mix($primary-color, $text-color, 40%) !default;
 $link-color: $primary-color !default;
 $link-color-hover: mix(#fff, $link-color, 25%) !default;
 $link-color-visited: mix(#000, $link-color, 25%) !default;
-$masthead-link-color: $ttc-mustard !default;
-$masthead-link-color-hover: mix(#000, $ttc-mustard-3, 20%) !default;
-$masthead-background-color: $ttc-dark-grey !default;
+$masthead-link-color: $dod-purple-60 !default;
+$masthead-link-color-hover: mix(#000, $dod-purple-60, 20%) !default;
+$masthead-background-color: $dod-orange-80 !default;
 $footer-background-color: $masthead-background-color;
-$muted-text-color: $ttc-dark-grey;
+$muted-text-color: $dod-dark-grey;
 $navicon-link-color-hover: mix(#000, $background-color, 30%) !default;
-$fact-background-color: $ttc-light-grey-3 !default;
-$fact-border-color: $lakruzz-red !default;
+$fact-background-color: $dod-light-grey !default;
+$fact-border-color: $dod-purple-20 !default;
 
 
-$success-color: $ttc-mint !default;
-$warning-color: $ttc-mustard !default;
-$danger-color: $ttc-cappuccion !default;
-$info-color: $ttc-purple !default;
+$success-color: $dod-green-100 !default;
+$warning-color: $dod-orange-100 !default;
+$danger-color: $dod-red-100 !default;
+$info-color: $dod-purple-100 !default;
 $focus-color: $primary-color !default;
 $active-color: mix(#fff, $primary-color, 80%) !default;
 

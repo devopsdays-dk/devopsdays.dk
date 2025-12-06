@@ -12,7 +12,7 @@
 
 
 # remote_theme: thetechcollective/minimal-mistakes
-minimal_mistakes_skin    : dirt
+minimal_mistakes_skin    : dod
 remote_theme             : devopsdays-dk/minimal-mistakes
 
 # Site Settings
@@ -21,12 +21,12 @@ title                    : &title "DevOpsDays Denmark"
 title_separator          : "-"
 description              : &description "The Danish Chapter of the DevOpsDays community conference series"
 subtitle                 : &subtitle "Part of Something Bigger" # site tagline that appears below site title in masthead
-name                     : *title # can be overriden by site.client.name
+name                     : *title
 url                      : "https://www.devopsdays.dk"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "devopsdays-dk/devopsdays.dk" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : "/assets/images/devopsdays-cph.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/dod-brain-purple.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -74,7 +74,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : /assets/images/devopsdays-cph.png # Open Graph/Twitter default site image
+og_image                 : /assets/images/dod-logo-purple.png # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
@@ -93,7 +93,7 @@ analytics:
 # Site Author
 author:
   name             : "DevOpsDays Denmark"
-  avatar           : "/assets/images/devopsdays-cph.png"
+  avatar           : "/assets/images/dod-logo-purple.png"
   bio              : "Part of Something Bigger"
   location         : "Copenhagen + Aarhus. Denmark"
   email            :

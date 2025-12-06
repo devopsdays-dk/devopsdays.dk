@@ -19,26 +19,18 @@ layout: single
             <div class="header-image">
                 <img src="{{ page.event.image }}" title="{{ page.excerpt }}" alt="{{ page.excerpt }}">
             </div>
-
-
+            
             <h5 class="yellow-text">
                 <i class="far fa-calendar-alt event-icon"></i> {{ page.event.date  | date: '%d %B %Y' }}{% if page.event.enddate %} — {{  page.event.enddate  | date: '%d %B %Y' }}{% endif %} <br/>
                 <i class="far fa-clock"></i> {{ page.event.time }} <br/>
                 <i class="fas fa-map-marker-alt"></i> {{ page.event.place }}
             </h5>
 
-            <p>{% include eventbrite-signup.html %}</p>
-
-
-            <h1>{{ page.title }}</h1>
-
+            <p>{% if page.event.ticket-widget-top == true %} {% include eventbrite-signup.html %} {% endif %}</p>
 
             {{ page.content }}
 
-
-            <span class="event-id" style="display: none;">{{ page.event.eventbrite-id }}</span>
-
-            <p>{% include eventbrite-signup.html unique="bottom"%}</p>
+            <p>{% if page.event.ticket-widget-bottom == true %} {% include eventbrite-signup.html unique="bottom"%} {% endif %}</p>
 
 
 </div>

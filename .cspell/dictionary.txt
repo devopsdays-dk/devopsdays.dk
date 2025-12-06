@@ -26,6 +26,7 @@ gameified
 gemba
 Genbutsu
 Genchi
+giscus
 Giscus
 giscussions
 Grundfos
@@ -48,6 +49,7 @@ København
 kōhai
 Kohsuke
 kruse
+lakruzz
 Lakruzz
 Larusso
 Marmorkirken
@@ -72,6 +74,7 @@ savvyness
 SDCA
 SDLC
 Senpai
+sessionize
 signup
 slowification
 sociotechnical
@@ -88,6 +91,3 @@ worklog
 yadda
 Yeman
 Yxlon
-lakruzz
-kruse
-giscus
