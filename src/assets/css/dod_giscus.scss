@@ -12,6 +12,4 @@ search: false
 
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
-@import "minimal-mistakes"; // main partials
-@import "kicker"; // custom kicker styles
-@import "responsive-image"; // custom responsive image styles
+@import "giscus/dod-giscus"; // dod giscus styles

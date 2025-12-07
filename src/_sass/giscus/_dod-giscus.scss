@@ -1,0 +1,231 @@
+// Giscus Catppuccin Macchiato Theme
+// https://giscus.app/themes/catppuccin_macchiato.css
+// Converted to SCSS with organized variables and structure
+
+// ============================================================================
+// Color Palette - Catppuccin Macchiato
+// ============================================================================
+
+// Syntax highlighting colors
+$syntax-comment: #8087a2;
+$syntax-constant: #8aadf4;
+$syntax-entity: #8aadf4;
+$syntax-storage-modifier-import: #f5a97f;
+$syntax-entity-tag: #8bd5ca;
+$syntax-keyword: #f5bde6;
+$syntax-string: #a6da95;
+$syntax-variable: #f5a97f;
+$syntax-invalid-illegal-text: #ed8796;
+$syntax-invalid-illegal-bg: rgba(237, 135, 150, 0.15);
+$syntax-markup-heading: #8bd5ca;
+$syntax-markup-italic: #eed49f;
+$syntax-markup-bold: #eed49f;
+$syntax-markup-deleted-text: #cad3f5;
+$syntax-markup-deleted-bg: rgba(237, 135, 150, 0.4);
+$syntax-markup-inserted-text: #cad3f5;
+$syntax-markup-inserted-bg: rgba(166, 218, 149, 0.4);
+$syntax-markup-changed-text: #cad3f5;
+$syntax-markup-changed-bg: rgba(238, 212, 159, 0.4);
+$syntax-markup-ignored-text: #cad3f5;
+
+// Button colors
+$btn-text: #cad3f5; 
+$btn-bg: #363a4f;
+$btn-border: #494d64;
+$btn-hover-bg: #494d64;
+$btn-hover-border: #5b6078;
+$btn-active-bg: #5b6078;
+$btn-selected-bg: #5b6078;
+$btn-counter-bg: #5b6078;
+$btn-outline-text: #c6a0f6;
+$btn-shadow: 0 0 transparent;
+$btn-inset-shadow: 0 0 transparent;
+
+// Primary button colors
+$btn-primary-text: #24273a;
+$btn-primary-bg: #a6da95;
+$btn-primary-border: transparent;
+$btn-primary-shadow: 0 0 transparent;
+$btn-primary-inset-shadow: 0 0 transparent;
+$btn-primary-hover-bg: #c6e7bb;
+$btn-primary-hover-border: #c6e7bb;
+$btn-primary-selected-bg: #c6e7bb;
+$btn-primary-selected-shadow: 0 0 transparent;
+$btn-primary-disabled-text: #181926;
+$btn-primary-disabled-bg: rgba(166, 218, 149, 0.4);
+$btn-primary-disabled-border: transparent;
+
+// Action list and segmented control colors
+$action-list-item-default-hover-bg: #494d64;
+$segmented-control-bg: #5b6078;
+$segmented-control-button-bg: #24273a;
+$segmented-control-button-selected-border: #6e738d;
+
+// Text colors
+$fg-default: #cad3f5;
+$fg-muted: #b8c0e0;
+$fg-subtle: #b8c0e0;
+
+// Canvas colors
+$canvas-default: #24273a;
+$canvas-overlay: #363a4f;
+$canvas-inset:  $dod-purple-60; //#181926;
+$canvas-subtle: #1e2030;
+
+// Border colors
+$border-default: #494d64;
+$border-muted: #363a4f;
+
+// Neutral colors
+$neutral-muted: rgba(110, 115, 141, 0.3);
+
+// Accent colors
+$accent-fg: #c6a0f6;
+$accent-emphasis: #c6a0f6;
+$accent-muted: rgba(198, 160, 246, 0.4);
+$accent-subtle: rgba(198, 160, 246, 0.15);
+
+// Success colors
+$success-fg: #a6da95;
+
+// Attention colors
+$attention-fg: #f5a97f;
+$attention-muted: #c6a0f6;
+$attention-subtle: rgba(198, 160, 246, 0.15);
+
+// Danger colors
+$danger-fg: #ed8796;
+$danger-muted: rgba(237, 135, 150, 0.4);
+$danger-subtle: rgba(237, 135, 150, 0.2);
+
+// Scale colors
+$scale-gray-7: #494d64;
+$scale-blue-8: #5b8cf0;
+
+// Other colors
+$primer-shadow-inset: 0 0 transparent;
+
+// Loading image
+$loading-image-url: 'https://giscus.catppuccin.com/assets/loading.gif';
+$placeholder-text-color: #a5adcb;
+
+// ============================================================================
+// CSS Custom Properties (CSS Variables)
+// ============================================================================
+
+main {
+  // Syntax highlighting
+  --color-prettylights-syntax-comment: #{$syntax-comment};
+  --color-prettylights-syntax-constant: #{$syntax-constant};
+  --color-prettylights-syntax-entity: #{$syntax-entity};
+  --color-prettylights-syntax-storage-modifier-import: #{$syntax-storage-modifier-import};
+  --color-prettylights-syntax-entity-tag: #{$syntax-entity-tag};
+  --color-prettylights-syntax-keyword: #{$syntax-keyword};
+  --color-prettylights-syntax-string: #{$syntax-string};
+  --color-prettylights-syntax-variable: #{$syntax-variable};
+  --color-prettylights-syntax-invalid-illegal-text: #{$syntax-invalid-illegal-text};
+  --color-prettylights-syntax-invalid-illegal-bg: #{$syntax-invalid-illegal-bg};
+  --color-prettylights-syntax-markup-heading: #{$syntax-markup-heading};
+  --color-prettylights-syntax-markup-italic: #{$syntax-markup-italic};
+  --color-prettylights-syntax-markup-bold: #{$syntax-markup-bold};
+  --color-prettylights-syntax-markup-deleted-text: #{$syntax-markup-deleted-text};
+  --color-prettylights-syntax-markup-deleted-bg: #{$syntax-markup-deleted-bg};
+  --color-prettylights-syntax-markup-inserted-text: #{$syntax-markup-inserted-text};
+  --color-prettylights-syntax-markup-inserted-bg: #{$syntax-markup-inserted-bg};
+  --color-prettylights-syntax-markup-changed-text: #{$syntax-markup-changed-text};
+  --color-prettylights-syntax-markup-changed-bg: #{$syntax-markup-changed-bg};
+  --color-prettylights-syntax-markup-ignored-text: #{$syntax-markup-ignored-text};
+
+  // Button colors
+  --color-btn-text: #{$btn-text};
+  --color-btn-bg: #{$btn-bg};
+  --color-btn-border: #{$btn-border};
+  --color-btn-hover-bg: #{$btn-hover-bg};
+  --color-btn-hover-border: #{$btn-hover-border};
+  --color-btn-active-bg: #{$btn-active-bg};
+  --color-btn-selected-bg: #{$btn-selected-bg};
+  --color-btn-counter-bg: #{$btn-counter-bg};
+  --color-btn-outline-text: #{$btn-outline-text};
+  --color-btn-shadow: #{$btn-shadow};
+  --color-btn-inset-shadow: #{$btn-inset-shadow};
+
+  // Primary button colors
+  --color-btn-primary-text: #{$btn-primary-text};
+  --color-btn-primary-bg: #{$btn-primary-bg};
+  --color-btn-primary-border: #{$btn-primary-border};
+  --color-btn-primary-shadow: #{$btn-primary-shadow};
+  --color-btn-primary-inset-shadow: #{$btn-primary-inset-shadow};
+  --color-btn-primary-hover-bg: #{$btn-primary-hover-bg};
+  --color-btn-primary-hover-border: #{$btn-primary-hover-border};
+  --color-btn-primary-selected-bg: #{$btn-primary-selected-bg};
+  --color-btn-primary-selected-shadow: #{$btn-primary-selected-shadow};
+  --color-btn-primary-disabled-text: #{$btn-primary-disabled-text};
+  --color-btn-primary-disabled-bg: #{$btn-primary-disabled-bg};
+  --color-btn-primary-disabled-border: #{$btn-primary-disabled-border};
+
+  // Action list and segmented control colors
+  --color-action-list-item-default-hover-bg: #{$action-list-item-default-hover-bg};
+  --color-segmented-control-bg: #{$segmented-control-bg};
+  --color-segmented-control-button-bg: #{$segmented-control-button-bg};
+  --color-segmented-control-button-selected-border: #{$segmented-control-button-selected-border};
+
+  // Text colors
+  --color-fg-default: #{$fg-default};
+  --color-fg-muted: #{$fg-muted};
+  --color-fg-subtle: #{$fg-subtle};
+
+  // Canvas colors
+  --color-canvas-default: #{$canvas-default};
+  --color-canvas-overlay: #{$canvas-overlay};
+  --color-canvas-inset: #{$canvas-inset};
+  --color-canvas-subtle: #{$canvas-subtle};
+
+  // Border colors
+  --color-border-default: #{$border-default};
+  --color-border-muted: #{$border-muted};
+
+  // Neutral colors
+  --color-neutral-muted: #{$neutral-muted};
+
+  // Accent colors
+  --color-accent-fg: #{$accent-fg};
+  --color-accent-emphasis: #{$accent-emphasis};
+  --color-accent-muted: #{$accent-muted};
+  --color-accent-subtle: #{$accent-subtle};
+
+  // Success colors
+  --color-success-fg: #{$success-fg};
+
+  // Attention colors
+  --color-attention-fg: #{$attention-fg};
+  --color-attention-muted: #{$attention-muted};
+  --color-attention-subtle: #{$attention-subtle};
+
+  // Danger colors
+  --color-danger-fg: #{$danger-fg};
+  --color-danger-muted: #{$danger-muted};
+  --color-danger-subtle: #{$danger-subtle};
+
+  // Other colors
+  --color-primer-shadow-inset: #{$primer-shadow-inset};
+  --color-scale-gray-7: #{$scale-gray-7};
+  --color-scale-blue-8: #{$scale-blue-8};
+  --color-social-reaction-bg-hover: var(--color-scale-gray-7);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
+}
+
+// ============================================================================
+// Component Styles
+// ============================================================================
+
+main {
+  // Placeholder text in comment box
+  .gsc-comment-box-textarea::placeholder {
+    color: $placeholder-text-color;
+  }
+
+  // Loading image
+  .gsc-loading-image {
+    background-image: url($loading-image-url);
+  }
+}
