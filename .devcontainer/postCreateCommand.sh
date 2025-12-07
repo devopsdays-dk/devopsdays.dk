@@ -24,7 +24,7 @@ if [ -e $(dirname $0)/_temp.token ]; then
 fi
 
 echo "$PREFIX Installing the Ruby gems"
-bundle config set frozen true
+bundle config set frozen true # use the existing Gemfile.lock
 bundle install
 
 

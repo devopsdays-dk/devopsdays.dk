@@ -45,7 +45,7 @@ Look in the `.git/hooks/` folder for samples and inspiration
 
 ## Disabling hooks temporarily
 
-If you need to bypass the hooks for a specific commit use the `--no-verify` switch:
+If you need to bypass the precommit hook for a specific commit use the `--no-verify` switch:
 
 ```bash
 git commit --no-verify -m "Your commit message"
