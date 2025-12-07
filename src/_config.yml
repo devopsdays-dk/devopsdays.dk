@@ -43,7 +43,7 @@ comments:
     reactions_enabled     : "1"
     emit_metadata         : "0"
     input_position        : "top"
-    theme                 : "catppuccin_macchiato" 
+    theme                 : "purple_dark" 
     # theme                 : "https://www.devopsdays.dk/assets/css/dod_giscus.css"
     lang                  : "en"
     loading               : "lazy"
