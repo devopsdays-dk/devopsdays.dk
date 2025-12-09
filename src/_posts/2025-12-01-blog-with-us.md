@@ -11,6 +11,9 @@ tags:
   - Lars Kruse
 ---
 
+![teaser]({{ page.header.teaser }})
+
+
 We're happy to host or cross post your DevOps related posts here on our site. If you have written something share-worthy give it a spin here at our community page.
 {: .kicker}
 

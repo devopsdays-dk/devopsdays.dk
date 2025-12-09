@@ -12,14 +12,14 @@ on:
 jobs:
 
   inherit-statuses:
-    name: Inherit statuses
+    name: Inherit
     permissions:
       statuses: write
       contents: read
     uses: lakruzz/workflows/.github/workflows/inherit_statuses.yml@experimental  
 
   mark-pending:
-    name: Statuses
+    name: Pending
     needs: inherit-statuses
     permissions:
       statuses: write
@@ -27,51 +27,9 @@ jobs:
     uses: lakruzz/workflows/.github/workflows/mark_pending.yml@experimental
     with:
       statuses: |
-        jekyll-build
-
-  restore:
-    name: Restore artifact
-    runs-on: ubuntu-latest
-    outputs:
-      artifact-found: ${{ steps.restore-step.outputs.artifact-found }}
-    permissions:
-      statuses: write 
-      actions: read
-    steps:
-
-      - name: Checkout
-        uses: actions/checkout@v4
-         
-      - name: Restore if artifact exists
-        id: restore-step
-        env:
-           GH_TOKEN: ${{ secrets.READY_PUSHER }}
-        run: |
-          set -x
-          set +e
-          ARTIFACT=site-${{ github.sha }}
-          gh run download -R ${{ github.repository }} -D _site -n $ARTIFACT > restore.log 2>&1
-          result=$?
-          set -e
-          set +x
-          cat restore.log
-          if [ $result -eq 0 ]; then result_icon=✅; else result_icon=🤷‍♂️; fi
-          echo "## $result_icon \`restore artifact\`"                      >> $GITHUB_STEP_SUMMARY
-          echo '```'                                                       >> $GITHUB_STEP_SUMMARY
-          cat restore.log                                                  >> $GITHUB_STEP_SUMMARY
-          echo '```'                                                       >> $GITHUB_STEP_SUMMARY
-          if [ $result -eq 0 ]; then
-            echo "Restored \`_site\` using artifact \`$ARTIFACT\`" >> $GITHUB_STEP_SUMMARY
-            echo "artifact-found=true" >> $GITHUB_OUTPUT
-          else
-            echo "No \`$ARTIFACT\` artifact found - will build from scratch" >> $GITHUB_STEP_SUMMARY
-            echo "artifact-found=false" >> $GITHUB_OUTPUT
-          fi
-          exit 0
+        jekyll:build
 
   prepare-image:
-    needs: [restore]
-    if: needs.restore.outputs.artifact-found != 'true'
     name: Fetch or Build
     permissions:
       packages: write
@@ -83,8 +41,7 @@ jobs:
 
   jekyll-build:
     name: Jekyll Build
-    needs: [prepare-image, restore]
-    if: needs.restore.outputs.artifact-found != 'true'
+    needs: [prepare-image, mark-pending]
     permissions:
       statuses: write
       contents: read

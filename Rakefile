@@ -35,6 +35,7 @@ namespace :proofer do
         %r{linkedin\.com},
         %r{twitter\.com},
         %r{instagram\.com},
+        %r{devopsdays\.dk}
       ]
     }
     
@@ -54,6 +55,7 @@ namespace :proofer do
         %r{linkedin\.com},
         %r{twitter\.com},
         %r{instagram\.com},
+        %r{devopsdays\.dk}
       ]
     }
     
@@ -74,6 +76,7 @@ namespace :proofer do
         %r{linkedin\.com},
         %r{twitter\.com},
         %r{instagram\.com},
+        %r{devopsdays\.dk}
       ]
     }
     
