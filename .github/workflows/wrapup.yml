@@ -16,29 +16,31 @@ concurrency:
 jobs:
         
   mark-pending:
-    name: Statuses
+    name: Pending
     permissions:
       statuses: write
       contents: read
     uses: lakruzz/workflows/.github/workflows/mark_pending.yml@experimental
     with:
       statuses: |
-        Spell check
-        Markdown Linting
-        jekyll-build
+        cspell:check
+        markdown:lint
+        jekyll:build
+        proofer:check
 
-  cspell_check:
-    name: Spelling
+
+  cspell-check:
+    name: Check
     needs: mark-pending
     permissions:
       statuses: write
       contents: read
     uses: lakruzz/workflows/.github/workflows/cspell_check.yml@experimental
     with:
-      context: Spell check
+      context: cspell:check
       config_file: cspell.json 
 
-  markdown_linter:
+  markdown-linter:
     name: Linting
     needs: mark-pending
     permissions:
@@ -46,20 +48,27 @@ jobs:
       contents: read
     uses: lakruzz/workflows/.github/workflows/markdown_linter.yml@experimental
     with:
-      context: Markdown Linting
+      context: markdown:lint
       config_file: .markdownlint-cli2.jsonc
 
-  jekyll_build_docker:
-    # context: jekyll-build (hard coded in the called workflow) 
-    name: Build from docker
-    needs: mark-pending
+  prepare-image:
+    name: Fetch or Build
     permissions:
-      statuses: write
       packages: write
-      contents: read
-    secrets:
-      READY_PUSHER: ${{ secrets.READY_PUSHER }}
-    uses: lakruzz/workflows/.github/workflows/jekyll_build_with_dockerfile.yml@experimental
+    uses: lakruzz/workflows/.github/workflows/docker_with_cache.yml@experimental
     with:
       dockerfile: dockerfile
-      jekyll-build-args: "--source src"
+      hash-files: Gemfile.lock
+      image-tag: docker-workflow-image
+
+  rake-tasks:
+    name: Multiple
+    needs: [mark-pending, prepare-image]
+    permissions:
+      statuses: write
+      contents: read
+      packages: read
+    uses: lakruzz/workflows/.github/workflows/rake_task.yml@experimental
+    with:
+      rake-task: jekyll:build proofer:check
+      image-fqdn: ${{ needs.prepare-image.outputs.image-fqdn }}

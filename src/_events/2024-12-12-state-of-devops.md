@@ -10,7 +10,7 @@ header:
   teaser: /assets/images/events/dora-2024.png
 event:
   date: 2024-12-12 
-  image: /assets/images/events/dora-2024-2x3.png
+  image: /assets/images/events/dora-2024.png
   place: København, Borgergade 111
   eventbrite-id: 1105465740789
   time: "8:30 - 10:30"

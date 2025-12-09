@@ -5,7 +5,7 @@
 {% if postEventDate >= curDate %}
   
   <!-- Noscript content for added SEO -->
-  <noscript><a href="https://www.meetup.com/{{ page.event.meetup-group }}/events/299401262/{{ page.event.meetup-event-id }}/" rel="noopener noreferrer" target="_blank">Register on Meetup</a></noscript>
+  <noscript><a href="https://www.meetup.com/{{ page.event.meetup-group }}/events/{{ page.event.meetup-event-id }}/" rel="noopener noreferrer" target="_blank">Register on Meetup</a></noscript>
   
   <!-- You can customize this button any way you like -->
   <a class="btn btn--success" id="{{unique}}-{{ meetup-event-id }}" type="button" target="_blank" title="Opens Meetup in a new tab" href="https://www.meetup.com/{{ page.event.meetup-group }}/events/{{ page.event.meetup-event-id }}/">Register on Meetup</a>

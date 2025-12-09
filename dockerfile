@@ -33,5 +33,3 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle config set --global frozen true && \
     bundle config set --global path "/usr/local/bundle" && \
     bundle install
-
-RUN rm ./Gemfile ./Gemfile.lock

@@ -204,6 +204,9 @@ sass:
   sourcemap: development
   quiet_deps: true
   quiet: true
+  silence_deprecation: 
+    - import
+
 
 # Outputting
 permalink: /:categories/:title/

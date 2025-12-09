@@ -5,7 +5,7 @@
 {% if postEventDate >= curDate %}
   
   <!-- Noscript content for added SEO -->
-  <noscript><a href="https://www.meetup.com/{{ page.event.meetup-group }}/events/299401262/{{ page.event.meetup-event-id }}/" rel="noopener noreferrer" target="_blank">Register on Meetup</a></noscript>
+  <noscript><a href="https://{{ page.event.ticketbutler-site}}/en/e/{{ page.event.ticketbutler-slug }}/" rel="noopener noreferrer" target="_blank">Register on Meetup</a></noscript>
   
   <div class="ticketbutler-iframe" data-type="EVENT" data-domain="{{ page.event.ticketbutler-site}}" data-slug="{{ page.event.ticketbutler-slug }}"  ></div><script type="text/javascript" src="https://cdn.ticketbutler.io/event-embedder/index.js"></script>
 {% else %}
