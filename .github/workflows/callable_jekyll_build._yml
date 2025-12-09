@@ -1,0 +1,81 @@
+name: Fetch or build
+
+on:
+  workflow_call:
+    inputs:
+      dockerfile:
+        description: 'Name of the Dockerfile to use'
+        required: false
+        default: 'Dockerfile'
+        type: string
+      jekyll-build-args:
+        description: 'Additional build arguments to pass to Jekyll build step'
+        required: false
+        default: ''
+        type: string
+    secrets:
+      token:
+        description: 'GitHub token for CLI operations'
+        required: true
+
+jobs:
+  restore:
+    name: Restore artifact
+    runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+    outputs:
+      artifact-found: ${{ steps.restore-step.outputs.artifact-found }}
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+         
+      - name: Restore if artifact exists
+        id: restore-step
+        env:
+           GH_TOKEN: ${{ secrets.token }}
+        run: |
+          set -x
+          set +e
+          gh run download -R ${{ github.repository }} -D _site -n site-${{ github.sha }}
+          result=$?
+          set -e
+          if [ $result -eq 0 ]; then
+            echo "artifact-found=true" >> $GITHUB_OUTPUT
+            echo "Restored _site" artifact using 'site-${{ github.sha }}' >> $GITHUB_STEP_SUMMARY
+            ls -a _site         
+          else
+            echo "artifact-found=false" >> $GITHUB_OUTPUT
+            echo "No _site artifact found for 'site-${{ github.sha }}' - will build from scratch" >> $GITHUB_STEP_SUMMARY
+          fi
+          exit 0
+
+  prepare-image:
+    needs: [restore]
+    if: needs.restore.outputs.artifact-found != 'true'
+    name: Fetch or Build
+    permissions:
+      packages: write
+    uses: lakruzz/workflows/.github/workflows/docker_with_cache.yml@experimental
+    with:
+      dockerfile: dockerfile
+      hash-files: Gemfile.lock
+      image-tag: docker-workflow-image
+
+
+  jekyll-build:
+    name: Jekyll Build
+    needs: [prepare-image, restore]
+    if: needs.restore.outputs.artifact-found != 'true'
+    permissions:
+      statuses: write
+      contents: read
+      packages: read
+      actions: write
+    uses: lakruzz/workflows/.github/workflows/rake_task.yml@experimental
+    with:
+      rake-task: jekyll:build
+      image-fqdn: ${{ needs.prepare-image.outputs.image-fqdn }}
+      upload-artifact: true        
+          

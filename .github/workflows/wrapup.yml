@@ -68,6 +68,7 @@ jobs:
       statuses: write
       contents: read
       packages: read
+      actions: write
     uses: lakruzz/workflows/.github/workflows/rake_task.yml@experimental
     with:
       rake-task: jekyll:build proofer:check
