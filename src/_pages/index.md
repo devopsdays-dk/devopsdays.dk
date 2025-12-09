@@ -4,8 +4,7 @@ layout: splash
 permalink: /
 date: 2026-12-01
 header:
-  overlay_color: "#000"
-  overlay_filter: "0.5"
+  overlay_filter: "rgba(251, 176, 134, 0.4)"
   overlay_image: /assets/images/index/openspace.jpeg
   og_image: /assets/images/index/openspace.jpeg
   actions:
