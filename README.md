@@ -12,7 +12,7 @@ While the official representation of the Danish DevOpsDays chapter is required o
 
 ### Why skip `devopsdays.org`
 
-Well, the static Hugo site set up by the community looks like something from the 90ies, The repo (see [our fork](https://github.com/devopsdays-dk/devopsdays-web)) is 3GB+ to download and each renedering rebuilds the entire history of all events in all cities since 2009. A pull request to main can take weeks to get approved.
+Well, the static Hugo site set up by the community looks like something from the 90ies, The repo (see [our fork](https://github.com/devopsdays-dk/devopsdays-web)) is 3GB+ to download and each rendering rebuilds the entire history of all events in all cities since 2009. A pull request to main can take weeks to get approved.
 
 Therefore we came up with our own nimble static web for hosting the Danish conferences and events.
 

@@ -9,7 +9,8 @@
         "**/.cspell/**",
         "**/logs/**",
         "**/tmp/**",
-        "**/temp/**"
+        "**/temp/**",
+        "**/_config.yml"
     ],
     "files": [
         "**/*.md",
@@ -34,6 +35,6 @@
         "```[\\s\\S]*?```", // ignore code blocks
         "`[^`]*`", // ignore inline code
         "\\$\\([^)]*\\)", // ignore shell command substitutions
-        "[\\s\\S]*?:[\\s\\S]*?", // ignore YAML key-value pairs
+        "^\\s*[\\w-]+:\\s*.+$", // ignore YAML key-value pairs (only at line start)
     ]
 }

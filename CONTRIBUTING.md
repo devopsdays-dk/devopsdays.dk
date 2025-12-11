@@ -80,7 +80,7 @@ This site is built with [Jekyll](https://jekyllrb.com/), a static site generator
 
 ### The Basics
 
-**Markdown with Frontmatter**: Content files (posts, pages, events) are markdown with YAML frontmatter:
+**Markdown with FrontMatter**: Content files (posts, pages, events) are markdown with YAML frontmatter:
 
 ```markdown
 ---
@@ -131,7 +131,7 @@ bundle exec jekyll serve --source src
 
 Visit `http://localhost:4000` to see the live preview. Changes reload automatically!
 
-Jekyll automatically disables some features in development builds (optimizations, analytics, giscus ...) Somtimes you would like to enable these features during development. Simply set the`JEKYLL_ENV` envirionment variable:
+Jekyll automatically disables some features in development builds (optimizations, analytics, giscus ...) Sometimes you would like to enable these features during development. Simply set the`JEKYLL_ENV` environment variable:
 
 ```bash
 JEKYLL_ENV=production bundle exec jekyll serve --source src
@@ -167,7 +167,7 @@ Place images in `src/assets/images/` and reference them in your markdown:
 ## 🔍 Code Style & Best Practices
 
 - **Markdown**: Follow [CommonMark](https://commonmark.org/) standards
-- **Linting**: Comply witht he settings proofed by `markdownlint` automatically via git hooks (install pre-commit hooks if you haven't already)
+- **Linting**: Comply with he settings proofed by `markdownlint` automatically via git hooks (install pre-commit hooks if you haven't already)
 - **Spell-check**: Enabled via `cspell.json` – add words to the ignore list if needed
 - **Keep changesets focused**: One feature or fix per commit/PR
 - **Keep it DRY**: Avoid duplicating code – use includes and layouts

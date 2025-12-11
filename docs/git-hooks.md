@@ -21,7 +21,7 @@ The `.devcontainer/postCreateCommand.sh` script is run on devcontainer creation.
 
 ## Hooks in combination with [tt](https://github.com/devx-cafe/gh-tt) GitHub CLI extension
 
-`gh tt` is delibertely non-verbose, so you will not get an output to `STDOUT` if it passes - but you _will_ get an error if it doesn't.
+`gh tt` is deliberately non-verbose, so you will not get an output to `STDOUT` if it passes - but you _will_ get an error if it doesn't.
 
 `gh tt` supports a `--verbose|-v` switch you can apply to get the chatty output.
 

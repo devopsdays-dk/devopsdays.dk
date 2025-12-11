@@ -11,7 +11,7 @@ The Danish chapter of DevOpsDays has our on public slack - with full history of 
 
 ## Send the organizers a mail
 
-You can reach the entire group of Danish organisers at [denmark@devopsdays.org](mailto:denmark@devopsdays.org)
+You can reach the entire group of Danish organizers at [denmark@devopsdays.org](mailto:denmark@devopsdays.org)
 
 ## Our GitHub organization
 
