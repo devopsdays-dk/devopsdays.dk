@@ -1,5 +1,5 @@
 ---
-title: "Posts by Year"
+title: "DevOpsDays Stories "
 permalink: /stories/
 layout: posts
 author_profile: false

@@ -14,7 +14,7 @@ namespace :jekyll do
 
   desc 'Serve Jekyll site with live reload'
   task :serve do
-    sh 'bundle exec jekyll serve --source src --destination _site --livereload --quiet'
+    sh 'bundle exec jekyll serve --source src --destination _site --livereload'
   end 
 end
 

@@ -1,13 +1,14 @@
 # Custom Dictionary Words
 Andon
 Andreessen
-Asser
 Atmel
+automation
+automations
+Autonomation
 aways
 Borgergade
 Brüel
 componentized
-Cryptera
 CX'ers
 d'etre
 Danfoss
@@ -17,11 +18,12 @@ devcontainers
 devopsdays
 devx
 DORITH
+Duvall
 DVCS
 eventbrite
-Fahrenholz
 Fibiger
 Flowtech
+Forsgren
 frontmatter
 gameified
 gemba
@@ -54,6 +56,7 @@ lakruzz
 Lakruzz
 Larusso
 Marmorkirken
+MERN
 Miyagi
 Muda
 mura
@@ -62,6 +65,7 @@ Novelda
 Nyboder
 octocat
 ohhh
+operationalize
 Østerport
 Oticon
 outro
@@ -80,6 +84,7 @@ signup
 slowification
 sociotechnical
 Strandvejen
+Supabase
 Takt
 takts
 Techfast
@@ -92,3 +97,4 @@ worklog
 yadda
 Yeman
 Yxlon
+zoomers
