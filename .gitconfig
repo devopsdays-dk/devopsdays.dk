@@ -8,6 +8,9 @@
 [pull]
   fast-forward = only
 
+[commit]
+	gpgsign = false
+
 [alias]
   undo-commit = reset --soft HEAD^
   addremove = add -A
@@ -27,3 +30,4 @@
   mark-stable = "!f() { echo git checkout main && git tag -f stable $1 && git push origin --tags --force; }; f"
   mark-experimental = "!f() { git tag -f experimental $1 && git push origin --tags --force; }; f"
   repo-copy = "!f() { owner=$(echo \"$1\" | cut -d'/' -f1); repo=$(echo \"$1\" | cut -d'/' -f2); path=$(echo \"$1\" | cut -d'/' -f3-); dir=$(dirname \"$path\"); mkdir -p \"$dir\" && gh api \"repos/$owner/$repo/contents/$path\" --jq '.content' | base64 -d > \"$path\"; }; f"
+
