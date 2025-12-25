@@ -25,7 +25,11 @@
 		}
 	},
 
-    "postCreateCommand": "./.devcontainer/universal/postCreateCommand.sh",
+    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-
+	"forwardPorts": [4000],
+	"remoteEnv": {
+		"JEKYLL_ENV": "development",
+		"GH_TOKEN": "${localEnv:GH_TOKEN}"
+	}
 }

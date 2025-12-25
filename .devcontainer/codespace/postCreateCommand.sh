@@ -17,6 +17,18 @@ set -e
 PREFIX="🍰  "
 echo "$PREFIX Running $(basename $0)"
 
+echo "$PREFIX Use defined token if it exists"
+if [ -n "$TAKT_GHO" ]; then
+  echo "$PREFIX 🔍 Found it! Logging into GitHub CLI using \$TAKT_GHO" 
+  unset GITHUB_TOKEN
+  gh auth logout 2>&1 >/dev/null || true
+  gh auth login --with-token <<< "$TAKT_GHO"
+else
+  echo "$PREFIX 🤷‍♂️ No \$TAKT_GHO found - you need to login manually:"
+  echo "   unset GITHUB_TOKEN"
+  echo "   gh auth login --web --hostname github.com --git-protocol https"
+fi  
+
 echo "$PREFIX Setting up safe git repository to prevent dubious ownership errors"
 if [ -n "$RepositoryName" ]; then
   git config --global --add safe.directory /workspaces/$(echo $RepositoryName)
@@ -40,16 +52,6 @@ echo "$PREFIX Installing the Ruby gems"
 bundle config set frozen true # use the existing Gemfile.lock
 bundle install
 
-echo "$PREFIX Use defined token if it exists"
-if [ -n "$TAKT_GHO" ]; then
-  echo "$PREFIX 🔍 Found it! Logging into GitHub CLI using \$TAKT_GHO" 
-  unset GITHUB_TOKEN
-  gh auth login --with-token <<< "$TAKT_GHO"
-else
-  echo "$PREFIX 🤷‍♂️ No \$TAKT_GHO found - you need to login manually:"
-  echo "   unset GITHUB_TOKEN"
-  echo "   gh auth login --web --hostname github.com --git-protocol https"
-fi  
 
 echo "$PREFIX SUCCESS"
 exit 0
