@@ -16,7 +16,7 @@ bundle exec htmlproofer \
   --disable-external \
   --assume-extension \
   --extensions=.html \
-  --ignore-urls="/github.com/,/linkedin.com/,/twitter.com/,/instagram.com/" \
+  --ignore-urls="/github.com/,/linkedin.com/,/twitter.com/,/instagram.com/,/localhost:4000/" \
   ./_site
 
 echo -e "${GREEN}✓ HTML validation passed!${NC}"

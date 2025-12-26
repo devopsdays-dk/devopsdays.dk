@@ -1,16 +1,14 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-dockerfile
 {
-	"name": "Ruby",
+	"name": "Ruby — from dockerfile",
 	"build": {
 		// Sets the run context to one level up instead of the .devcontainer folder.
 		"context": "../..",
 		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 		"dockerfile": "../../dockerfile"
 	},
-	"initializeCommand": "./.devcontainer/initializeCommand.sh",
 	"postCreateCommand": "./.devcontainer/postCreateCommand.sh",
-	"postStartCommand": "rm -f ./.devcontainer/_temp.token",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -31,7 +29,11 @@
 	"mounts": [
 		"source=${localEnv:HOME},target=/localhome,type=bind,consistency=cached"
 	],		
-	"forwardPorts": [4000]
+	"forwardPorts": [4000],
+	"remoteEnv": {
+		"JEKYLL_ENV": "development",
+		"GH_TOKEN": "${localEnv:GH_TOKEN}"
+	}
 	// Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "devcontainer"
 }

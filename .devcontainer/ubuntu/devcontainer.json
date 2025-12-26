@@ -1,10 +1,9 @@
 {
-	"name": "Codespace Ubuntu",
+	"name": "Ubuntu — from Noble image",
 	"image": "mcr.microsoft.com/devcontainers/base:noble",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
-		"ghcr.io/devcontainers/features/python:1": {},
 		"ghcr.io/devcontainers-extra/features/npm-packages:1": {
 			"packages": ["cspell", "markdownlint-cli2"]
 		},	
@@ -27,7 +26,9 @@
 
     "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-	"forwardPorts": [4000],
+	"mounts": [
+		"source=${localEnv:HOME},target=/localhome,type=bind,consistency=cached"
+	],		"forwardPorts": [4000],
 	"remoteEnv": {
 		"JEKYLL_ENV": "development",
 		"GH_TOKEN": "${localEnv:GH_TOKEN}"

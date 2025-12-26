@@ -12,9 +12,9 @@ Enable it in the `_config.yml` file.
 <!--   generated from https://giscus.app/ -->
 <script src="https://giscus.app/client.js"
         data-repo="lakruzz/giscussions"
-        data-repo-id="R_kgDOPNVyKw"
+        data-repo-id="R_***"
         data-category="Lakruzz.com"
-        data-category-id="DIC_kwDOPNVyK84CtA9_"
+        data-category-id="DIC_***"
         data-mapping="pathname"
         data-strict="0"
         data-reactions-enabled="1"
@@ -35,9 +35,9 @@ comments:
   provider               : giscus 
   giscus:
     repo                  : "lakruzz/giscussions"
-    repo_id               : "R_kgDOPNVyKw"
+    repo_id               : "R_***"
     category              : "Lakruzz.com"
-    category_id           : "DIC_kwDOPNVyK84CtA9_"
+    category_id           : "DIC_***"
     mapping               : "pathname"
     strict                : "0"
     reactions_enabled     : "1"
@@ -50,10 +50,6 @@ comments:
 
 note that the `<script>` keys uses dashes while the `_config.yml` keys uses underscores.
 
-## The include needed fixing
-
-In relation to [#66](https://github.com/lakruzz/codememo/issues/66) the `giscus.html` include as completely off.
-
 ## Test during development
 
 Comments are disabled by default in `development` environment.
@@ -61,5 +57,5 @@ Comments are disabled by default in `development` environment.
 To enable when testing/building locally start your server like this:
 
 ```shell
-JEKYLL_ENV=production bundle exec jekyll serve
+JEKYLL_ENV=production bundle exec rake jekyll:serve
 ```
