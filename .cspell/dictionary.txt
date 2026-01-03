@@ -16,10 +16,13 @@ Depeche
 devcontainer
 devcontainers
 devopsdays
+devopsdaysdenmark
 devx
 DORITH
+drinkup
 Duvall
 DVCS
+enddate
 eventbrite
 Fibiger
 Flowtech
@@ -66,6 +69,7 @@ Nyboder
 octocat
 ohhh
 operationalize
+openspace
 Østerport
 Oticon
 outro
@@ -75,6 +79,7 @@ Poka
 postcreate
 Praqma
 Prolike
+rgba
 savvyness
 SDCA
 SDLC
@@ -88,8 +93,10 @@ Supabase
 Takt
 takts
 Techfast
+tedcommandments
 Terma
 thetechcollective
+ticketbutler
 toplevel
 Tuborg
 Wenger
