@@ -34,7 +34,6 @@
         "{{[\\s\\S]*?}}", // ignore liquid variables
         "```[\\s\\S]*?```", // ignore code blocks
         "`[^`]*`", // ignore inline code
-        "\\$\\([^)]*\\)", // ignore shell command substitutions
-        "^\\s*[\\w-]+:\\s*.+$", // ignore YAML key-value pairs (only at line start)
+        "\\$\\([^)]*\\)" // ignore shell command substitutions
     ]
 }

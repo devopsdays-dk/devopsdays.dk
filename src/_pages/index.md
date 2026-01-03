@@ -20,7 +20,7 @@ intro:
       utilizing technology and digital solutions to drive meaningful 
       outcomes" 
 devopsdays:
-  - excerpt: "DevOpsDays is a world-wide non-profit organization - Go to vist the mother-ship web at [`devopsdays.org`](https://devopsdays.org){: target='_blank'} too"
+  - excerpt: "DevOpsDays is a world-wide non-profit organization - Go to visit the mother-ship web at [`devopsdays.org`](https://devopsdays.org){: target='_blank'} too"
 feature_row:
   - image_path: /assets/images/index/stories.jpeg
     alt: "Stories"
@@ -34,7 +34,7 @@ feature_row:
     title: "Next up..."
     excerpt: "Next event is DevOpsDays in Copenhagen in April. Registration is open and CFP is still open"
     url: "/events/2026-cph/"
-    btn_label: "🎪 Copenhangen 2026"
+    btn_label: "🎪 Copenhagen 2026"
     btn_class: "btn--primary align-center"
   - image_path: /assets/images/index/slack.devopsdays.dk.png
     alt: "Slack"
