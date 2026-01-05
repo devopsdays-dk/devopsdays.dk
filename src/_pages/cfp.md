@@ -1,5 +1,5 @@
 ---
 permalink: /cfp/
-redirect_to: https://sessionize.com/devopsdays-2026/
+redirect_to: /stories/become-a-speaker/
 ---
 

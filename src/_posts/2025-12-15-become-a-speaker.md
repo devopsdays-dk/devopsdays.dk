@@ -1,7 +1,7 @@
 ---
 title:  Become a Speaker
 author: Lars Kruse
-author_profile: true
+author_profile: false
 excerpt: Become a speaker at DevOpsDays conferences or one of our meet-up events.
 search: true
 header:
@@ -25,7 +25,7 @@ At DevOpsDays we are always on the look-out for speakers that can _teach_ us, _i
 > _"All accepted speakers and co-speaker will<br/>always be given a full conference pass"_
 
 
-[Submit a proposal](https://sessionize.com/devopsdays-2026/){: .btn .btn--success target="_blank" title="Opens a new page on Sessionize"}
+[Submit a proposal]({{ site.cfp_form_url }}){: .btn .btn--success target="_blank" title="Opens in a new tab"}
 
 ## Open to All
 
@@ -66,7 +66,7 @@ The short message is that:
 
 Contemporary DevOps spans so wide, and our community is inherently curious. So if _you_ are in doubt if it fits, then we urge you to go with the benefit of the doubt - it probably fits.
 
-[Submit a proposal](https://sessionize.com/devopsdays-2026/){: .btn .btn--success target="_blank" title="Opens a new page on Sessionize"}
+[Submit a proposal]({{ site.cfp_form_url }}){: .btn .btn--success target="_blank" title="Opens in a new tab"}
 
 ## Formats
 

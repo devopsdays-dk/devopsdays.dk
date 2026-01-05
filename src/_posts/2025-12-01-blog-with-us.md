@@ -1,14 +1,13 @@
 ---
 title:  Blogging at devopsdays.dk
 author: Lars Kruse
-author_profile: true
+author_profile: false
 excerpt: Share or cross post your blogs on devopsdays.dk
 search: true
 header:
   teaser: /assets/images/posts/dorith.jpg
 tags:
   - Blogging
-  - Lars Kruse
 ---
 
 ![teaser]({{ page.header.teaser }})

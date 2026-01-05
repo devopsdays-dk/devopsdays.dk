@@ -23,6 +23,7 @@ description              : &description "The Danish Chapter of the DevOpsDays co
 subtitle                 : &subtitle "Part of Something Bigger" # site tagline that appears below site title in masthead
 name                     : *title
 url                      : "https://www.devopsdays.dk"
+cfp_form_url             : https://sessionize.com/devopsdays-2026/
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "devopsdays-dk/devopsdays.dk" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"

@@ -38,6 +38,6 @@ While the TED commandments are ambitious and deliberately meant to slightly inti
 
 Also read out post on how to [become a speaker](../become-a-speaker/) or head straight to...
 
-[Submit a proposal](https://sessionize.com/devopsdays-2026/){: .btn .btn--success target="_blank" title="Opens a new page on Sessionize"}
+[Submit a proposal]({{ site.cfp_form_url }}){: .btn .btn--success target="_blank" title="Opens in a new tab"}
 
 
