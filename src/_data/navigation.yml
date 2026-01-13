@@ -8,6 +8,8 @@ main:
     url: /events/
   - title: "Stories"
     url: /stories/
+  - title: "Organizers"
+    url: /organizers/
 
   - title: "💬"
     url: /contact/

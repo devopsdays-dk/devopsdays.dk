@@ -1,0 +1,8 @@
+{% if include.event %}
+  {% assign event_data = site.data.events[include.event] %}
+  {% if event_data %}
+    {{ event_data.title }}
+  {% else %}
+    {{ include.event }}
+  {% endif %}
+{% endif %}

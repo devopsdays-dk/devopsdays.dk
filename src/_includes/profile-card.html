@@ -1,0 +1,68 @@
+<!-- Profile card component for displaying profiles in grids or lists -->
+{% if include.profile %}
+  {% assign profile = include.profile %}
+  <div class="profile-card">
+    {% if profile.image %}
+      <div class="profile-card-image">
+        <a href="{{ profile.url }}">
+          <img src="/assets/images/profiles/{{ profile.image }}" alt="{{ profile.name }}" class="profile-card-portrait">
+        </a>
+      </div>
+    {% endif %}
+    
+    <div class="profile-card-content">
+      <h3 class="profile-card-name">
+        <a href="{{ profile.url }}">{{ profile.name }}</a>
+      </h3>
+      
+      {% if profile.headline %}
+        <p class="profile-card-title">{{ profile.headline }}</p>
+      {% endif %}
+      
+      {% if profile.excerpt %}
+        <p class="profile-card-excerpt">{{ profile.excerpt | strip_html | truncatewords: 20 }}</p>
+      {% endif %}
+      
+      {% if profile.social %}
+        <div class="profile-card-social">
+          {% if profile.social.x %}
+            <a href="https://x.com/{{ profile.social.x }}" class="social-icon" title="X" target="_blank">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+          {% endif %}
+          {% if profile.social.linkedin %}
+            <a href="https://linkedin.com/in/{{ profile.social.linkedin }}" class="social-icon" title="LinkedIn" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          {% endif %}
+          {% if profile.social.github %}
+            <a href="https://github.com/{{ profile.social.github }}" class="social-icon" title="GitHub" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          {% endif %}
+          {% if profile.social.website %}
+            <a href="{{ profile.social.website }}" class="social-icon" title="Website" target="_blank">
+              <i class="fas fa-globe"></i>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+      
+      {% if profile.roles %}
+        <div class="profile-card-roles">
+          {% for role in profile.roles %}
+            <span class="profile-card-role">{{ role }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+      {% if profile.events %}
+        <div class="profile-card-events">
+          {% for event in profile.events %}
+            <span class="profile-card-event">{{ event }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

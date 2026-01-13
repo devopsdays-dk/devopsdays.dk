@@ -1,0 +1,108 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+<div id="main" role="main">
+  <article class="page">
+    {% if page.name %}<meta itemprop="headline" content="{{ page.name | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+
+    <div class="profile-container">
+  <div class="profile-header">
+    <div class="profile-sidebar">
+      {% if page.image %}
+        <div class="profile-image">
+          <img src="/assets/images/profiles/{{ page.image }}" alt="{{ page.name }}" class="profile-portrait">
+        </div>
+      {% endif %}
+      
+      {% if page.roles %}
+        <div class="profile-roles">
+          {% for role in page.roles %}
+            <span class="profile-role">{{ role }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+      {% if page.events %}
+        <div class="profile-events">
+          {% for event in page.events %}
+            <a href="/speakers/?event={{ event }}" class="profile-event">{{ event }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+    
+    <div class="profile-info">
+      <h1 class="profile-name">{{ page.name }}</h1>
+      
+      {% if page.headline %}
+        <p class="profile-headline">{{ page.headline }}</p>
+      {% endif %}
+      
+      {% if page.company or page.location or page.pronoun %}
+        <div class="profile-meta">
+          {% if page.company %}
+            <p class="profile-company"><i class="fas fa-building"></i> {{ page.company }}</p>
+          {% endif %}
+          {% if page.location %}
+            <p class="profile-location"><i class="fas fa-map-marker-alt"></i> {{ page.location }}</p>
+          {% endif %}
+          {% if page.pronoun %}
+            <p class="profile-pronoun"><i class="fas fa-user"></i> {{ page.pronoun }}</p>
+          {% endif %}
+        </div>
+      {% endif %}
+      
+      {% if page.email or page.cell %}
+        <div class="profile-contact">
+          {% if page.email %}
+            <a href="mailto:{{ page.email }}" class="social-link" title="Email: {{ page.email }}" target="_blank">
+              <i class="fas fa-envelope"></i>
+            </a>
+          {% endif %}
+          {% if page.cell %}
+            <a href="tel:{{ page.cell }}" class="social-link" title="Phone: {{ page.cell }}">
+              <i class="fas fa-phone"></i>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+      
+      {% if page.social %}
+        <div class="profile-social">
+          {% if page.social.x %}
+            <a href="https://x.com/{{ page.social.x }}" class="social-link" title="X" target="_blank">
+              <i class="fab fa-x-twitter"></i>
+            </a>
+          {% endif %}
+          {% if page.social.linkedin %}
+            <a href="https://linkedin.com/in/{{ page.social.linkedin }}" class="social-link" title="LinkedIn" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          {% endif %}
+          {% if page.social.github %}
+            <a href="https://github.com/{{ page.social.github }}" class="social-link" title="GitHub" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+          {% endif %}
+          {% if page.social.website %}
+            <a href="{{ page.social.website }}" class="social-link" title="Website" target="_blank">
+              <i class="fas fa-globe"></i>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="profile-content">
+    {{ page.content }}
+  </div>
+</article>
+</div>

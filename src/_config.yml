@@ -275,7 +275,10 @@ collections:
     permalink: /stories/:title/
   events:
     output: true
-    permalink: /:collection/:path/    
+    permalink: /:collection/:path/
+  profiles:
+    output: true
+    permalink: /:collection/:title/    
 
 # Defaults
 defaults:
@@ -308,6 +311,15 @@ defaults:
       comments:  true
       share: # true
       related: true
+  # _profiles
+  - scope:
+      path: ""
+      type: profiles
+    values:
+      layout: profile
+      author_profile: false
+      share: false
+      comments: false
 
 responsive_image:
   # [Required]

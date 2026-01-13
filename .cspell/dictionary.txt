@@ -55,6 +55,7 @@ kruse
 lakruzz
 Lakruzz
 Larusso
+Lauritzen
 Marmorkirken
 MERN
 Miyagi
@@ -75,6 +76,7 @@ Poka
 postcreate
 Praqma
 Prolike
+Rasmus
 savvyness
 SDCA
 SDLC
