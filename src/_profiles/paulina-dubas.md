@@ -10,7 +10,7 @@ pronoun:
 location: 
 social:
   x: 
-  linkedin: paulinadubas/
+  linkedin: paulinadubas
   github: 
   website: 
 roles:

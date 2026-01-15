@@ -59,9 +59,9 @@ cell:                                  # Phone (optional)
 pronoun:                               # Pronouns (optional)
 location:                              # Location (optional)
 social:                                # Social media links
-  x: username/
-  linkedin: username/
-  github: username/
+  x: username
+  linkedin: username
+  github: username
   website: https://example.com
 roles:                                 # User roles
   - speaker

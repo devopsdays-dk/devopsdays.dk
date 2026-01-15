@@ -9,7 +9,7 @@ pronoun:
 location: 
 social:
   x: kondrashevich
-  linkedin: kristina-kondrashevich/
+  linkedin: kristina-kondrashevich
   github: 
   website: 
 roles:

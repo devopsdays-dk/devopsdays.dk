@@ -10,7 +10,7 @@ pronoun:
 location: 
 social:
   x: codingandrey
-  linkedin: andreyadamovich/
+  linkedin: andreyadamovich
   github: 
   website: 
 roles:

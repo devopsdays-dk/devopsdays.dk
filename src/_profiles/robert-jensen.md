@@ -9,7 +9,7 @@ pronoun:
 location: 
 social:
   x: 
-  linkedin: robertjensen/ #cspell:ignore robertjensen
+  linkedin: robertjensen #cspell:ignore robertjensen
   github: 
   website: 
 roles:
