@@ -1,21 +1,23 @@
 ---
 name: Simon Izydorek
-headline: DevOps Engneer
+headline: 
 image: simon-izydorek.webp
 company: 
 email: 
 cell: 
-pronoun: #he/him
-location: Copenhagen, Denmark
+pronoun: 
+location: 
 social:
-  x:
-  linkedin: simonizydorek
+  x: 
+  linkedin: sizydorek/
   github: 
-events:
-  - 2025-aarhus
+  website: 
 roles:
   - speaker
-  - organizer
+events:
+  - 2025-aarhus
 ---
 
-Graduate of Aalborg University from IT and entrepreneurship. Simon has been working in IT for some time now (companies like Nokia, Tieto and now Thales). Polish living in Copenhagen
+Simon, DevOps Engineer,
+
+Graduate of Aalborg University from IT and entrepreneurship. I have been working in IT for some time now (companies like Nokia, Tieto and now Thales). I am polish living in Copenhagen

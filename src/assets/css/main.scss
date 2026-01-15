@@ -15,4 +15,9 @@ search: false
 @import "minimal-mistakes"; // main partials
 @import "kicker"; // custom kicker styles
 @import "responsive-image"; // custom responsive image styles
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+@import "kicker"; // custom kicker styles
+@import "responsive-image"; // custom responsive image styles
 @import "profiles"; // custom profile styles
+@import "talks"; // custom talk styles

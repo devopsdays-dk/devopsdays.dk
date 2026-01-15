@@ -1,0 +1,75 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.header.video.id and page.header.video.provider %}
+  {% include page__hero_video.html %}
+{% endif %}
+
+<div id="main" role="main">
+  <article class="page">
+    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+
+    <div class="page__inner-wrap">
+      <header>
+        {% if page.title -%}
+        <h1 id="page-title" class="page__title" itemprop="headline">{{ page.title }}</h1>
+        {%- endif %}
+        {% if page.excerpt %}
+          <p class="page__meta"><strong>{{ page.excerpt }}</strong></p>
+        {% endif %}
+      </header>
+
+      <section class="page__content" itemprop="text">
+        <aside class="sidebar__right sticky">
+          {% if page.speaker %}
+            {% assign speaker_id = page.speaker %}
+            {% for profile in site.profiles %}
+              {% if profile.name %}
+                {% assign profile_id = profile.path | split: '/' | last | remove: '.md' %}
+                {% if profile_id == speaker_id %}
+                  <div class="talk-speaker-box">
+                    <h3 class="talk-speaker-label">Speaker</h3>
+                    <a href="/profiles/{{ speaker_id }}/" class="talk-speaker-link">
+                      {% if profile.image %}
+                        <img src="/assets/images/profiles/{{ profile.image }}" alt="{{ profile.name }}" class="talk-speaker-image">
+                      {% endif %}
+                      <span class="talk-speaker-name">{{ profile.name }}</span>
+                    </a>
+                  </div>
+                  {% break %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          
+          {% if page.topics %}
+            <div class="talk-topics-box">
+              <h3 class="talk-topics-label">Topics</h3>
+              <div class="talk-topics-list">
+                {% for topic in page.topics %}
+                  <span class="talk-topic-tag">{{ topic }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+          
+          {% if page.events %}
+            <div class="talk-events-box">
+              <h3 class="talk-events-label">Events</h3>
+              <div class="talk-events-list">
+                {% for event in page.events %}
+                  <a href="/events/{{ event }}/" class="talk-event-link">{{ event }}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </aside>
+        
+        {{ page.content }}
+      </section>
+    </div>
+  </article>
+</div>

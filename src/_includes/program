@@ -1,0 +1,305 @@
+{% comment %}
+Program include for rendering event schedules.
+
+Usage:
+{% include program id="day-one" %}
+
+Parameters:
+- id: (required) The variable name in page front matter containing the program data
+  The program object should have: caption, start, program (array of items)
+  
+Each program item can have:
+- caption: Text label for the item
+- duration: Duration in "H:MM" or "0:MM" format
+- talk: Talk slug or array of talk slugs (references site.talks collection)
+- color: Hex color for background
+- link: URL to make caption clickable (for captions only)
+
+Example front matter:
+day-one:
+  caption: April 29, 2025
+  start: 8:30
+  program:
+    - caption: Registration & breakfast
+      duration: 0:30
+    - talk: green-devops
+      duration: 0:30
+      color: "#aceaff"
+    - caption: Ignite talks
+      duration: 0:45
+      talk:
+        - post-accelerate
+        - big-waves
+      color: "#c4ffd7"
+{% endcomment %}
+
+{% if include.id %}
+  {% assign program_data = page[include.id] %}
+{% else %}
+  {% assign program_data = page.program %}
+{% endif %}
+
+{% if program_data %}
+  <div class="program-schedule">
+    {% if program_data.caption %}
+      <h2 class="program-date">{{ program_data.caption }}</h2>
+    {% endif %}
+
+    <div class="program-items">
+      {% comment %} Parse start time - may be string "8:30" or float 8.3 from YAML {% endcomment %}
+      {% assign start_value = program_data.start | to_s %}
+      {% if start_value contains ':' %}
+        {% comment %} It's a string like "8:30" {% endcomment %}
+        {% assign start_str = start_value | split: ':' %}
+        {% assign current_hours = start_str[0] | times: 1 %}
+        {% assign current_mins = start_str[1] | times: 1 %}
+      {% else %}
+        {% comment %} It's a float like 8.3, convert to hours and minutes {% endcomment %}
+        {% assign current_hours = start_value | floor %}
+        {% assign frac = start_value | minus: current_hours %}
+        {% assign current_mins = frac | times: 100 | round %}
+      {% endif %}
+      
+      {% for item in program_data.program %}
+        {% comment %} Parse duration - may be string or float {% endcomment %}
+        {% assign dur_value = item.duration | to_s %}
+        {% if dur_value contains ':' %}
+          {% assign dur_str = dur_value | split: ':' %}
+          {% assign dur_hours = dur_str[0] | times: 1 %}
+          {% assign dur_mins = dur_str[1] | times: 1 %}
+        {% else %}
+          {% assign dur_hours = dur_value | floor %}
+          {% assign frac = dur_value | minus: dur_hours %}
+          {% assign dur_mins = frac | times: 100 | round %}
+        {% endif %}
+        
+        {% comment %} Format and display current start time {% endcomment %}
+        {% capture start_time %}{% if current_hours < 10 %}0{% endif %}{{ current_hours }}:{% if current_mins < 10 %}0{% endif %}{{ current_mins }}{% endcapture %}
+        
+        {% comment %} 
+        Logic: 
+        1. If item has no caption, it's a talk item
+        2. If item has a caption and no talks, it's a caption-only item
+        3. If item has both caption and talks, it's a caption with talks nested inside
+        {% endcomment %}
+        {% if item.caption %}
+          {% comment %} Caption item - may have talks nested inside {% endcomment %}
+          <div class="program-item program-item-caption" 
+            {% if item.color %}style="background-color: {{ item.color }}"{% endif %}>
+            <div class="program-meta">
+              <div class="program-duration">{{ start_time }}</div>
+            </div>
+            <div class="program-content">
+              {% if item.link %}
+                <h3 class="program-caption"><a href="{{ item.link | relative_url }}">{{ item.caption }}</a></h3>
+              {% else %}
+                <h3 class="program-caption">{{ item.caption }}</h3>
+              {% endif %}
+              
+              {% comment %} If this caption item also has talks, render them as a nested list {% endcomment %}
+              {% if item.talk and item.talk != empty %}
+                <div class="program-talk-list program-nested-talks">
+                  {% for talk_slug in item.talk %}
+                    {% assign speaker_id = nil %}
+                    {% for talk in site.talks %}
+                      {% assign talk_slug_from_id = talk.id | split: '/' | last %}
+                      {% if talk_slug_from_id == talk_slug %}
+                        {% assign speaker_id = talk.speaker %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                    <div class="program-talk-item">
+                      <a href="/talks/{{ talk_slug }}/">{{ talk_slug | replace: '-', ' ' | capitalize }}</a>
+                      {% if speaker_id %}<span class="program-speaker">by <a href="/profiles/{{ speaker_id }}/">{{ speaker_id | replace: '-', ' ' | capitalize }}</a></span>{% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+
+        {% elsif item.talk and item.talk != empty %}
+          {% comment %} Talk item (no caption, just the talk) {% endcomment %}
+          {% assign talks = item.talk %}
+          {% if item.talk | is_a: "string" %}
+            {% comment %} If it's a single string, convert to array {% endcomment %}
+            {% assign talks = item.talk | split: "NEVER_MATCH" %}
+          {% endif %}
+          {% assign talk_count = talks | size %}
+          
+          <div class="program-item program-item-talk" 
+            {% if item.color %}style="background-color: {{ item.color }}"{% endif %}>
+            <div class="program-meta">
+              <div class="program-duration">{{ start_time }}</div>
+            </div>
+            <div class="program-content">
+              {% if talk_count > 1 %}
+                <div class="program-talk-list">
+                  {% for talk_slug in talks %}
+                    {% assign speaker_id = nil %}
+                    {% for talk in site.talks %}
+                      {% assign talk_slug_from_id = talk.id | split: '/' | last %}
+                      {% if talk_slug_from_id == talk_slug %}
+                        {% assign speaker_id = talk.speaker %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                    <div class="program-talk-item">
+                      <h4 class="program-talk-title">
+                        <a href="/talks/{{ talk_slug }}/">{{ talk_slug | replace: '-', ' ' | capitalize }}</a>
+                      </h4>
+                      {% if speaker_id %}
+                        <div class="program-speaker">by <a href="/profiles/{{ speaker_id }}/">{{ speaker_id | replace: '-', ' ' | capitalize }}</a></div>
+                      {% endif %}
+                    </div>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {% assign talk_slug = talks[0] %}
+                {% assign speaker_id = nil %}
+                {% for talk in site.talks %}
+                  {% assign talk_slug_from_id = talk.id | split: '/' | last %}
+                  {% if talk_slug_from_id == talk_slug %}
+                    {% assign speaker_id = talk.speaker %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                <a href="/talks/{{ talk_slug }}/">{{ talk_slug | replace: '-', ' ' | capitalize }}</a>
+                {% if speaker_id %}<span class="program-speaker">by <a href="/profiles/{{ speaker_id }}/">{{ speaker_id | replace: '-', ' ' | capitalize }}</a></span>{% endif %}
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+        
+        {% comment %} Update time for next item {% endcomment %}
+        {% assign current_mins = current_mins | plus: dur_mins %}
+        {% assign current_hours = current_hours | plus: dur_hours %}
+        {% if current_mins >= 60 %}
+          {% assign current_hours = current_hours | plus: 1 %}
+          {% assign current_mins = current_mins | minus: 60 %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <style>
+    .program-schedule {
+      margin: 0.5rem 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .program-date {
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.15rem;
+      border-bottom: 2px solid $primary-color;
+      font-size: $type-size-5;
+      font-weight: 600;
+      font-family: inherit;
+    }
+
+    .program-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .program-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.3rem 0.5rem;
+      border-radius: 0;
+      border-left: 2px solid $primary-color;
+      font-size: $type-size-7;
+    }
+
+    .program-item-caption {
+      background-color: $fact-background-color;
+    }
+
+    .program-meta {
+      min-width: 3rem;
+      flex-shrink: 0;
+      font-weight: 600;
+    }
+
+    .program-content {
+      flex: 1;
+    }
+
+    .program-caption {
+      margin: 0;
+      font-size: $type-size-7;
+      font-weight: 500;
+    }
+
+    .program-caption a {
+      color: inherit;
+    }
+
+    .program-talk-title {
+      margin: 0;
+      font-size: $type-size-7;
+    }
+
+    .program-talk-title a {
+      color: inherit;
+    }
+
+    .program-speaker {
+      font-size: $type-size-7;
+      color: $muted-text-color;
+      margin: 0;
+      margin-left: 0.5rem;
+    }
+
+    .program-speaker a {
+      color: $link-color;
+    }
+
+    .program-talk-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .program-nested-talks {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .program-talk-item {
+      padding: 0;
+      display: inline;
+    }
+
+    .program-talk-item:not(:last-child) {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .program-talk-item .program-talk-title {
+      font-size: $type-size-7;
+    }
+
+    .program-duration {
+      font-size: $type-size-6;
+      color: $muted-text-color;
+      font-family: $monospace;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .program-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .program-meta,
+      .program-duration {
+        width: 100%;
+      }
+    }
+  </style>
+{% endif %}

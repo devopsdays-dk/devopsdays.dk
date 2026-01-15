@@ -278,6 +278,9 @@ collections:
     permalink: /:collection/:path/
   profiles:
     output: true
+    permalink: /:collection/:title/
+  talks:
+    output: true
     permalink: /:collection/:title/    
 
 # Defaults
@@ -317,6 +320,15 @@ defaults:
       type: profiles
     values:
       layout: profile
+      author_profile: false
+      share: false
+      comments: false
+  # _talks
+  - scope:
+      path: ""
+      type: talks
+    values:
+      layout: talk
       author_profile: false
       share: false
       comments: false

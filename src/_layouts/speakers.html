@@ -39,7 +39,8 @@ layout: default
                     {% endfor %}
                   {% endfor %}
                   <button class="filter-btn" data-filter="role" data-value="">All</button>
-                  {% for role in all_roles | sort %}
+                  {% assign sorted_roles = all_roles | sort %}
+                  {% for role in sorted_roles %}
                     <button class="filter-btn" data-filter="role" data-value="{{ role }}">{{ role | capitalize }}</button>
                   {% endfor %}
                 </div>
@@ -57,7 +58,8 @@ layout: default
                     {% endfor %}
                   {% endfor %}
                   <button class="filter-btn" data-filter="event" data-value="">All</button>
-                  {% for event in all_events | sort %}
+                  {% assign sorted_events = all_events | sort %}
+                  {% for event in sorted_events %}
                     <button class="filter-btn" data-filter="event" data-value="{{ event }}">{{ event }}</button>
                   {% endfor %}
                 </div>

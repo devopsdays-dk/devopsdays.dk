@@ -1,0 +1,16 @@
+{% comment %}Test site.talks collection{% endcomment %}
+<p>site.talks size: {{ site.talks | size }}</p>
+{% for talk in site.talks %}
+  <p>Talk ID: {{ talk.id }}, Speaker: {{ talk.speaker }}</p>
+{% endfor %}
+<p>---</p>
+<p>Lookup test for green-devops:</p>
+{% assign test_slug = "green-devops" %}
+{% for talk in site.talks %}
+  {% if talk.id == test_slug %}
+    <p>Found! Speaker: {{ talk.speaker }}</p>
+  {% endif %}
+{% endfor %}
+
+
+
