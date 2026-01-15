@@ -8,8 +8,8 @@ cell:
 pronoun: 
 location: 
 social:
-  x: solidtubez
-  linkedin: anderssonjessica
+  x: solidtubez #cspell:ignore solidtubez
+  linkedin: anderssonjessica #cspell:ignore anderssonjessica
   github: 
   website: 
 roles:

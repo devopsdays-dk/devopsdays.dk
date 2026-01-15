@@ -1,4 +1,5 @@
 ---
+# cspell:ignore paulinadubas
 name: Paulina Dubas
 headline: 
 image: paulina-dubas.webp

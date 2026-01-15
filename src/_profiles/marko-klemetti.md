@@ -8,8 +8,8 @@ cell:
 pronoun: 
 location: 
 social:
-  x: mrako
-  linkedin: mrako/
+  x: mrako #cspell:ignore mrako
+  linkedin: mrako 
   github: 
   website: 
 roles:

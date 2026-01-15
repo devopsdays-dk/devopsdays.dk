@@ -1,4 +1,5 @@
 ---
+# cspell:ignore annelouisemoeller
 name: Anne-Louise Lauritzen
 headline: Head of Office
 image: anne-louise-lauritzen.webp

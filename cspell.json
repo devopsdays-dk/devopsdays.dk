@@ -35,6 +35,10 @@
         "```[\\s\\S]*?```", // ignore code blocks
         "`[^`]*`", // ignore inline code
         "\\$\\([^)]*\\)", // ignore shell command substitutions
-        "^\\s*[\\w-]+:\\s*.+$", // ignore YAML key-value pairs (only at line start)
+
+        // If we omit this, YAML key-value pairs get flagged a lot, with stuff that doesnt look like words and should be ignored (as opposed to added in the dictionary)
+        // If we include this, some actual words in YAML files might get ignored.
+        // So for now, we are omitting this rule. You can ignore words in the individual files by adding `# cspell:ignore <space-separated-word-list>` in the front matter if needed.
+        //"^\\s*[\\w-]+:\\s*.+$", // ignore YAML key-value pairs (only at line start)
     ]
 }

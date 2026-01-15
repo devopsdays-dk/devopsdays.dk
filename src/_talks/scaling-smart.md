@@ -1,4 +1,5 @@
 ---
+# cspell:ignore tanawa
 id: scaling-smart
 title: "AI-Driven Infrastructure Operations: Scaling Smarter on NVIDIA Hardware"
 speaker: marius-tanawa-tsamo

@@ -9,7 +9,7 @@ pronoun:
 location: Copenhagen, Denmark
 social:
   x:
-  linkedin: dannylajer
+  linkedin: dannylajer #cspell:ignore dannylajer
   github: 
   website:
 events:

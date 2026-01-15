@@ -1,4 +1,5 @@
 ---
+# cspell:ignore andreyadamovich codingandrey
 name: Andrey Adamovich
 headline: 
 image: andrey-adamovich.webp

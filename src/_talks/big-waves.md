@@ -2,7 +2,7 @@
 id: big-waves
 title: "Big Waves,  Big Tools - Surfing Your Way to Scalable Infrastructure"
 speaker: simon-izydorek
-excerpt: "Manging infrastructure is like surfing - each wave requires the right board and every environment - right tools. In this talk, we'll explore how server management tools align with different scales of infrastructure. To make it more interesting, we'll correlate size of infrastructure with waves and tools with surfboards."
+excerpt: "Managing infrastructure is like surfing - each wave requires the right board and every environment - right tools. In this talk, we'll explore how server management tools align with different scales of infrastructure. To make it more interesting, we'll correlate size of infrastructure with waves and tools with surfboards."
 topics:
   - devops
   - platform-engineering

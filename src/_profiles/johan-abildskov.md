@@ -9,7 +9,7 @@ pronoun:
 location: 
 social:
   x: 
-  linkedin: anderssonjessica
+  linkedin:
   github: 
   website: 
 roles:

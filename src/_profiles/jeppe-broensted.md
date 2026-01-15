@@ -1,7 +1,7 @@
 ---
 name: Jeppe Brønsted
 headline: 
-image: jeppe-broensted.webp
+image: jeppe-broensted.webp #cspell:ignore broensted
 company: 
 email: 
 cell: 
@@ -9,7 +9,7 @@ pronoun:
 location: 
 social:
   x: 
-  linkedin: anderssonjessica
+  linkedin: 
   github: 
   website: 
 roles:

@@ -9,7 +9,7 @@ pronoun:
 location: 
 social:
   x: 
-  linkedin: henningkjaer
+  linkedin: henningkjaer #cspell:ignore henningkjaer
   github: 
   website: 
 roles:

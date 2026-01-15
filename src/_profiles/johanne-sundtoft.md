@@ -9,7 +9,7 @@ pronoun: #she/her
 location: Aarhus, Denmark
 social:
   x:
-  linkedin: johannesundtoft
+  linkedin: johannesundtoft #cspell:ignore johannesundtoft
   github: 
   website: 
 events:

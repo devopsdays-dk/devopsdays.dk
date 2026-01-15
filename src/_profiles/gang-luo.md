@@ -9,7 +9,7 @@ pronoun:
 location: 
 social:
   x: 
-  linkedin: gangluo/
+  linkedin: gangluo #cspell:ignore gangluo
   github: 
   website: 
 roles:

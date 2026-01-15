@@ -9,7 +9,7 @@ pronoun:
 location: 
 social:
   x: 
-  linkedin: sizydorek/
+  linkedin: sizydorek #cspell:ignore sizydorek
   github: 
   website: 
 roles:
