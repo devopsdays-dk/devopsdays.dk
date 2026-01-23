@@ -1,0 +1,40 @@
+<!-- Sponsors include: render sponsors for an event grouped by tier (platinum,gold,silver,community) -->
+{% assign event_id = include.event | default: page.path | split: '/' | last | replace: '.md','' %}
+
+{% comment %}
+  This include reads the per-event `sponsorship` mapping from each profile:
+    profile.sponsorship[EVENT_ID]
+  It requires profiles to provide a `sponsorship` map for events they participate in.
+  We use `capture` to collect HTML rows because Liquid does not allow breaking out of nested loops.
+{% endcomment %}
+
+{% assign levels = "platinum,gold,silver,community" | split: "," %}
+<div class="sponsors-band container">
+  {% for level in levels %}
+    {% capture row %}{% for profile in site.profiles %}{% if profile.type == "sponsor" and profile.events and profile.events contains event_id %}
+      {% assign lvl = profile.sponsorship[event_id] %}
+      {% if lvl == level %}
+        <div class="sponsor-item sponsor-{{ level }}">
+          <a href="/profiles/{{ profile.id | split: '/' | last }}/" class="sponsor-link">
+            <span class="sponsor-logo-wrap">
+              {% if profile.image %}
+                <img src="/assets/images/profiles/{{ profile.image }}" alt="{{ profile.name }}" class="sponsor-logo" />
+              {% else %}
+                <span class="sponsor-name-text">{{ profile.name }}</span>
+              {% endif %}
+            </span>
+          </a>
+        </div>
+        {% endif %}
+      {% endif %}{% endfor %}{% endcapture %}
+
+    {% if row != "" %}
+      <section class="sponsors-section sponsors-{{ level }}">
+        <h3 class="sponsors-heading">{{ level | capitalize }} Sponsors</h3>
+        <div class="sponsors-grid sponsors-grid-{{ level }}">
+          {{ row }}
+        </div>
+      </section>
+    {% endif %}
+  {% endfor %}
+</div>

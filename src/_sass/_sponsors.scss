@@ -1,0 +1,122 @@
+// Sponsors display styles
+.sponsors-section {
+  margin: 3rem 0;
+
+  .sponsors-heading {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  &.sponsors-platinum .sponsors-heading {
+    color: #e5e4e2; // Platinum color
+  }
+
+  &.sponsors-gold .sponsors-heading {
+    color: #d4af37; // Gold color
+  }
+
+  &.sponsors-silver .sponsors-heading {
+    color: #c0c0c0; // Silver color
+  }
+
+  &.sponsors-community .sponsors-heading {
+    color: #333;
+  }
+}
+
+.sponsors-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Explicit logo widths per level so images render equal-sized tiles */
+/* Use max-height per tier so logos with different aspect ratios appear visually consistent */
+.sponsors-grid-platinum .sponsor-logo {
+  max-height: 140px;
+}
+.sponsors-grid-gold .sponsor-logo {
+  max-height: 110px;
+}
+.sponsors-grid-silver .sponsor-logo {
+  max-height: 90px;
+}
+.sponsors-grid-community .sponsor-logo {
+  max-height: 70px;
+}
+
+.sponsor-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sponsor-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  text-decoration: none;
+}
+
+.sponsor-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+}
+
+/* Constrain logos inside fixed boxes per tier so aspect ratios don't visualise differently */
+.sponsors-grid-platinum .sponsor-logo-wrap {
+  width: 220px;
+  height: 140px;
+}
+.sponsors-grid-gold .sponsor-logo-wrap {
+  width: 160px;
+  height: 110px;
+}
+.sponsors-grid-silver .sponsor-logo-wrap {
+  width: 120px;
+  height: 90px;
+}
+.sponsors-grid-community .sponsor-logo-wrap {
+  width: 90px;
+  height: 70px;
+}
+
+.sponsor-logo {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.sponsor-name-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  color: $muted-text-color;
+}
+
+/* Heading styling to blend with site */
+.sponsors-section {
+  margin: 2rem 0 1rem 0;
+}
+.sponsors-heading {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $muted-text-color;
+}
+
+@media (max-width: 600px) {
+  .sponsors-grid {
+    gap: 0.5rem;
+  }
+}

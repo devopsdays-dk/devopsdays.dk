@@ -1,21 +1,18 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../../../localhome/GitHub/devopsdays-dk/minimal-mistakes"
-		},
-		{
-			"path": "../../../localhome/GitHub/devopsdays-dk/devopsdays-web"
-		},
-		{
-			"path": "../../../localhome/GitHub/lakruzz/lakruzz.com"
-		}
-	],
-	"settings": {
-		"chat.tools.terminal.autoApprove": {
-			"bundle": true
-		}
-	}
+  "folders": [
+    {
+      "path": "..",
+    },
+    {
+      "path": "../../../localhome/GitHub/devopsdays-dk/minimal-mistakes",
+    },
+    {
+      "path": "../../../localhome/GitHub/devopsdays-dk/devopsdays-web",
+    },
+  ],
+  "settings": {
+    "chat.tools.terminal.autoApprove": {
+      "bundle": true,
+    },
+  },
 }

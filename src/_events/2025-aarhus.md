@@ -1,5 +1,5 @@
 ---
-title:  DevOpsDays Aarhus 2025
+title: DevOpsDays Aarhus 2025
 excerpt: DevOpsDays is a global series of technical conferences covering topics in software development, IT infrastructure operations, and the intersection between the two. Each event is organized by dedicated local volunteers, making it a unique space for exchanging ideas and building connections within the DevOps community.
 layout: ticketbutler-signup
 header:
@@ -51,10 +51,10 @@ day-one:
     - caption: Ignite Talks
       duration: "0:30"
       talk:
-      - post-accelerate
-      - big-waves
-      - dev-platforms-pitfalls
-      - sre-to-platform
+        - post-accelerate
+        - big-waves
+        - dev-platforms-pitfalls
+        - sre-to-platform
       color: "#c4ffd7"
     - caption: Break
       duration: "0:25"
@@ -116,9 +116,10 @@ day-two:
     - talk: thinnest-platform
       duration: "0:30"
       color: "#aceaff"
-
 ---
+
 ## Two Day Program
 
 {% include program id="day-one" %}
 {% include program id="day-two" %}
+{% include sponsors event="2025-aarhus" %}

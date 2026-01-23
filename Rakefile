@@ -35,7 +35,8 @@ namespace :proofer do
         %r{linkedin\.com},
         %r{twitter\.com},
         %r{instagram\.com},
-        %r{devopsdays\.dk}
+        %r{devopsdays\.dk},
+        %r{bankdata\.dk}
       ]
     }
     
@@ -76,7 +77,8 @@ namespace :proofer do
         %r{linkedin\.com},
         %r{twitter\.com},
         %r{instagram\.com},
-        %r{devopsdays\.dk}
+        %r{devopsdays\.dk},
+        %r{bankdata\.dk}
       ]
     }
     

@@ -2,43 +2,43 @@
 layout: single
 ---
 
-{% capture nowunix %}
-{{ 'now' | eventdate: '%s' | plus: 0 }}
-{% endcapture %}
-{% capture posttime %}
-{{ page.event.date | eventdate: '%s' | plus: 86400 }}
-{% endcapture %}
-{% capture datepassed %}
-{{ page.event.date | eventdate: '%s' | plus: 172800 }}
-{% endcapture %}
-
-
+{% capture nowunix %} {{ 'now' | eventdate: '%s' | plus: 0 }} {% endcapture %}
+{% capture posttime %} {{ page.event.date | eventdate: '%s' | plus: 86400 }} {%
+endcapture %} {% capture datepassed %} {{ page.event.date | eventdate: '%s' |
+plus: 172800 }} {% endcapture %}
 
 <div class="article container-fluid">
+  <div class="header-image">
+    <img
+      src="{{ page.event.image }}"
+      title="{{ page.excerpt }}"
+      alt="{{ page.excerpt }}"
+    />
+  </div>
 
-            <div class="header-image">
-                <img src="{{ page.event.image }}" title="{{ page.excerpt }}" alt="{{ page.excerpt }}">
-            </div>
+  <h5 class="yellow-text">
+    <i class="far fa-calendar-alt event-icon"></i> {{ page.event.date | date:
+    '%d %B %Y' }}{% if page.event.enddate %} — {{ page.event.enddate | date: '%d
+    %B %Y' }}{% endif %} <br />
+    <i class="far fa-clock"></i> {{ page.event.time }} <br />
+    <i class="fas fa-map-marker-alt"></i> {{ page.event.place }}
+  </h5>
 
+  <p>
+    {% if page.event.ticket-widget-top == true %}{% include
+    ticketbutler-signup.html %}{% endif %}
+  </p>
 
-            <h5 class="yellow-text">
-                <i class="far fa-calendar-alt event-icon"></i> {{ page.event.date  | date: '%d %B %Y' }}{% if page.event.enddate %} — {{  page.event.enddate  | date: '%d %B %Y' }}{% endif %} <br/>
-                <i class="far fa-clock"></i> {{ page.event.time }} <br/>
-                <i class="fas fa-map-marker-alt"></i> {{ page.event.place }}
-            </h5>
+  <h1>{{ page.title }}</h1>
 
-            <p>{% if page.event.ticket-widget-top == true %}{% include ticketbutler-signup.html %}{% endif %}</p>
+  {{ page.content }}
 
+  <span class="event-id" style="display: none"
+    >{{ page.event.eventbrite-id }}</span
+  >
 
-            <h1>{{ page.title }}</h1>
-
-
-            {{ page.content }}
-
-
-            <span class="event-id" style="display: none;">{{ page.event.eventbrite-id }}</span>
-
-            <p>{% if page.event.ticket-widget-bottom == true %}{% include ticketbutler-signup.html unique="bottom"%}{% endif %}</p>
-
-
+  <p>
+    {% if page.event.ticket-widget-bottom == true %}{% include
+    ticketbutler-signup.html unique="bottom"%}{% endif %}
+  </p>
 </div>

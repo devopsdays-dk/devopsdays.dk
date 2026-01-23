@@ -2,7 +2,7 @@
 
 #active-filter-display {
   margin-bottom: 1.5rem;
-  
+
   .event-subtitle {
     margin: 0;
     padding: 0.75rem 0;
@@ -16,42 +16,53 @@
 .profile-container {
   max-width: 900px;
   margin: 2rem auto;
-  
+
   .profile-header {
     display: flex;
     gap: 2rem;
     margin-bottom: 2rem;
-    
+
     @media (max-width: 768px) {
       flex-direction: column;
       gap: 1.5rem;
     }
   }
-  
+
   .profile-sidebar {
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .profile-image {
     flex-shrink: 0;
-    
+
     .profile-portrait {
       width: 200px;
       height: 200px;
       border-radius: 8px;
       object-fit: cover;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      
+
       @media (max-width: 768px) {
         width: 150px;
         height: 150px;
       }
     }
   }
-  
+
+  /* Sponsor logos are not square — keep the square container but fit the logo inside */
+  &.profile--sponsor {
+    .profile-image {
+      .profile-portrait {
+        object-fit: contain;
+        padding: 12px;
+        background: #fff;
+      }
+    }
+  }
+
   .profile-info {
     flex: 1;
     display: flex;
@@ -59,25 +70,25 @@
     justify-content: flex-start;
     gap: 1rem;
   }
-  
+
   .profile-name {
     margin: 0;
     font-size: 2.5rem;
     font-weight: 700;
     color: var(--text-color, #333);
-    
+
     @media (max-width: 768px) {
       font-size: 1.75rem;
     }
   }
-  
+
   .profile-headline {
     margin: 0;
     font-size: 1.1rem;
     color: var(--accent-color, #7c3aed);
     font-weight: 500;
   }
-  
+
   .profile-meta {
     display: flex;
     flex-direction: column;
@@ -85,7 +96,7 @@
     padding: 1rem 0;
     border-top: 1px solid #e0e0e0;
     border-bottom: 1px solid #e0e0e0;
-    
+
     p {
       margin: 0;
       font-size: 0.95rem;
@@ -93,7 +104,7 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      
+
       i {
         color: var(--accent-color, #7c3aed);
         width: 20px;
@@ -101,16 +112,16 @@
       }
     }
   }
-  
+
   .profile-contact {
     display: flex;
     gap: 1rem;
   }
-  
+
   .profile-social {
     display: flex;
     gap: 1rem;
-    
+
     .social-link {
       display: inline-flex;
       align-items: center;
@@ -122,32 +133,32 @@
       border-radius: 50%;
       text-decoration: none;
       transition: all 0.3s ease;
-      
+
       &:hover,
       &:visited:hover {
         background-color: var(--accent-hover, #6d28d9);
         transform: translateY(-2px);
         box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
       }
-      
+
       &:visited {
         background-color: var(--accent-color, #7c3aed);
         color: white;
       }
-      
+
       i {
         font-size: 1.2rem;
       }
     }
   }
-  
+
   .profile-roles {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-top: 0;
   }
-  
+
   .profile-role {
     display: inline-block;
     padding: 0.3rem 0.6rem;
@@ -155,20 +166,22 @@
     color: var(--accent-color, #7c3aed);
     border-radius: 12px;
     font-size: 0.75rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+      Arial, "Noto Sans", sans-serif;
     font-weight: 600;
     text-transform: capitalize;
     letter-spacing: 0.3px;
     border: none;
   }
-  
+
   .profile-events {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-top: 0;
   }
-  
+
   .profile-event {
     display: inline-block;
     padding: 0.3rem 0.6rem;
@@ -176,7 +189,9 @@
     color: #4f46e5;
     border-radius: 12px;
     font-size: 0.75rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+      Arial, "Noto Sans", sans-serif;
     font-weight: 600;
     text-transform: lowercase;
     letter-spacing: 0.3px;
@@ -184,19 +199,19 @@
     text-decoration: none;
     transition: all 0.2s ease;
     cursor: pointer;
-    
+
     &:hover {
       background-color: #4f46e5;
       color: white;
       text-decoration: none;
     }
   }
-  
+
   .profile-content {
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid #e5e7eb;
-    
+
     p {
       font-size: 1rem;
       line-height: 1.6;
@@ -217,19 +232,19 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   height: 100%;
-  
+
   &:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
     transform: translateY(-4px);
   }
-  
+
   .profile-card-image {
     width: 100%;
     padding-bottom: 100%; /* 1:1 aspect ratio */
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #f0e6ff 0%, #e9d5ff 100%);
-    
+
     a {
       position: absolute;
       top: 0;
@@ -241,19 +256,19 @@
       justify-content: center;
       text-decoration: none;
     }
-    
+
     .profile-card-portrait {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
-      
+
       .profile-card:hover & {
         transform: scale(1.05);
       }
     }
   }
-  
+
   .profile-card-content {
     padding: 1.5rem;
     display: flex;
@@ -261,29 +276,29 @@
     gap: 0.75rem;
     flex: 1;
   }
-  
+
   .profile-card-name {
     margin: 0;
     font-size: 1.25rem;
     font-weight: 700;
-    
+
     a {
       color: var(--text-color, #333);
       text-decoration: none;
-      
+
       &:hover {
         color: var(--accent-color, #7c3aed);
       }
     }
   }
-  
+
   .profile-card-title {
     margin: 0;
     font-size: 0.95rem;
     color: var(--accent-color, #7c3aed);
     font-weight: 500;
   }
-  
+
   .profile-card-excerpt {
     margin: 0;
     font-size: 0.9rem;
@@ -291,13 +306,13 @@
     line-height: 1.4;
     flex: 1;
   }
-  
+
   .profile-card-social {
     display: flex;
     gap: 0.5rem;
     padding-top: 0.75rem;
     border-top: 1px solid #e5e7eb;
-    
+
     .social-icon {
       display: inline-flex;
       align-items: center;
@@ -309,32 +324,32 @@
       border-radius: 50%;
       text-decoration: none;
       transition: all 0.3s ease;
-      
+
       &:hover,
       &:visited:hover {
         background-color: var(--accent-color, #7c3aed);
         color: white;
         transform: translateY(-2px);
       }
-      
+
       &:visited {
         color: var(--accent-color, #7c3aed);
         background-color: #f3f4f6;
       }
-      
+
       i {
         font-size: 0.9rem;
       }
     }
   }
-  
+
   .profile-card-roles {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-top: 0.5rem;
   }
-  
+
   .profile-card-role {
     display: inline-block;
     padding: 0.25rem 0.6rem;
@@ -344,14 +359,14 @@
     font-size: 0.75rem;
     font-weight: 500;
   }
-  
+
   .profile-card-events {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-top: 0.5rem;
   }
-  
+
   .profile-card-event {
     display: inline-block;
     padding: 0.25rem 0.6rem;
@@ -370,12 +385,12 @@
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 2rem;
   margin: 2rem 0;
-  
+
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
   }
-  
+
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
@@ -384,21 +399,25 @@
 /* Speakers Page Styles */
 
 .speakers-filter {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
   color: #a3a2a0;
   background-color: #fdd0b6;
   border: 1px solid #d9ccff;
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125);
-  
+
   header {
     margin: 0;
     padding: 0;
-    
+
     .nav__title {
       margin: 0;
       padding: 0.25rem 0.75rem;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, "Noto Sans", sans-serif;
       font-size: 0.85rem;
       font-weight: bold;
       text-transform: uppercase;
@@ -407,7 +426,7 @@
       border: none;
       border-start-start-radius: 3px;
       border-start-end-radius: 3px;
-      
+
       i {
         margin-right: 0.4rem;
       }
@@ -419,12 +438,14 @@
   margin: 0;
   padding: 0;
   border: none;
-  
+
   h5 {
     display: block;
     margin: 0.5rem 0 0 0;
     padding: 0.25rem 0.75rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+      Arial, "Noto Sans", sans-serif;
     font-size: 0.75rem;
     font-weight: bold;
     color: #1f1f23;
@@ -432,7 +453,7 @@
     letter-spacing: 0.5px;
     background-color: transparent;
   }
-  
+
   &:first-child h5 {
     margin-top: 0;
   }
@@ -456,22 +477,24 @@
   background-color: transparent;
   color: #a3a2a0;
   border-radius: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif;
   font-size: 0.85rem;
   font-weight: bold;
   text-align: left;
   cursor: pointer;
   line-height: 1.5;
   transition: color 0.2s ease;
-  
+
   &:hover {
     color: #1f1f23;
   }
-  
+
   &.active {
     color: var(--accent-color, #7c3aed);
   }
-  
+
   &:last-child {
     border-bottom: none;
   }
@@ -486,17 +509,17 @@
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1.5rem;
   margin: 2rem 0;
-  
+
   @media (max-width: 1024px) {
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
     gap: 1.25rem;
   }
-  
+
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 1rem;
   }
-  
+
   @media (max-width: 480px) {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 0.75rem;
@@ -507,11 +530,11 @@
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
-  
+
   &.fade-in {
     animation: fadeIn 0.3s ease;
   }
-  
+
   .speaker-card-link {
     display: flex;
     flex-direction: column;
@@ -519,7 +542,7 @@
     color: inherit;
     height: 100%;
     transition: transform 0.3s ease;
-    
+
     &:hover {
       transform: translateY(-4px);
     }
@@ -534,7 +557,7 @@
   background: linear-gradient(135deg, #f0e6ff 0%, #e9d5ff 100%);
   margin-bottom: 0.75rem;
   border-radius: 6px;
-  
+
   .speaker-portrait {
     position: absolute;
     top: 0;
@@ -543,7 +566,7 @@
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
-    
+
     .speaker-card:hover & {
       transform: scale(1.05);
     }
