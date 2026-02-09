@@ -8,10 +8,7 @@
     },
     {
       "path": "../../../localhome/GitHub/devopsdays-dk/devopsdays-web",
-    },
-    {
-      "path": "../../../localhome/GitHub/lakruzz/renogfri.dk",
-    },
+    }
   ],
   "settings": {
     "chat.tools.terminal.autoApprove": {
