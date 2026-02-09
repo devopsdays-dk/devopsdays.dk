@@ -1,6 +1,11 @@
 ---
 applyTo: '**'
 ---
+<!--
+Path-specific custom instructions for GitHub Copilot.
+These instructions apply to all files in the repository.
+For more information: https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
+-->
 
 # General Instructions
 

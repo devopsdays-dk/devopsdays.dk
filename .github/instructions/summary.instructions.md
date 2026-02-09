@@ -1,6 +1,12 @@
 ---
 applyTo: '**'
 ---
+<!--
+Path-specific custom instructions for GitHub Copilot - Issue Summary Workflow.
+These instructions guide Copilot on creating and posting issue summaries.
+For more information: https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
+-->
+
 When in agent mode, and you are asked to create issues or comments to issues, always generate the markdown in intermediate `*.md` files in the `./temp` folder and restrain from using the `--body` flag to `gh issue create` and  `gh issue comment`. But favor the `--body-file` flag instead. Name the file the same as the branch we're working on, with a `.md` extension, and store it in the `./temp` folder. When you create an intermediate *.md file alwasy open it in the editor for my review and annotations.
 
 When agent mode and I ask to _annotate a comment on the current changeset to the issue_ or if I male a reference to this specific instruction file, you can always read the implied issue number from the current git branch - development branches are prefixed with an integer, and that is a reference to the issue being worked on. The branch name is part of the zsh prompt in the terminal, and can be directly accessed; The `$PS1` is set up to show the branch name too (e.g. `user ➜ /workspaces/gh-tt (321-Update_summary_instructions) $` equals issue 321). Let summary serve as a work log note to future self and current colleagues. It should summarize the changes made in the branch we're working on since we left `main`.

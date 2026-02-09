@@ -1,5 +1,11 @@
 # Jekyll Project - Copilot Instructions
 
+<!--
+These are repository-wide custom instructions for GitHub Copilot.
+For more information about Copilot custom instructions, see:
+https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
+-->
+
 This document provides general instructions for working on a Jekyll-based project that uses a common toolchain including Rake and the `gh-tt` Git extension.
 
 In general; Adhere to Ruby/Jekyll conventions and best practices. The instructions below cover project-specific workflows, environment setup, and code conventions to ensure a consistent development experience for both human developers and GitHub Copilot agents.
