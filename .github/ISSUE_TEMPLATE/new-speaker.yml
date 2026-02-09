@@ -1,0 +1,142 @@
+name: New speaker profile
+description: This template is used to collect necessary data for creating speaker profiles on the website.
+title: "[SPEAKER]: "
+labels: ["profile", "speaker"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for your interest in speaking.
+        Please fill out the following information to create your speaker profile.
+
+  - type: input
+    id: name
+    attributes:
+      label: Name
+      description: Your full name.
+      placeholder: e.g., "John Doe"
+    validations:
+      required: true
+
+  - type: input
+    id: headline
+    attributes:
+      label: Headline
+      description: A short bio or tagline (max 80 characters).
+      placeholder: e.g., "Software Engineer at AwesomeCorp"
+    validations:
+      required: true
+
+  - type: textarea
+    id: content
+    attributes:
+      label: About / Bio
+      description: A longer description about yourself (2-4 paragraphs).
+      placeholder: |
+        Tell us about yourself.
+
+        What will you be talking about?
+    validations:
+      required: true
+
+  - type: input
+    id: roles
+    attributes:
+      label: Roles
+      description: Comma-separated list of roles (e.g., organizer, volunteer).
+      placeholder: "organizer, volunteer"
+
+  - type: input
+    id: events
+    attributes:
+      label: Events
+      description: Comma-separated list of events you are associated with (e.g., 2023, 2024).
+      placeholder: "2023, 2024"
+
+  - type: input
+    id: company
+    attributes:
+      label: Company
+      description: The company you work for.
+      placeholder: "AwesomeCorp"
+
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: Your city and country.
+      placeholder: "Copenhagen, Denmark"
+
+  - type: input
+    id: pronoun
+    attributes:
+      label: Pronoun
+      description: Your preferred pronoun.
+      placeholder: "they/them"
+
+  - type: input
+    id: email
+    attributes:
+      label: Email
+      description: Your contact email.
+      placeholder: "john.doe@example.com"
+
+  - type: input
+    id: cell
+    attributes:
+      label: Phone
+      description: Your contact phone number.
+      placeholder: "+45 12 34 56 78"
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: URL to your personal or company website.
+      placeholder: "https://www.example.com"
+
+  - type: input
+    id: x
+    attributes:
+      label: X (formerly Twitter)
+      description: Your X handle (without the @).
+      placeholder: "johndoe"
+
+  - type: input
+    id: linkedin
+    attributes:
+      label: LinkedIn
+      description: Your LinkedIn profile name.
+      placeholder: "johndoe"
+
+  - type: input
+    id: github
+    attributes:
+      label: GitHub
+      description: Your GitHub username.
+      placeholder: "johndoe"
+
+  - type: textarea
+    id: image
+    attributes:
+      label: Profile Image
+      description: |
+        Upload or attach your profile picture.
+        The image should be in high resolution (PNG, SVG, or JPG format).
+        Ideally in a square format (at least 400x400 pixels).
+
+        You can attach the file by dragging it into this text field.
+      placeholder: Drag and drop your image file here.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      description: By submitting this form, you confirm the following
+      options:
+        - label: I have the authority to submit this information.
+          required: true
+        - label: I agree to have this information published on the website.
+          required: true

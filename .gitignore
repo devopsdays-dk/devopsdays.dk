@@ -1,6 +1,5 @@
 # General
 temp/
-**/*temp*
 
 # Ruby Gem
 *.gem
