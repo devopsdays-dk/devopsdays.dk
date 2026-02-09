@@ -3,7 +3,8 @@
   "globs": [
     "**/*.md",
     "!node_modules/**",
-    "!**/temp/**"
+    "!**/temp/**",
+    "!**/vendor/**"
   ],
   "config": {
     "MD001": false,

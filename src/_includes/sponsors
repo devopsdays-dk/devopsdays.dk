@@ -28,7 +28,8 @@
         {% endif %}
       {% endif %}{% endfor %}{% endcapture %}
 
-    {% if row != "" %}
+    {% assign row_stripped = row | strip %}
+    {% if row_stripped != "" %}
       <section class="sponsors-section sponsors-{{ level }}">
         <h3 class="sponsors-heading">{{ level | capitalize }} Sponsors</h3>
         <div class="sponsors-grid sponsors-grid-{{ level }}">
