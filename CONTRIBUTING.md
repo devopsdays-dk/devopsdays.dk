@@ -204,6 +204,38 @@ gh tt deliver
 
 See [general.instructions.md](./.github/instructions/general.instructions.md) for more details on our branching strategy.
 
+## 🤖 GitHub Copilot Integration
+
+This repository is configured with custom instructions for GitHub Copilot to help you get the most out of AI-assisted development.
+
+### What's Configured
+
+- **Repository-wide instructions**: [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) provides comprehensive context about the Jekyll project structure, build process, and coding conventions
+- **Path-specific instructions**: Additional guidance in [`.github/instructions/`](./.github/instructions/) for specific workflows like issue management and summaries
+- **Automated setup**: [`.github/workflows/copilot-setup-steps.yml`](./.github/workflows/copilot-setup-steps.yml) ensures Copilot agents have a properly configured environment
+
+### Using Copilot
+
+If you have GitHub Copilot enabled:
+
+1. **Copilot Chat** automatically uses these instructions when you ask questions about the repository
+2. **Copilot Coding Agent** follows the setup steps and guidelines when making changes
+3. **Custom instructions are applied** based on which files you're working with
+
+The instructions help Copilot understand:
+
+- How to build and test the Jekyll site
+- Our git workflow with `gh-tt`
+- Code conventions and best practices
+- Pre-commit validation requirements
+
+### Learn More
+
+For more information about GitHub Copilot custom instructions:
+
+- [GitHub Docs: Adding custom instructions for GitHub Copilot](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot)
+- View our [copilot-instructions.md](./.github/copilot-instructions.md) to see what guidance is provided
+
 ## 💬 Need Help?
 
 - **Questions?** Drop by our [Slack](https://slack.devopsdays.dk)
