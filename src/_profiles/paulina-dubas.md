@@ -1,5 +1,4 @@
 ---
-# cspell:ignore paulinadubas
 name: Paulina Dubas
 headline: 
 image: paulina-dubas.webp
@@ -17,6 +16,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - green-devops
 ---
 
 Dubas Consulting, The Better Software Initiative

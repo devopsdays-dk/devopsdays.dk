@@ -219,6 +219,41 @@
       margin-bottom: 1rem;
     }
   }
+
+  .profile-talks {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e5e7eb;
+
+    .profile-talks-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-color, #333);
+    }
+
+    .profile-talks-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .profile-talk-item {
+        font-family: $sans-serif;
+        font-size: 0.9rem;
+        line-height: 1.8;
+        margin-bottom: 0.5rem;
+
+        a {
+          color: var(--link-color, #7c3aed);
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }
 
 /* Profile Card Styles (for grid/list display) */

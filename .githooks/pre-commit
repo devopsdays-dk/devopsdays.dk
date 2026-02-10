@@ -89,17 +89,31 @@ if [ "$RUN_RAKE_BUILD" == "TRUE" ]; then
     fi
 fi
 
-# HTML proof via rake task
+# HTML external proof via rake task
 if [ "$RUN_RAKE_HTMLPROOFER" == "TRUE" ]; then
-    printf "   ⏳ HTML proofer check\r"
-    HTMLPROOFER_OUT=$(bundle exec rake proofer:dev 2>&1)
+    printf "   ⏳ HTML proofer check external\r"
+    HTMLPROOFER_OUT=$(bundle exec rake proofer:check 2>&1)
 
     if [ $? -eq 0 ]; then
-        echo "   ✅ HTML proofer check"
+        echo "   ✅ HTML proofer check external"
     else
-        echo "   ❌ HTML proofer check"
+        echo "   ❌ HTML proofer check external"
         PASS=FALSE
         HTMLPROOFER=FALSE
+    fi
+fi
+
+# HTML local proof via rake task
+if [ "$RUN_RAKE_HTMLPROOFER" == "TRUE" ]; then
+    printf "   ⏳ HTML proofer check local\r"
+    HTMLPROOFER_DEV_OUT=$(bundle exec rake proofer:dev 2>&1)
+
+    if [ $? -eq 0 ]; then
+        echo "   ✅ HTML proofer check local"
+    else
+        echo "   ❌ HTML proofer check local"
+        PASS=FALSE
+        HTMLPROOFER_DEV=FALSE
     fi
 fi
 
@@ -141,6 +155,11 @@ else
     if [ "$HTMLPROOFER" == "FALSE" ]; then
         echo "HTML Proofer issues:"
         echo "${HTMLPROOFER_OUT}"
+        echo ""
+    fi
+    if [ "$HTMLPROOFER_DEV" == "FALSE" ]; then
+        echo "HTML Proofer Dev issues:"
+        echo "${HTMLPROOFER_DEV_OUT}"
         echo ""
     fi
     

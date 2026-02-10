@@ -24,25 +24,47 @@ layout: default
 
       <section class="page__content" itemprop="text">
         <aside class="sidebar__right sticky">
-          {% if page.speaker %}
-            {% assign speaker_id = page.speaker %}
-            {% for profile in site.profiles %}
-              {% if profile.name %}
-                {% assign profile_id = profile.path | split: '/' | last | remove: '.md' %}
-                {% if profile_id == speaker_id %}
-                  <div class="talk-speaker-box">
-                    <h3 class="talk-speaker-label">Speaker</h3>
-                    <a href="/profiles/{{ speaker_id }}/" class="talk-speaker-link">
-                      {% if profile.image %}
-                        <img src="/assets/images/profiles/{{ profile.image }}" alt="{{ profile.name }}" class="talk-speaker-image">
-                      {% endif %}
-                      <span class="talk-speaker-name">{{ profile.name }}</span>
-                    </a>
-                  </div>
-                  {% break %}
-                {% endif %}
+          {% if page.speaker or page.speakers %}
+            <div class="talk-speaker-box">
+              <h3 class="talk-speaker-label">Speaker{% if page.speakers %}s{% endif %}</h3>
+              
+              {% if page.speaker %}
+                {% assign speaker_id = page.speaker %}
+                {% for profile in site.profiles %}
+                  {% if profile.name %}
+                    {% assign profile_id = profile.path | split: '/' | last | remove: '.md' %}
+                    {% if profile_id == speaker_id %}
+                      <a href="/profiles/{{ speaker_id }}/" class="talk-speaker-link">
+                        {% if profile.image %}
+                          <img src="/assets/images/profiles/{{ profile.image }}" alt="{{ profile.name }}" class="talk-speaker-image">
+                        {% endif %}
+                        <span class="talk-speaker-name">{{ profile.name }}</span>
+                      </a>
+                      {% break %}
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
               {% endif %}
-            {% endfor %}
+              
+              {% if page.speakers %}
+                {% for speaker_id in page.speakers %}
+                  {% for profile in site.profiles %}
+                    {% if profile.name %}
+                      {% assign profile_id = profile.path | split: '/' | last | remove: '.md' %}
+                      {% if profile_id == speaker_id %}
+                        <a href="/profiles/{{ speaker_id }}/" class="talk-speaker-link">
+                          {% if profile.image %}
+                            <img src="/assets/images/profiles/{{ profile.image }}" alt="{{ profile.name }}" class="talk-speaker-image">
+                          {% endif %}
+                          <span class="talk-speaker-name">{{ profile.name }}</span>
+                        </a>
+                        {% break %}
+                      {% endif %}
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
+            </div>
           {% endif %}
           
           {% if page.topics %}

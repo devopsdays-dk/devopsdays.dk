@@ -1,4 +1,5 @@
 ---
+
 name: Rasmus Lystrøm
 headline: 
 image: rasmus-lystrom.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - post-accelerate
 ---
 
 Senior Cloud Solution Architect, Microsoft

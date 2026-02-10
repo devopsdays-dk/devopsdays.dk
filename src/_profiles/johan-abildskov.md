@@ -1,4 +1,5 @@
 ---
+
 name: Johan Abildskov
 headline: 
 image: johan-abildskov.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - uber-engineering
 ---
 
 Software Engineer at Uber

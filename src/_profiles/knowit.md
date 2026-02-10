@@ -13,7 +13,7 @@ social:
   x:
   linkedin: knowit-experience
   github:
-  website: http://www.knowit.no
+  website: https://www.knowit.no
 roles:
   - sponsor
 events:

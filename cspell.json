@@ -36,6 +36,8 @@
         "```[\\s\\S]*?```", // ignore code blocks
         "`[^`]*`", // ignore inline code
         "\\$\\([^)]*\\)", // ignore shell command substitutions
+        "^\\s*(linkedin|x):[\\s\\S]+$", // ignore linkedin and x keys in YAML
+        "^\\s*(image):[\\s\\S]+$", // ignore image keys in YAML
 
         // If we omit this, YAML key-value pairs get flagged a lot, with stuff that doesnt look like words and should be ignored (as opposed to added in the dictionary)
         // If we include this, some actual words in YAML files might get ignored.

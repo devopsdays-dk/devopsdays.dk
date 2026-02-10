@@ -20,7 +20,7 @@ end
 
 namespace :proofer do
   desc 'Validate HTML links (internal only)'
-  task :check do
+  task :dev do
     puts 'Running HTML link validation...'
 
     # Set options for HTMLProofer
@@ -31,32 +31,31 @@ namespace :proofer do
       assume_extension: '.html',
       extensions: ['.html'],
       enforce_https: false,
-      ignore_urls: [
-        %r{linkedin\.com},
-        %r{twitter\.com},
-        %r{instagram\.com},
-        %r{devopsdays\.dk},
-        %r{bankdata\.dk}
-      ]
     }
-    
+  
     HTMLProofer.check_directory('./_site', options).run
     puts '✓ HTML validation passed!'
   end
 
   desc 'Validate HTML links (including external)'
-  task :check_external do
+  task :check do
     puts 'Running HTML link validation (with external links)...'
     
     options = {
       assume_extension: '.html',
       check_external_hash: false,
       extensions: ['.html'],
+      enforce_https: true,
       ignore_urls: [
         %r{linkedin\.com},
         %r{twitter\.com},
         %r{instagram\.com},
-        %r{devopsdays\.dk}
+        %r{devopsdays\.dk},
+        %r{bankdata\.dk},
+        %r{juanherreros\.com},
+        %r{medium\.com},
+        %r{http:\/\/localhost:},
+        %r{serverless\.ninja},
       ]
     }
     
@@ -64,25 +63,4 @@ namespace :proofer do
     puts '✓ HTML validation passed!'
   end
 
-  desc 'Validate HTML links (in development environment, including external)'
-  task :dev do
-    puts 'Running HTML link validation (with external links)...'
-    
-    options = {
-      assume_extension: '.html',
-      check_external_hash: false,
-      enforce_https: false,
-      extensions: ['.html'],
-      ignore_urls: [
-        %r{linkedin\.com},
-        %r{twitter\.com},
-        %r{instagram\.com},
-        %r{devopsdays\.dk},
-        %r{bankdata\.dk}
-      ]
-    }
-    
-    HTMLProofer.check_directory('./_site', options).run
-    puts '✓ HTML validation passed!'
-  end  
 end

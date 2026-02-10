@@ -1,4 +1,5 @@
 ---
+
 name: Jessica Andersson
 headline: 
 image: jessica-andersson.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - dev-platforms-pitfalls
 ---
 
 Cloud Architect, Trice

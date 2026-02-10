@@ -101,6 +101,27 @@ layout: default
     </div>
   </div>
 
+  {% if page.talks %}
+    <div class="profile-talks">
+      <h2 class="profile-talks-title">Talks</h2>
+      <ul class="profile-talks-list">
+        {% for talk_id in page.talks %}
+          {% for talk in site.talks %}
+            {% assign talk_file_id = talk.path | split: '/' | last | remove: '.md' %}
+            {% if talk_file_id == talk_id %}
+              <li class="profile-talk-item">
+                <a href="/talks/{{ talk_id }}/">{{ talk.title }}</a>
+                {% if talk.events %}
+                  ({{ talk.events | join: ', ' }})
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+
   <div class="profile-content">
     {{ page.content }}
   </div>

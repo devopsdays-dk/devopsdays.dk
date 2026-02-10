@@ -1,4 +1,5 @@
 ---
+
 name: Lars Kruse
 headline: Continuous Delivery Evangelist
 image: lars-kruse.webp
@@ -17,6 +18,9 @@ roles:
   - organizer
 events:
   - 2025-aarhus
+
+talks:
+  - state-of-devops-our-dora-not-theirs
 ---
 
 Throughout his entire career Lars has dedicated his focus on organizing software developer routines and chores in a way that fosters software with quality built-in — often GxP grade (life science), safety-critical (manufacturing industry) and high-trust (finance) and often with the added complexity of hardware-in-the-loop. At the core in achieving this he builds a continuous flow in software deliveries, through a high degree of autonomation and automation; anything-as-code.
