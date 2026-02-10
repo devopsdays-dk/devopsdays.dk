@@ -14,6 +14,8 @@ roles:
   - speaker
 events:
   - 2026-cph
+talks:
+  - mad-trunk-based-development-a-case-study
 sessionize:
   id: c03fd68b-99f5-4945-8571-f2c37fc41419
   sessions:

@@ -14,6 +14,8 @@ roles:
   - speaker
 events:
   - 2026-cph
+talks:
+  - future-of-testing-is-about-letting-the-computer-do-it
 sessionize:
   id: 5d53c756-70ca-49f5-8135-25936fa705a4
   sessions:

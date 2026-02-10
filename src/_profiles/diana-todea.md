@@ -16,6 +16,8 @@ roles:
   - speaker
 events:
   - 2026-cph
+talks:
+  - identifying-developer-experience-bottlenecks-in-real-systems
 sessionize:
   id: f22272a3-c974-4261-9846-8ae441a9d4e5
   sessions:

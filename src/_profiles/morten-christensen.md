@@ -14,6 +14,8 @@ roles:
   - speaker
 events:
   - 2026-cph
+talks:
+  - tackling-complexity-with-a-thin-platform-approach
 sessionize:
   id: c65bc76a-e4d8-49c2-b8fa-48be4e2c5450
   sessions:

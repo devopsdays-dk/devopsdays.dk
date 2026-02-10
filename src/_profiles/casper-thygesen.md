@@ -13,6 +13,8 @@ roles:
   - speaker
 events:
   - 2026-cph
+talks:
+  - bridging-the-gap-between-vms-and-containers
 sessionize:
   id: 1b0d09b1-e3d9-42f6-b45f-59b9ff35fbf2
   sessions:

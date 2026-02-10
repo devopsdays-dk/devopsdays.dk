@@ -16,6 +16,8 @@ roles:
   - speaker
 events:
   - 2026-cph
+talks:
+  - lessons-from-10-years-of-platform-engineering
 sessionize:
   id: ab63807f-c693-452f-bb12-e0ce562b1374
   sessions:

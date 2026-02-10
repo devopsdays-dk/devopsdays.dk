@@ -101,6 +101,29 @@ layout: default
     </div>
   </div>
 
+  {% if page.talks %}
+    <div class="profile-talks">
+      <h2 class="profile-talks-title">Talks</h2>
+      <div class="profile-talks-list">
+        {% for talk_id in page.talks %}
+          {% for talk in site.talks %}
+            {% assign talk_file_id = talk.path | split: '/' | last | remove: '.md' %}
+            {% if talk_file_id == talk_id %}
+              <div class="profile-talk-item">
+                <h3 class="profile-talk-title">
+                  <a href="/talks/{{ talk_id }}/">{{ talk.title }}</a>
+                </h3>
+                {% if talk.excerpt %}
+                  <p class="profile-talk-excerpt">{{ talk.excerpt }}</p>
+                {% endif %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
   <div class="profile-content">
     {{ page.content }}
   </div>

@@ -14,6 +14,8 @@ roles:
   - speaker
 events:
   - 2026-cph
+talks:
+  - the-hitchhikers-practical-guide-to-mlops
 sessionize:
   id: b1a91204-6de2-4687-a707-6b618e5b7dfa
   sessions:

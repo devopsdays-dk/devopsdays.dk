@@ -15,6 +15,8 @@ roles:
   - speaker
 events:
   - 2026-cph
+talks:
+  - infrastructure-from-specs-specdriven-development-for-cloud-solutions
 sessionize:
   id: 05c9f41f-9542-4a1b-b33f-5720cef0d13d
   sessions:
