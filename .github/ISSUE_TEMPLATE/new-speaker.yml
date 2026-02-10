@@ -19,13 +19,11 @@ body:
       required: true
 
   - type: input
-    id: headline
+    id: title
     attributes:
-      label: Headline
-      description: A short bio or tagline (max 80 characters).
-      placeholder: e.g., "Software Engineer at AwesomeCorp"
-    validations:
-      required: true
+      label: Title
+      description: The title or position you hold
+      placeholder: e.g., "DevSecOps specialist"
 
   - type: textarea
     id: content
@@ -38,13 +36,6 @@ body:
         What will you be talking about?
     validations:
       required: true
-
-  - type: input
-    id: roles
-    attributes:
-      label: Roles
-      description: Comma-separated list of roles (e.g., organizer, volunteer).
-      placeholder: "organizer, volunteer"
 
   - type: input
     id: events
@@ -72,7 +63,7 @@ body:
     attributes:
       label: Pronoun
       description: Your preferred pronoun.
-      placeholder: "they/them"
+      placeholder: "she/her, he/him, they/them, etc."
 
   - type: input
     id: email
@@ -130,13 +121,3 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
-    id: confirmation
-    attributes:
-      label: Confirmation
-      description: By submitting this form, you confirm the following
-      options:
-        - label: I have the authority to submit this information.
-          required: true
-        - label: I agree to have this information published on the website.
-          required: true

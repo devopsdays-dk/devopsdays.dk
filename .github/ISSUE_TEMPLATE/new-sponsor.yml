@@ -12,7 +12,7 @@ body:
   - type: input
     id: name
     attributes:
-      label: Organization Name
+      label: Organization or Company Name
       description: The full name of your organization.
       placeholder: e.g., "AwesomeCorp"
     validations:
@@ -24,8 +24,7 @@ body:
       label: Tagline
       description: A short description of your organization (max 80 characters).
       placeholder: e.g., "Making the world a better place"
-    validations:
-      required: true
+
 
   - type: textarea
     id: content
@@ -35,23 +34,18 @@ body:
       placeholder: |
         Tell us about your organization.
 
-        What is your mission and values?
+        What is your mission and values? Why do you want to sponsor?
+    validations:
+      required: false
+
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: URL to your company website.
+      placeholder: "https://www.example.com"
     validations:
       required: true
-
-  - type: input
-    id: company
-    attributes:
-      label: Company
-      description: The company you work for.
-      placeholder: "AwesomeCorp"
-
-  - type: input
-    id: location
-    attributes:
-      label: Location
-      description: Your city and country.
-      placeholder: "Copenhagen, Denmark"
 
   - type: input
     id: email
@@ -66,13 +60,6 @@ body:
       label: Phone
       description: Your contact phone number.
       placeholder: "+45 12 34 56 78"
-
-  - type: input
-    id: website
-    attributes:
-      label: Website
-      description: URL to your company website.
-      placeholder: "https://www.example.com"
 
   - type: input
     id: x
@@ -109,13 +96,3 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
-    id: confirmation
-    attributes:
-      label: Confirmation
-      description: By submitting this form, you confirm the following
-      options:
-        - label: I have the authority to submit this information.
-          required: true
-        - label: I agree to have this information published on the website.
-          required: true
