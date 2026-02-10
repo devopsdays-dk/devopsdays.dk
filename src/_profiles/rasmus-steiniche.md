@@ -1,4 +1,5 @@
 ---
+
 name: Rasmus Steiniche
 headline: "CEO @ Neurospace"
 image: rasmus-steiniche.webp

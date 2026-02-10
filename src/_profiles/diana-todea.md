@@ -1,4 +1,5 @@
 ---
+
 name: Diana Todea
 headline: Developer Experience Engineer
 image: diana-todea.webp

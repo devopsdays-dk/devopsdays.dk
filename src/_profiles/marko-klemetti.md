@@ -1,4 +1,5 @@
 ---
+
 name: Marko Klemetti
 headline: 
 image: marko-klemetti.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - ai-platform-scaling
 ---
 
 CTO @ Eficode

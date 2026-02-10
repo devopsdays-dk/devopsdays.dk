@@ -1,4 +1,5 @@
 ---
+
 name: Vigan Shemsiu
 headline: Tech Lead, Novo Nordisk A/S
 image: vigan-shemsiu.webp

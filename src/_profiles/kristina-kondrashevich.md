@@ -1,4 +1,5 @@
 ---
+
 name: Kristina Kondrashevich
 headline: 
 image: kristina-kondrashevich.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - sre-to-platform
 ---
 
 SRE Product Manager at Electrolux Group

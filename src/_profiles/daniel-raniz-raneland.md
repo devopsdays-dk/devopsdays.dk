@@ -1,4 +1,5 @@
 ---
+
 name: Daniel Raniz Raneland
 headline: 
 image: daniel-raniz-raneland.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - pipeline-patterns
 ---
 
 Sourceror @ factor10

@@ -1,4 +1,5 @@
 ---
+
 name: Niek Van Raaij
 headline: 
 image: niek-van-raaij.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - mission-critical-lessons
 ---
 
 Mission Critical Engineer at Schuberg Philis

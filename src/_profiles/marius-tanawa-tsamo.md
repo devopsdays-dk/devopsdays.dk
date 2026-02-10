@@ -1,4 +1,5 @@
 ---
+
 name: Marius Tanawa Tsamo
 headline: 
 image: marius-tanawa-tsamo.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - scaling-smart
 ---
 
 Novo Nordisk, Senior Platform Engineer

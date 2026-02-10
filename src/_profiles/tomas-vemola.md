@@ -1,4 +1,5 @@
 ---
+
 name: Tomas Vemola
 headline: "Consultant @ The Tech Collective"
 image: tomas-vemola.webp

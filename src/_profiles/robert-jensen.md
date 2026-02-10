@@ -1,4 +1,5 @@
 ---
+
 name: Robert Jensen
 headline: 
 image: robert-jensen.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - mission-possible
 ---
 
 Cloud Native/DevOps consultant, 12F

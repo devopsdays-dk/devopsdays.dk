@@ -1,4 +1,5 @@
 ---
+
 # cspell:ignore andreyadamovich codingandrey
 name: Andrey Adamovich
 headline: 
@@ -17,6 +18,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - platform-ops-wardley
 ---
 
 CTO, Trainer, Consultant, Developer.

@@ -1,4 +1,5 @@
 ---
+
 name: Henning Kjær
 headline: 
 image: henning-kjaer.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - thinnest-platform
 ---
 
 Head of Platform Engineering @Genmab

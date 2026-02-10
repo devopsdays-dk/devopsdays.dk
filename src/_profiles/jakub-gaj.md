@@ -1,4 +1,5 @@
 ---
+
 name: Jakub Gaj
 headline: 🥷 serverless.ninja
 image: jakub-gaj.webp

@@ -1,4 +1,5 @@
 ---
+
 name: Simon Izydorek
 headline: 
 image: simon-izydorek.webp
@@ -16,6 +17,9 @@ roles:
   - speaker
 events:
   - 2025-aarhus
+
+talks:
+  - big-waves
 ---
 
 Simon, DevOps Engineer,
