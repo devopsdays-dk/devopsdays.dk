@@ -5,6 +5,8 @@ main:
   #   url: /toc/
   - title: "Conferences"
     url: /events/
+  - title: "Proposals"
+    url: /proposals/
   - title: "Stories"
     url: /stories/
   - title: "Organizers"
