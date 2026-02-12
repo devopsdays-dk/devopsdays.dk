@@ -1,0 +1,90 @@
+name: Deploy to Repository
+
+on:
+  workflow_call:
+    inputs:
+      target_repository:
+        description: 'Target repository in owner/repo format (e.g., devopsdays-dk/devopsdays-dk.github.io)'
+        required: true
+        type: string
+      artifact_name:
+        description: 'Name of the artifact to download'
+        required: true
+        type: string
+      artifact_path:
+        description: 'Local path where artifact will be downloaded to'
+        required: false
+        type: string
+        default: './_site'
+      user_name:
+        description: 'Git user name for the commit'
+        required: true
+        type: string
+      user_email:
+        description: 'Git user email for the commit'
+        required: true
+        type: string
+      commit_message:
+        description: 'Commit message for deployment'
+        required: false
+        type: string
+        default: 'Deploy from ${{ github.repository }}@${{ github.ref_name }}'
+      target_branch:
+        description: 'Target branch in the production repository'
+        required: false
+        type: string
+        default: 'main'
+    secrets:
+      token:
+        description: 'GitHub token with repo write permissions for the target repository'
+        required: true
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download build artifact
+        env:
+          GH_TOKEN: ${{ secrets.token }}gh
+        run: |
+          set -x
+          gh run download -R ${{ github.repository }} -D ${{ inputs.artifact_path }} -n ${{ inputs.artifact_name }} >> $GITHUB_STEP_SUMMARY
+
+      - name: Verify artifact directory
+        run: |
+          if [ ! -d "${{ inputs.artifact_path }}" ]; then
+            echo "❌ Error: Artifact ${{ inputs.artifact_name }} not found at ${{ inputs.artifact_path }}" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          fi
+          echo "✅ Artifact verified at ${{ inputs.artifact_path }}" >> $GITHUB_STEP_SUMMARY
+
+      - name: Deploy to target repository
+        env:
+          GH_TOKEN: ${{ secrets.token }}
+        run: |
+          # Create fresh deployment directory
+          mkdir -p deploy-target
+          cd deploy-target
+          
+          # Initialize fresh git repository
+          git init
+          
+          # Configure git
+          git config user.name "${{ inputs.user_name }}"
+          git config user.email "${{ inputs.user_email }}"
+          
+          # Copy the artifact contents
+          cp -r ../${{ inputs.artifact_path }}/* .
+          
+          # Stage and commit
+          git add -A
+          git commit -m "${{ inputs.commit_message }}"
+          
+          # Set remote and force push
+          git remote add origin https://github.com/${{ inputs.target_repository }}.git
+          git push -f origin HEAD:${{ inputs.target_branch }}
+          
+          echo "✅ Successfully deployed to ${{ inputs.target_repository }}" >> $GITHUB_STEP_SUMMARY

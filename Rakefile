@@ -56,6 +56,7 @@ namespace :proofer do
         %r{medium\.com},
         %r{http:\/\/localhost:},
         %r{serverless\.ninja},
+        %r{meetup\.com},
       ]
     }
     
