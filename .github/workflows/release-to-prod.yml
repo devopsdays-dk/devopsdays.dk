@@ -3,12 +3,12 @@ name: Release to Production
 on:
   push:
     tags:
-      - "[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*" # Matches 0.9.0, 1.2.3, 1.10.234 etc.
-      - "[a-zA-Z]*[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*" # Matches v0.9.0, ver0.9.0, RC1.0.0, v1.234.567 etc.
+      - '[0-9]+.[0-9]+.[0-9]+' # Matches: 0.9.0, 1.2.3
+      - '[a-zA-Z]+[0-9]+.[0-9]+.[0-9]+' # Matches: v1.0.0, ver1.0.0, RC1.0.0
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag to release (e.g., v1.0.0 or 1.0.0)'
+        description: "Tag to release (e.g., v1.0.0 or 1.0.0)"
         required: true
         type: string
 
@@ -49,7 +49,7 @@ jobs:
     needs: verify-tag-on-main
     permissions:
       contents: read
-    uses: ./.github/workflows/deploy-to-repo.yml
+    uses: lakruzz/workflows/.github/workflows/deploy-to-repo.yml@experimental
     with:
       target_repository: devopsdays-dk/devopsdays-dk.github.io
       artifact_name: site-${{ github.sha }}
@@ -57,4 +57,4 @@ jobs:
       user_email: "deploy@devopsdays.dk"
       commit_message: "Production release: ${{ github.ref_name || inputs.tag }}"
     secrets:
-      token: ${{ secrets.PROD_DEPLOY_TOKEN }}
+      token: ${{ secrets.READY_PUSHER }}
