@@ -3,14 +3,20 @@ name: Release to Production
 on:
   push:
     tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'  # Matches v1.0.0, v1.2.3, etc.
+      - "[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*" # Matches 0.9.0, 1.2.3, 1.10.234 etc.
+      - "[a-zA-Z]*[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*" # Matches v0.9.0, ver0.9.0, RC1.0.0, v1.234.567 etc.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release (e.g., v1.0.0 or 1.0.0)'
+        required: true
+        type: string
 
 concurrency:
   group: "production-pages"
   cancel-in-progress: false
 
 jobs:
-
   verify-tag-on-main:
     name: Verify tag is on main
     runs-on: ubuntu-latest
@@ -21,20 +27,22 @@ jobs:
           fetch-depth: 0
 
       - name: Verify tag is on main branch
+        env:
+          TAG_NAME: ${{ github.ref_name || inputs.tag }}
         run: |
           # Get the commit hash of the tag
-          tag_commit=$(git rev-list -n 1 ${{ github.ref_name }})
-          
+          tag_commit=$(git rev-list -n 1 $TAG_NAME)
+
           # Get the commit hash of main
           main_commit=$(git rev-list -n 1 origin/main)
-          
+
           # Check if tag commit is an ancestor of main
           if ! git merge-base --is-ancestor $tag_commit origin/main; then
-            echo "❌ Tag ${{ github.ref_name }} is not on the main branch!" >> $GITHUB_STEP_SUMMARY
+            echo "❌ Tag $TAG_NAME is not on the main branch!" >> $GITHUB_STEP_SUMMARY
             exit 1
           fi
-          
-          echo "✅ Tag ${{ github.ref_name }} verified on main branch" >> $GITHUB_STEP_SUMMARY
+
+          echo "✅ Tag $TAG_NAME verified on main branch" >> $GITHUB_STEP_SUMMARY
 
   deploy-to-prod:
     name: Deploy to Production
@@ -47,6 +55,6 @@ jobs:
       artifact_name: site-${{ github.sha }}
       user_name: "Production Deployer"
       user_email: "deploy@devopsdays.dk"
-      commit_message: "Production release: ${{ github.ref_name }}"
+      commit_message: "Production release: ${{ github.ref_name || inputs.tag }}"
     secrets:
       token: ${{ secrets.PROD_DEPLOY_TOKEN }}
