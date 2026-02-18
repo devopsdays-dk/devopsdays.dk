@@ -1,17 +1,18 @@
 ---
 # cspell: ignore improv
-name: Juan Herreros
-headline: "Principal Platform Engineer @ Banking Circle"
+name: Juan Herreros Elorza
+headline: Platform Engineering Team Lead
 image: juan-herreros.webp
-company: 
+company: Banking Circle
 email: 
 cell: 
 pronoun: 
-location: 
+location: Copenhagen, Denmark
 social:
   linkedin: juan-herreros-elorza
   website: "https://juanherreros.com/blog/"
   sessionize: "https://sessionize.com/jherreros"
+  github: "https://github.com/jherreros"
 roles:
   - speaker
 events:
