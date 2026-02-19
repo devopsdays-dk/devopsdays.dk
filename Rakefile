@@ -57,6 +57,9 @@ namespace :proofer do
         %r{http:\/\/localhost:},
         %r{serverless\.ninja},
         %r{meetup\.com},
+        %r{googleapis\.com},
+        %r{jsdelivr\.com},
+
       ]
     }
     

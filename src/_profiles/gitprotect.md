@@ -13,7 +13,7 @@ location:
 social:
   x: GitProtectio
   facebook: https://www.facebook.com/XoperoSoftware
-  linkedin: https://www.linkedin.com/xopero-software
+  linkedin: https://www.linkedin.com/company/xopero-software
   github:
   website: https://gitprotect.io/
 roles:
