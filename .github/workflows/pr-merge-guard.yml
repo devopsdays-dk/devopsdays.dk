@@ -1,0 +1,31 @@
+name: PR Merge Guard
+# Blocks direct PR merges to main. PRs are for review/approval only; delivery must
+# happen through the pr-to-ready -> ready/* workflow path.
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - edited
+      - ready_for_review
+  push:
+    branches:
+      - 'ready/**'
+
+jobs:
+  no-direct-merge-to-main:
+    name: guard:no-direct-pr-merge
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enforce ready-based delivery
+        run: |
+          if [[ "${{ github.event_name }}" == "pull_request" && "${{ github.event.pull_request.base.ref }}" == "main" ]]; then
+            echo "Direct PR merges to main are disabled in this repository."
+            echo "Approve the PR, then let 'PR to Ready' deliver a synthetic commit to ready/* instead."
+            exit 1
+          fi
+
+          echo "Ready-branch commit accepted by merge guard."

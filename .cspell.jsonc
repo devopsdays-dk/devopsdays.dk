@@ -11,8 +11,8 @@
         "**/tmp/**",
         "**/temp/**",
         "**/_config.yml",
-        "**/vendor/**"
-    ],
+        "**/vendor/**",
+        ],
     "files": [
         "**/*.md",
         "**/*.txt",

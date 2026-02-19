@@ -5,6 +5,7 @@ name: "Copilot Setup Steps"
 # The copilot workflow can only run in a standard ubuntu-latest environment, so we cannot use a 
 # custom Docker image for it. Instead, we install the necessary dependencies in the workflow steps below. 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     paths:
@@ -25,33 +26,50 @@ jobs:
     # Copilot will be given its own token for its operations.
     permissions:
       contents: read
+      statuses: write
 
-    steps:
+    steps:    
+
+      - name: Mark copilot-setup as pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh extension install lakruzz/gh-set-status
+          echo "Marking copilot-setup as pending" >> $GITHUB_STEP_SUMMARY 
+          gh set-status pending "Setting up environment for Copilot workflow" "copilot-setup"
+
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Mark checks defined in pre-commit hook as pending
+      - name: Test pre-commit hook
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          .githooks/pre-commit mark-pending
+
+      # Required by the rmagick gem, required by the jekyll-responsive-image gem/plugin used for the blog.
+      # Cadidate to be replaced by a more lightweight responsive-image solution in the future.
+      # As rmagick is without maintainer, the jekyll-responsive-image may enter it's sunset phase.
       - name: Install imagemagick
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick libmagickwand-dev
 
+      # Install Ruby, Bundler and all gems from Gemfile.
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true # runs 'bundle install' and caches installed gems
 
-      # Configure git to prevent dubious ownership errors
-      - name: Configure git safe directory
-        run: git config --global --add safe.directory /__w/renogfri.dk/renogfri.dk
-
-      # Configure Bundler to use the global gem path
+      # Configure Bundler to use the global gem path 
       - name: Configure Bundler
         run: |
           bundle config path vendor/bundle
 
-      # Install Node.js for npm packages (cspell, markdownlint-cli2)
-      # These might already be in your Docker image, but it's safe to have them here.
+      # Install Node.js for npm packages support
+      # These are required to support the CLIs used by the pre-commit hook.
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -62,10 +80,19 @@ jobs:
       - name: Install Node.js linting tools
         run: npm install -g cspell markdownlint-cli2 @cspell/dict-da-dk
 
-      # Configure git hooks path
+      # Force any Agents to honor precommit hooks by configuring the hook to run, even in Agentic mode.
       - name: Configure Git hooks
         run: git config core.hooksPath .githooks
 
+      - name: Mark copilot-setup as pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh set-status success "Setting up environment for Copilot workflow" "copilot-setup"
+
       # Verify the setup by running the pre-commit hook
       - name: Test pre-commit hook
-        run: .githooks/pre-commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          .githooks/pre-commit

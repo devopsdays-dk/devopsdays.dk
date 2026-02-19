@@ -13,8 +13,35 @@ concurrency:
 
 jobs:
 
+  prepare-image:
+    name: Fetch or Build
+    permissions:
+      packages: write
+    uses: lakruzz/workflows/.github/workflows/docker_with_cache.yml@experimental
+    with:
+      dockerfile: dockerfile
+      hash-files: Gemfile.lock
+      image-tag: docker-workflow-image
+
+  jekyll-build:
+    name: Jekyll Build
+    needs: [prepare-image]
+    permissions:
+      statuses: write
+      contents: read
+      packages: read
+      actions: write
+    uses: lakruzz/workflows/.github/workflows/rake_task.yml@experimental
+    secrets:
+      token: ${{ secrets.READY_PUSHER }}
+    with:
+      rake-task: jekyll:build
+      image-fqdn: ${{ needs.prepare-image.outputs.image-fqdn }}
+      upload-artifact: true  
+
   call_deploy_pages:
     name: Deploy
+    needs: [jekyll-build]
     permissions:
       statuses: write
       pages: write

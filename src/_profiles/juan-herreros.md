@@ -12,7 +12,7 @@ social:
   linkedin: juan-herreros-elorza
   website: "https://juanherreros.com/blog/"
   sessionize: "https://sessionize.com/jherreros"
-  github: "https://github.com/jherreros"
+  github: "jherreros"
 roles:
   - speaker
 events:

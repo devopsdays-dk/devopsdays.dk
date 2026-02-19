@@ -1,75 +1,53 @@
-
 name: Wrapup
-# This workflow is triggered on push to branches that begins with a number (issue-branches)
-# It's designed to support the wrapup process in thetechcollective/gh-tt GitHub CLI extension
+# This workflow is designed to run on intermediate commits done on development branches,
+# such as issue-branches and copilot branches.
+#
+# The workflow is expected to execute "the contract" that developers have with each other, regarding
+# which level of quality is expected in a commit before it's allowed to be merged onto main.
+#
+# This contract can conveniently be defined as the 'pre-commit' hook.
+# It's kinda the built-in purpose of the 'pre-commit' hook anyway! Only most teams don't use it
+# much nowadays - So this design is also a cheer to bring back the pre-commit hook as a first-class citizen
+# in the development process.
+#
+# For this to work well, the pre-commit hook should be designed to:
+# - Run all the checks that are expected to be green before a commit can be merged to the mainline.
+# - Report the results in a way that can be easily parsed and reported as commit status checks.
+# - Be self-contained and stored in the repository.
+#
+# Example:
+# create the pre-commit hook as '.githooks/pre-commit' in your repository and make it executable.
+# Setup your git to look for the hooks there by running:
+#
+#    git config core.hooksPath .githooks
+#
+# If you do it like this. then this flow only needs to:
+#   1. Prepare the environment to run the pre-commit hook (take off-set in ubuntu-latest, install dependencies, etc)
+#   2. Run the pre-commit hook
+#   3. Report the results as commit status checks
+#
+# This self-contained desing based on the 'pre-commit' hook has the following advantages.
+#
+# - Your workflow is generic across all your repos - It always does the same
+# - The contract in local dev vs CI runs is not 'similar' it is 'identical'.
+# - Developers can bypass the hook with '--no-verify' to allow 'dirty' commits to development branches.
+# - In agentic flows you can instruct the agent install the hook ('git config core.hooksPath .githooks') and they are forces to follow your standards.
 on:
   workflow_dispatch:
 
   push:
-    branches: 
-      - '[0-9]*'
+    branches:
+      - "[0-9]*" # Isue branches
+      - "copilot/*" # Copilot running in Agentic mode pushes branches with this prefix as default
 
 concurrency:
-  group: "pages"
+  group: "wrapup"
   cancel-in-progress: false
 
 jobs:
-        
-  mark-pending:
-    name: Pending
+  setup-and-run-precommit:
+    name: Setup and run pre-commit
     permissions:
-      statuses: write
       contents: read
-    uses: lakruzz/workflows/.github/workflows/mark_pending.yml@experimental
-    with:
-      statuses: |
-        cspell:check
-        markdown:lint
-        jekyll:build
-        proofer:check
-
-
-  cspell-check:
-    name: Check
-    needs: mark-pending
-    permissions:
       statuses: write
-      contents: read
-    uses: lakruzz/workflows/.github/workflows/cspell_check.yml@experimental
-    with:
-      context: cspell:check
-      config_file: cspell.json 
-
-  markdown-linter:
-    name: Linting
-    needs: mark-pending
-    permissions:
-      statuses: write
-      contents: read
-    uses: lakruzz/workflows/.github/workflows/markdown_linter.yml@experimental
-    with:
-      context: markdown:lint
-      config_file: .markdownlint-cli2.jsonc
-
-  prepare-image:
-    name: Fetch or Build
-    permissions:
-      packages: write
-    uses: lakruzz/workflows/.github/workflows/docker_with_cache.yml@experimental
-    with:
-      dockerfile: dockerfile
-      hash-files: Gemfile.lock
-      image-tag: docker-workflow-image
-
-  rake-tasks:
-    name: Multiple
-    needs: [mark-pending, prepare-image]
-    permissions:
-      statuses: write
-      contents: read
-      packages: read
-      actions: write
-    uses: lakruzz/workflows/.github/workflows/rake_task.yml@experimental
-    with:
-      rake-task: jekyll:build proofer:check
-      image-fqdn: ${{ needs.prepare-image.outputs.image-fqdn }}
+    uses: ./.github/workflows/copilot-setup-steps.yml
