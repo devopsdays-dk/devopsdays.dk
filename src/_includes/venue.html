@@ -1,0 +1,18 @@
+<!-- Venue include: display venue details with name, address, website and map links -->
+{% if include.name %}
+<div class="venue">
+  <h2 class="venue__title">Venue</h2>
+  <p class="venue__name">{{ include.name }}</p>
+  {% if include.address %}
+    <p class="venue__address">{{ include.address }}</p>
+  {% endif %}
+  <div class="venue__links">
+    {% if include.web %}
+      <a class="venue__link" href="{{ include.web }}" target="_blank" rel="noopener">Website</a>
+    {% endif %}
+    {% if include.map %}
+      <a class="venue__link" href="{{ include.map }}" target="_blank" rel="noopener">Map</a>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
