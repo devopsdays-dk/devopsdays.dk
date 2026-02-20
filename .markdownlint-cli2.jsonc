@@ -11,7 +11,7 @@
     "MD004": { "style": "dash" },
     "MD012": false,
     "MD013": false,
-    "MD024": false,
+    "MD024": { "siblings_only": true }, // Rule only apply to siblings (same parent)
     "MD025": false,
     "MD026": false,
     "MD033": false,

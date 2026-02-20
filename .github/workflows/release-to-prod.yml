@@ -55,6 +55,6 @@ jobs:
       artifact_name: site-${{ github.sha }}
       user_name: "Production Deployer"
       user_email: "deploy@devopsdays.dk"
-      commit_message: "Production release: ${{ github.ref_name || inputs.tag }}"
+      cname: "www.devopsdays.dk"
     secrets:
       token: ${{ secrets.READY_PUSHER }}

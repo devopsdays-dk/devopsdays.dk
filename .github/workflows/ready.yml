@@ -62,6 +62,11 @@ jobs:
       issues: write
       contents: write
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.READY_PUSHER }}
+
       - uses: lakruzz/workflows/actions/ready@experimental
         with:
           user_name: "Ready Pusher" #required
