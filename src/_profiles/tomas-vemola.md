@@ -1,9 +1,9 @@
 ---
 
 name: Tomas Vemola
-headline: "Consultant @ The Tech Collective"
+headline: Consultant @ The Tech Collective
 image: tomas-vemola.webp
-company: 
+company: The Tech Collective
 email: 
 cell: 
 pronoun: 
@@ -11,6 +11,7 @@ location:
 social:
   linkedin: tomasvemola
   website: "https://tomasvemola.com"
+  github: vemolista
 roles:
   - speaker
 events:
@@ -23,6 +24,8 @@ sessionize:
     - 1135895
 ---
 
-At some point I fell into a rabbit hole of randomized testing and never quite recovered. As a relative newcomer to the enterprise software industry, I have never understood why these techniques are not more widely adopted. I want to play a part in changing that so we can all spend less time on low-value testing.
+At some point, Tomas felt into a rabbit hole of autonomous testing and never quite recovered. He believes that all things autonomous testing are awesome and the only reason why everyone does not think the same is simply because they have not heard about it yet.
 
-I have done some well received internal talks in the past to audiences of 10-50 people, but nothing on record.
+And oh boy, is he is ready to change that.
+
+These days, Tomas is wondering the streets of Copenhagen in search of the meaning of life, finishing his masters degree and working on enterprise software at The Tech Collective.
