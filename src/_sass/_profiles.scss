@@ -659,26 +659,45 @@
    speakers-and-talks include (.sat-*)
    ========================================================= */
 
+/* Base grid — uses CSS subgrid so name/headline/talks align
+   horizontally across every row of speaker cards.
+   Each .sat-speaker spans 4 implicit rows:
+     1. photo  2. name  3. headline  4. talks             */
 .sat-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 2rem;
+  column-gap: 1.25rem;
+  row-gap: 0.3rem;                     // within-group row spacing
+  grid-auto-rows: auto auto auto auto; // 4-row pattern per speaker slot
   margin: 1.5rem 0;
 
+  // default: 4 columns
+  grid-template-columns: repeat(4, 1fr);
+
+  &--cols-2 { grid-template-columns: repeat(2, 1fr); }
+  &--cols-3 { grid-template-columns: repeat(3, 1fr); }
+  &--cols-4 { grid-template-columns: repeat(4, 1fr); }
+
   @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 1.5rem;
+    &--cols-4 { grid-template-columns: repeat(3, 1fr); }
+    &--cols-3 { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: 1fr;
+    &--cols-2 { grid-template-columns: repeat(2, 1fr); }
+    &--cols-3 { grid-template-columns: repeat(2, 1fr); }
+    &--cols-4 { grid-template-columns: repeat(2, 1fr); }
   }
 }
 
 .sat-speaker {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  grid-row: span 4;         // claim all 4 row tracks
+  display: grid;
+  grid-template-rows: subgrid;
+  margin-bottom: 1.25rem;   // visual gap between groups of rows
+}
+
+.sat-speaker-photo-wrap {
+  line-height: 0; // remove inline-block gap below image
 }
 
 .sat-speaker-photo-link {
@@ -699,17 +718,12 @@
   }
 }
 
-.sat-speaker-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
 .sat-speaker-name {
-  margin: 0;
-  font-size: $type-size-4;
+  margin: 0.4rem 0 0 0;
   font-family: $header-font-family;
   font-weight: 700;
+  font-size: $type-size-5;
+  line-height: 1.2;
 
   a {
     color: $text-color;
@@ -723,24 +737,26 @@
 
 .sat-speaker-headline {
   margin: 0;
-  font-size: $type-size-6;
   font-family: $sans-serif;
+  font-size: $type-size-7;
   color: $dod-grey-2;
+  line-height: 1.3;
+  min-height: 1em; // keep row height consistent when headline is absent
 }
 
 .sat-talks-list {
   list-style: none;
-  margin: 0.5rem 0 0 0;
+  margin: 0.3rem 0 0 0;
   padding: 0;
   border-top: 1px solid $border-color;
-  padding-top: 0.5rem;
+  padding-top: 0.4rem;
 }
 
 .sat-talk-item {
-  font-size: $type-size-6;
   font-family: $sans-serif;
-  line-height: 1.5;
-  margin-bottom: 0.25rem;
+  font-size: $type-size-7;
+  line-height: 1.4;
+  margin-bottom: 0.2rem;
 
   a {
     color: $link-color;
@@ -751,4 +767,23 @@
       text-decoration: underline;
     }
   }
+}
+
+// Per-columns font adjustments
+.sat-grid--cols-2 {
+  .sat-speaker-name     { font-size: $type-size-3; }   // 25px
+  .sat-speaker-headline { font-size: $type-size-5; }   // 16px
+  .sat-talk-item        { font-size: $type-size-5; }   // 16px
+}
+
+.sat-grid--cols-3 {
+  .sat-speaker-name     { font-size: $type-size-4; }   // 20px
+  .sat-speaker-headline { font-size: $type-size-6; }   // 14px
+  .sat-talk-item        { font-size: $type-size-6; }   // 14px
+}
+
+.sat-grid--cols-4 {
+  .sat-speaker-name     { font-size: $type-size-5; }   // 16px
+  .sat-speaker-headline { font-size: $type-size-7; }   // 12px
+  .sat-talk-item        { font-size: $type-size-7; }   // 12px
 }
