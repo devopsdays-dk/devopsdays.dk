@@ -77,18 +77,27 @@ layout: default
       {% if page.social %}
         <div class="profile-social">
           {% if page.social.x %}
-            <a href="https://x.com/{{ page.social.x }}" class="social-link" title="X" target="_blank">
+            {% if page.social.x contains "://" %}{% assign x_url = page.social.x %}{% else %}{% assign x_url = "https://x.com/" | append: page.social.x %}{% endif %}
+            <a href="{{ x_url }}" class="social-link" title="X" target="_blank">
               <i class="fab fa-x-twitter"></i>
             </a>
           {% endif %}
           {% if page.social.linkedin %}
-            <a href="https://linkedin.com/in/{{ page.social.linkedin }}" class="social-link" title="LinkedIn" target="_blank">
+            {% if page.social.linkedin contains "://" %}{% assign linkedin_url = page.social.linkedin %}{% else %}{% assign linkedin_url = "https://linkedin.com/in/" | append: page.social.linkedin %}{% endif %}
+            <a href="{{ linkedin_url }}" class="social-link" title="LinkedIn" target="_blank">
               <i class="fab fa-linkedin"></i>
             </a>
           {% endif %}
           {% if page.social.github %}
-            <a href="https://github.com/{{ page.social.github }}" class="social-link" title="GitHub" target="_blank">
+            {% if page.social.github contains "://" %}{% assign github_url = page.social.github %}{% else %}{% assign github_url = "https://github.com/" | append: page.social.github %}{% endif %}
+            <a href="{{ github_url }}" class="social-link" title="GitHub" target="_blank">
               <i class="fab fa-github"></i>
+            </a>
+          {% endif %}
+          {% if page.social.facebook %}
+            {% if page.social.facebook contains "://" %}{% assign facebook_url = page.social.facebook %}{% else %}{% assign facebook_url = "https://www.facebook.com/" | append: page.social.facebook %}{% endif %}
+            <a href="{{ facebook_url }}" class="social-link" title="Facebook" target="_blank">
+              <i class="fab fa-facebook"></i>
             </a>
           {% endif %}
           {% if page.social.website %}

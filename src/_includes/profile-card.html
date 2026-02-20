@@ -26,18 +26,27 @@
       {% if profile.social %}
         <div class="profile-card-social">
           {% if profile.social.x %}
-            <a href="https://x.com/{{ profile.social.x }}" class="social-icon" title="X" target="_blank">
+            {% if profile.social.x contains "://" %}{% assign x_url = profile.social.x %}{% else %}{% assign x_url = "https://x.com/" | append: profile.social.x %}{% endif %}
+            <a href="{{ x_url }}" class="social-icon" title="X" target="_blank">
               <i class="fab fa-x-twitter"></i>
             </a>
           {% endif %}
           {% if profile.social.linkedin %}
-            <a href="https://linkedin.com/in/{{ profile.social.linkedin }}" class="social-icon" title="LinkedIn" target="_blank">
+            {% if profile.social.linkedin contains "://" %}{% assign linkedin_url = profile.social.linkedin %}{% else %}{% assign linkedin_url = "https://linkedin.com/in/" | append: profile.social.linkedin %}{% endif %}
+            <a href="{{ linkedin_url }}" class="social-icon" title="LinkedIn" target="_blank">
               <i class="fab fa-linkedin"></i>
             </a>
           {% endif %}
           {% if profile.social.github %}
-            <a href="https://github.com/{{ profile.social.github }}" class="social-icon" title="GitHub" target="_blank">
+            {% if profile.social.github contains "://" %}{% assign github_url = profile.social.github %}{% else %}{% assign github_url = "https://github.com/" | append: profile.social.github %}{% endif %}
+            <a href="{{ github_url }}" class="social-icon" title="GitHub" target="_blank">
               <i class="fab fa-github"></i>
+            </a>
+          {% endif %}
+          {% if profile.social.facebook %}
+            {% if profile.social.facebook contains "://" %}{% assign facebook_url = profile.social.facebook %}{% else %}{% assign facebook_url = "https://www.facebook.com/" | append: profile.social.facebook %}{% endif %}
+            <a href="{{ facebook_url }}" class="social-icon" title="Facebook" target="_blank">
+              <i class="fab fa-facebook"></i>
             </a>
           {% endif %}
           {% if profile.social.website %}
