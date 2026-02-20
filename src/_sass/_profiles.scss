@@ -654,3 +654,101 @@
     opacity: 1;
   }
 }
+
+/* =========================================================
+   speakers-and-talks include (.sat-*)
+   ========================================================= */
+
+.sat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2rem;
+  margin: 1.5rem 0;
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sat-speaker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sat-speaker-photo-link {
+  display: block;
+  text-decoration: none;
+}
+
+.sat-speaker-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  background: linear-gradient(135deg, $dod-purple-20 0%, $dod-orange-20 100%);
+  transition: transform 0.3s ease;
+
+  .sat-speaker:hover & {
+    transform: translateY(-3px);
+  }
+}
+
+.sat-speaker-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sat-speaker-name {
+  margin: 0;
+  font-size: $type-size-4;
+  font-family: $header-font-family;
+  font-weight: 700;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+}
+
+.sat-speaker-headline {
+  margin: 0;
+  font-size: $type-size-6;
+  font-family: $sans-serif;
+  color: $dod-grey-2;
+}
+
+.sat-talks-list {
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  border-top: 1px solid $border-color;
+  padding-top: 0.5rem;
+}
+
+.sat-talk-item {
+  font-size: $type-size-6;
+  font-family: $sans-serif;
+  line-height: 1.5;
+  margin-bottom: 0.25rem;
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color-hover;
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+<!-- speakers-and-talks include
+     Parameters:
+       include.role  - filter by role (e.g. "speaker")
+       include.event - filter by event (e.g. "2026-cph")
+-->
+{% assign filter_role  = include.role %}
+{% assign filter_event = include.event %}
+
+{% assign matched_profiles = "" | split: "" %}
+{% for profile in site.profiles %}
+  {% assign role_match  = false %}
+  {% assign event_match = false %}
+
+  {% if filter_role %}
+    {% for r in profile.roles %}
+      {% if r == filter_role %}{% assign role_match = true %}{% endif %}
+    {% endfor %}
+  {% else %}
+    {% assign role_match = true %}
+  {% endif %}
+
+  {% if filter_event %}
+    {% for e in profile.events %}
+      {% if e == filter_event %}{% assign event_match = true %}{% endif %}
+    {% endfor %}
+  {% else %}
+    {% assign event_match = true %}
+  {% endif %}
+
+  {% if role_match and event_match %}
+    {% assign matched_profiles = matched_profiles | push: profile %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} Pre-filter talks by event once, outside the profile loop {% endcomment %}
+{% assign scoped_talks = "" | split: "" %}
+{% for talk in site.talks %}
+  {% if filter_event %}
+    {% if talk.events contains filter_event %}
+      {% assign scoped_talks = scoped_talks | push: talk %}
+    {% endif %}
+  {% else %}
+    {% assign scoped_talks = scoped_talks | push: talk %}
+  {% endif %}
+{% endfor %}
+
+{% if matched_profiles.size > 0 %}
+<div class="sat-grid">
+  {% for profile in matched_profiles %}
+    <div class="sat-speaker">
+      {% if profile.image %}
+        <a href="{{ profile.url }}" class="sat-speaker-photo-link">
+          <img src="/assets/images/profiles/{{ profile.image }}" alt="{{ profile.name }}" class="sat-speaker-photo">
+        </a>
+      {% endif %}
+      <div class="sat-speaker-info">
+        <h3 class="sat-speaker-name">
+          <a href="{{ profile.url }}">{{ profile.name }}</a>
+        </h3>
+        {% if profile.headline %}
+          <p class="sat-speaker-headline">{{ profile.headline }}</p>
+        {% endif %}
+        {% if profile.talks %}
+          <ul class="sat-talks-list">
+            {% for talk_id in profile.talks %}
+              {% for talk in scoped_talks %}
+                {% assign talk_file_id = talk.path | split: '/' | last | remove: '.md' %}
+                {% if talk_file_id == talk_id %}
+                  <li class="sat-talk-item">
+                    <a href="{{ talk.url }}">{{ talk.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
