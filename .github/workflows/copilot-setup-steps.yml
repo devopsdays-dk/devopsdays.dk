@@ -30,23 +30,22 @@ jobs:
 
     steps:    
 
-      - name: Mark copilot-setup as pending
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh extension install lakruzz/gh-set-status
-          echo "Marking copilot-setup as pending" >> $GITHUB_STEP_SUMMARY 
-          gh set-status pending "Setting up environment for Copilot workflow" "copilot-setup"
+      #- name: Mark copilot-setup as pending
+      #  env:
+      #    GH_TOKEN: ${{ github.token }}
+      #  run: |
+      #    gh extension install lakruzz/gh-set-status
+      #    echo "Marking copilot-setup as pending" >> $GITHUB_STEP_SUMMARY 
+      #    gh set-status pending "Setting up environment for Copilot workflow" "copilot-setup"
 
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Mark checks defined in pre-commit hook as pending
-      - name: Test pre-commit hook
+      - name: Mark checks as pending
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          .githooks/pre-commit mark-pending
+          .scripts/contributor-done mark-pending
 
       # Required by the rmagick gem, required by the jekyll-responsive-image gem/plugin used for the blog.
       # Cadidate to be replaced by a more lightweight responsive-image solution in the future.
@@ -83,12 +82,11 @@ jobs:
       # Force any Agents to honor precommit hooks by configuring the hook to run, even in Agentic mode.
       - name: Configure Git hooks
         run: git config core.hooksPath .githooks
-
-      - name: Mark copilot-setup as pending
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh set-status success "Setting up environment for Copilot workflow" "copilot-setup"
+      # - name: Mark copilot-setup as pending
+      #   env:
+      #     GH_TOKEN: ${{ github.token }}
+      #   run: |
+      #     gh set-status success "Setting up environment for Copilot workflow" "copilot-setup"
 
       # Verify the setup by running the pre-commit hook
       - name: Test pre-commit hook
