@@ -1,0 +1,56 @@
+.venue {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid $dod-purple-60;
+  background-color: $dod-orange-20;
+
+  .venue__title {
+    margin: 0 0 0.5rem 0;
+    font-family: $header-font-family;
+    font-size: $type-size-4;
+    font-weight: 400;
+    color: $dod-dark-grey;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .venue__name {
+    margin: 0 0 0.25rem 0;
+    font-family: $global-font-family;
+    font-size: $type-size-4;
+    font-weight: 700;
+    color: $dod-dark-grey;
+  }
+
+  .venue__address {
+    margin: 0 0 0.75rem 0;
+    font-family: $global-font-family;
+    font-size: $type-size-6;
+    color: $dod-grey-2;
+  }
+
+  .venue__links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .venue__link {
+    font-family: $caption-font-family;
+    font-size: $type-size-6;
+    font-weight: 600;
+    color: $dod-purple-100;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &:hover {
+      color: $dod-purple-80;
+      text-decoration: underline;
+    }
+
+    &:visited {
+      color: $dod-purple-100;
+    }
+  }
+}
