@@ -9,9 +9,9 @@ cell:
 pronoun: 
 location: 
 social:
-  x: krisbuytaert
+  mastodon: https://mastodon.social/@krisbuytaert
   linkedin: krisbuytaert
-  website: "https://krisbuytaert.be/blog/"
+  website: "https://krisbuytaert.be/"
   sessionize: "https://sessionize.com/kris-buytaert"
 roles:
   - speaker
