@@ -3,7 +3,7 @@
 name: Martin Mortensen
 headline: Software developer and toy maker passionate about creating value efficiently
 image: martin-mortensen.webp
-company: 
+company: MFT Energy
 email: 
 cell: 
 pronoun: 

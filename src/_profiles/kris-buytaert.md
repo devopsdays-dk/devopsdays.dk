@@ -3,7 +3,7 @@
 name: Kris Buytaert
 headline: Principal Yak Shaver o11y.eu 
 image: kris-buytaert.webp
-company: 
+company: o11y
 email: 
 cell: 
 pronoun: 
