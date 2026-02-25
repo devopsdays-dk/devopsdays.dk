@@ -82,6 +82,11 @@ layout: default
               <i class="fab fa-x-twitter"></i>
             </a>
           {% endif %}
+          {% if page.social.mastodon %}
+            <a href="{{ page.social.mastodon }}" class="social-link" title="Mastodon" target="_blank" rel="me">
+              <i class="fab fa-mastodon"></i>
+            </a>
+          {% endif %}
           {% if page.social.linkedin %}
             {% if page.social.linkedin contains "://" %}{% assign linkedin_url = page.social.linkedin %}{% else %}{% assign linkedin_url = "https://linkedin.com/in/" | append: page.social.linkedin %}{% endif %}
             <a href="{{ linkedin_url }}" class="social-link" title="LinkedIn" target="_blank">
@@ -103,6 +108,11 @@ layout: default
           {% if page.social.website %}
             <a href="{{ page.social.website }}" class="social-link" title="Website" target="_blank">
               <i class="fas fa-globe"></i>
+            </a>
+          {% endif %}
+          {% if page.social.sessionize %}
+            <a href="{{ page.social.sessionize }}" class="social-link" title="Sessionize" target="_blank">
+              <i class="fas fa-microphone"></i>
             </a>
           {% endif %}
         </div>
