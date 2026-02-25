@@ -110,6 +110,11 @@ layout: default
               <i class="fas fa-globe"></i>
             </a>
           {% endif %}
+          {% if page.social.sessionize %}
+            <a href="{{ page.social.sessionize }}" class="social-link" title="Sessionize" target="_blank">
+              <i class="fas fa-microphone"></i>
+            </a>
+          {% endif %}
         </div>
       {% endif %}
     </div>

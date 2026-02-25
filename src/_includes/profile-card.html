@@ -59,6 +59,11 @@
               <i class="fas fa-globe"></i>
             </a>
           {% endif %}
+          {% if profile.social.sessionize %}
+            <a href="{{ profile.social.sessionize }}" class="social-icon" title="Sessionize" target="_blank">
+              <i class="fas fa-microphone"></i>
+            </a>
+          {% endif %}
         </div>
       {% endif %}
       
