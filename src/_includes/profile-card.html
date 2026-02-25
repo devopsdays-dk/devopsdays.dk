@@ -31,6 +31,11 @@
               <i class="fab fa-x-twitter"></i>
             </a>
           {% endif %}
+          {% if profile.social.mastodon %}
+            <a href="{{ profile.social.mastodon }}" class="social-icon" title="Mastodon" target="_blank" rel="me">
+              <i class="fab fa-mastodon"></i>
+            </a>
+          {% endif %}
           {% if profile.social.linkedin %}
             {% if profile.social.linkedin contains "://" %}{% assign linkedin_url = profile.social.linkedin %}{% else %}{% assign linkedin_url = "https://linkedin.com/in/" | append: profile.social.linkedin %}{% endif %}
             <a href="{{ linkedin_url }}" class="social-icon" title="LinkedIn" target="_blank">
