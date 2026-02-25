@@ -8,16 +8,15 @@ on:
       - "ready/**"
 
 jobs:
-  inherit-statuses:
-    name: Inherit
+  setup-and-run-precommit:
+    name: Setup and run pre-commit
     permissions:
-      statuses: write
       contents: read
-    uses: lakruzz/workflows/.github/workflows/inherit_statuses.yml@experimental
+      statuses: write
+    uses: ./.github/workflows/copilot-setup-steps.yml
 
   mark-pending:
     name: Pending
-    needs: inherit-statuses
     permissions:
       statuses: write
       contents: read
@@ -38,7 +37,9 @@ jobs:
 
   jekyll-build:
     name: Jekyll Build
-    needs: [prepare-image, mark-pending]
+    needs:
+      - prepare-image
+      - mark-pending
     permissions:
       statuses: write
       contents: read
@@ -52,10 +53,29 @@ jobs:
       image-fqdn: ${{ needs.prepare-image.outputs.image-fqdn }}
       upload-artifact: true
 
+  mark-trunk-worthy:
+    name: Trunk-worthy
+    runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+      contents: read
+    needs: 
+      - jekyll-build
+      - setup-and-run-precommit
+    env:
+      GITHUB_TOKEN: ${{ secrets.READY_PUSHER }}
+    steps:
+      - name: Mark trunk-worthy
+        run: |
+          set -e
+          gh ext install lakruzz/gh-set-status
+          gh set-status success "Is trunk-worthy" trunk-worthy
+
   merge-to-trunk:
     name: Merge to trunk
     needs:
-      - jekyll-build
+      - mark-trunk-worthy
+      - setup-and-run-precommit
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
