@@ -47,5 +47,5 @@ feature_row:
 ---
 {% include feature_row id="intro" type="center" %}
 {% include feature_row %}
-{% include sponsors event="2026-cph" %}
+{% include sponsors.liquid event="2026-cph" %}
 {% include feature_row id="devopsdays" type="center" %}

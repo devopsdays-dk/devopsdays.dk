@@ -120,6 +120,7 @@ day-two:
 
 ## Two Day Program
 
-{% include program id="day-one" %}
-{% include program id="day-two" %}
-{% include sponsors event="2025-aarhus" %}
+{% include program.liquid id="day-one" %}
+{% include program.liquid id="day-two" %}
+{% include speakers-and-talks.html role="speaker" event="2025-aarhus" columns=3 %}
+{% include sponsors.liquid event="2025-aarhus" %}
