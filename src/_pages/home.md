@@ -44,11 +44,8 @@ feature_row:
     url: "https://join.slack.com/t/devopsdays-dk/shared_invite/zt-3ccd7udqv-RV1tMfoIKO8w273HiUrQng"
     btn_label: "Slack"
     btn_class: "btn--primary align-center"
-sponsors_heading:
-  - excerpt: "## Sponsors for the upcoming event"
 ---
 {% include feature_row id="intro" type="center" %}
 {% include feature_row %}
-{% include feature_row id="sponsors_heading" type="center" %}
 {% include sponsors event="2026-cph" %}
 {% include feature_row id="devopsdays" type="center" %}
