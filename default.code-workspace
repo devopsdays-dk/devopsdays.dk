@@ -1,11 +1,11 @@
 {
   "folders": [
     {
-      "path": "..",
+      "path": ".."
     },
     {
-      "path": "../../../localhome/GitHub/lakruzz/workflows",
-    },
+      "path": "../../localhome/GitHub/devopsdays-dk/minimal-mistakes"
+    }
   ],
   "settings": {
     "chat.tools.terminal.autoApprove": {

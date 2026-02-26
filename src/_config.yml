@@ -17,18 +17,20 @@ remote_theme             : devopsdays-dk/minimal-mistakes
 
 # Site Settings
 locale                   : "en-US"
-title                    : &title "DevOpsDays 🇩🇰"
+title                    : &title "DevOpsDays"
 title_separator          : "-"
 description              : &description "The Danish Chapter of the DevOpsDays community conference series"
-subtitle                 : &subtitle "Part of Something Bigger" # site tagline that appears below site title in masthead
+subtitle                 : # &subtitle "Part of Something Bigger" # site tagline that appears below site title in masthead
 name                     : *title
+masthead_title           : ' ' # overrides the website title displayed in the masthead, use " " for no title
+logo_link                : "/home/"
+terms_url                : /terms/
 url                      : "https://www.devopsdays.dk"
 cfp_form_url             : /proposals/ #https://sessionize.com/devopsdays-2026/
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "devopsdays-dk/devopsdays.dk" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : "/assets/images/dodd_logo_rgb_purple.png" # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
-masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:

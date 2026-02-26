@@ -17,7 +17,7 @@ $oswald: "Oswald", sans-serif !default;
 $noto-serif: "Noto Serif", serif !default; 
 $roboto-serif: "Roboto Serif", serif !default;
 
-$global-font-family: $roboto-serif !default;
+$global-font-family: $lato !default;
 $header-font-family: $oswald !default;
 $caption-font-family:$lato !default;
 $sans-serif-narrow: $lato !default;
@@ -75,7 +75,7 @@ $dod-light-grey:   #e0dfdc !default;
 
 
 /* Colors */
-$background-color: $dod-orange-60 !default;
+$background-color: $dod-orange-40 !default;
 $text-color: $dod-dark-grey !default;
 $primary-color: $dod-purple-60 !default;
 $border-color: mix($primary-color, $background-color, 20%) !default;
@@ -102,6 +102,21 @@ $danger-color: $dod-red-100 !default;
 $info-color: $dod-purple-100 !default;
 $focus-color: $primary-color !default;
 $active-color: mix(#fff, $primary-color, 80%) !default;
+
+// spalsh page
+
+.page__hero--overlay .page__lead {
+  color: #fff !important;
+  text-shadow: 0px 0px 0px rgba(0, 0, 0, .0) !important;
+  font-weight: 700 !important;
+}
+
+.btn--light-outline, .btn--light-outline:visited { // used for actions in the splash page image
+  background-color: $primary-color !important;
+  color: $dod-light-grey !important;
+  border-color: $primary-color !important;
+}
+
 
 .author__urls.social-icons i,
 .author__urls.social-icons .svg-inline--fa,
