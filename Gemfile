@@ -23,5 +23,6 @@ group :jekyll_plugins do
   gem "jekyll-algolia", "~> 1.7.1"
   gem "jekyll-redirect-from", "~> 0.16.0"
   gem "jekyll-remote-theme", "~> 0.4.3"
+  gem "jekyll_picture_tag", "~> 2.1"
   gem "jekyll-sass-converter", "~> 3.0.0"
 end

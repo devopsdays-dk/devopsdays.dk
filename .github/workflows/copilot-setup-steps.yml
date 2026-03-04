@@ -47,6 +47,13 @@ jobs:
         run: |
           .scripts/contributor-done mark-pending
 
+      # Required by jekyll_picture_tag (community standard responsive image plugin).
+      # libvips is significantly lighter and faster than imagemagick/libmagickwand-dev,
+      # and ruby-vips is actively maintained (unlike the old rmagick gem).
+      - name: Install libvips
+        run: |
+          sudo apt-get install -y libvips-dev
+
       # Install Ruby, Bundler and all gems from Gemfile.
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1

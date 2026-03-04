@@ -6,6 +6,20 @@
 {% assign img_title = include.title %}
 {% assign img_width = include.width %}
 
+{% comment %}
+  Attributes for the picture tag must be pre-computed as Liquid block tags
+  cannot be used inside another Liquid tag's params.
+  The class, title and width strings are built in the format that jekyll_picture_tag's
+  HTMLAttributeSet.hashify_input expects: key="value" pairs. After the --img flag,
+  all subsequent key="value" tokens are appended to the img element's attributes.
+{% endcomment %}
+{% assign img_class_attr = "pic" %}
+{% if img_class %}{% assign img_class_attr = "pic " | append: img_class %}{% endif %}
+{% assign img_title_attr = "" %}
+{% if img_title %}{% assign img_title_attr = 'title="' | append: img_title | append: '"' %}{% endif %}
+{% assign img_width_attr = "" %}
+{% if img_width %}{% assign img_width_attr = 'width="' | append: img_width | append: '"' %}{% endif %}
+
 {% if img_caption %}
 <div class="pic caption{% if img_class %} {{ img_class }}{% endif %}"
      {% if img_width %}style="width:{{ img_width }};"{% endif %}>
@@ -15,10 +29,6 @@
    {% if img_url contains 'http' %}target="_blank"{% endif %}
    {% if img_title %}title="{{ img_title }}"{% endif %}>
 {% endif %}
-<img src="/{{ img_path }}"
-     alt="{{ img_alt }}"
-     class="pic{% if img_class %} {{ img_class }}{% endif %}"
-     {% if img_title %}title="{{ img_title }}"{% endif %}
-     {% if img_width %}width="{{ img_width }}"{% endif %}>
+{% picture {{ img_path }} --alt {{ img_alt }} --img class="{{ img_class_attr }}" {{ img_title_attr }} {{ img_width_attr }} %}
 {% if img_url %}</a>{% endif %}
 {% if img_caption %}{{ img_caption }}</div>{% endif %}
