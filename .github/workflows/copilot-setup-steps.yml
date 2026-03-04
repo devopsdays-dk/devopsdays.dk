@@ -41,6 +41,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Install libvips for jekyll_picture_tag image processing (lighter alternative to imagemagick)
+      - name: Install libvips
+        run: sudo apt-get install -y libvips-dev
+
       - name: Mark checks as pending
         env:
           GH_TOKEN: ${{ github.token }}

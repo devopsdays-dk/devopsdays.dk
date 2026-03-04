@@ -14,6 +14,7 @@ gem "rake", "~> 13.3.1"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
+  gem "jekyll_picture_tag", "~> 2.1"
   gem "jekyll-paginate", "~> 1.1.0"
   gem "jekyll-sitemap", "~> 1.4.0"
   gem "jekyll-gist", "~> 1.5.0"

@@ -1,24 +1,13 @@
-{% assign img_path = include.path %}
-{% assign img_alt = include.alt %}
-{% assign img_caption = include.caption %}
-{% assign img_class = include.class %}
-{% assign img_url = include.url %}
-{% assign img_title = include.title %}
-{% assign img_width = include.width %}
-
-{% if img_caption %}
-<div class="pic caption{% if img_class %} {{ img_class }}{% endif %}"
-     {% if img_width %}style="width:{{ img_width }};"{% endif %}>
-{% endif %}
-{% if img_url %}
-<a href="{{ img_url }}"
-   {% if img_url contains 'http' %}target="_blank"{% endif %}
-   {% if img_title %}title="{{ img_title }}"{% endif %}>
-{% endif %}
-<img src="/{{ img_path }}"
-     alt="{{ img_alt }}"
-     class="pic{% if img_class %} {{ img_class }}{% endif %}"
-     {% if img_title %}title="{{ img_title }}"{% endif %}
-     {% if img_width %}width="{{ img_width }}"{% endif %}>
-{% if img_url %}</a>{% endif %}
-{% if img_caption %}{{ img_caption }}</div>{% endif %}
+{%- assign img_path = include.path -%}
+{%- assign img_alt = include.alt | default: "" -%}
+{%- assign img_caption = include.caption -%}
+{%- assign img_class = include.class -%}
+{%- assign img_url = include.url -%}
+{%- assign img_title = include.title -%}
+{%- assign img_width = include.width -%}
+{%- if img_class -%}{%- assign pic_class = "pic " | append: img_class -%}{%- else -%}{%- assign pic_class = "pic" -%}{%- endif -%}
+{%- if img_caption %}<div class="pic caption{%- if img_class %} {{ img_class }}{%- endif %}"{% if img_width %} style="width:{{ img_width }};"{% endif %}>{%- endif -%}
+{%- if img_url %}<a href="{{ img_url }}"{% if img_url contains 'http' %} target="_blank"{% endif %}{% if img_title %} title="{{ img_title }}"{% endif %}>{%- endif -%}
+{%- picture {{ img_path }} --alt {{ img_alt }} --img class="{{ pic_class }}" -%}
+{%- if img_url %}</a>{%- endif -%}
+{%- if img_caption %}{{ img_caption }}</div>{%- endif -%}
