@@ -26,6 +26,6 @@ sessionize:
 
 At some point, Tomas felt into a rabbit hole of autonomous testing and never quite recovered. He believes that all things autonomous testing are awesome and the only reason why everyone does not think the same is simply because they have not heard about it yet.
 
-And oh boy, is he is ready to change that.
+And oh boy, is he ready to change that.
 
 These days, Tomas is wondering the streets of Copenhagen in search of the meaning of life, finishing his masters degree and working on enterprise software at The Tech Collective.
