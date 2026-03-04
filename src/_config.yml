@@ -335,3 +335,12 @@ defaults:
       author_profile: false
       share: false
       comments: false
+
+
+# jekyll_picture_tag configuration
+# Community-standard responsive image plugin using libvips (lightweight) instead of imagemagick/rmagick
+# Presets are configured in src/_data/picture.yml
+picture:
+  source: ""
+  output: "generated"
+  suppress_warnings: false
