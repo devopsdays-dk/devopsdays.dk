@@ -98,7 +98,7 @@ The type of presentations is free, and totally up to you - surprise us! I can ra
 {% include image.html
   path="assets/images/posts/cfp/tedcommandments.png"
   alt="The TED Commandments"
-  caption="In the early days of the TED organization the accepted speakers were sent a physical stone plate as a prop. It was meant as playful reference to the biblical Ten Commandments given to Moses on Mount Sinai. But with the deliberate intetn to (lightly) intimidate the speakers with the importance and seriousness with which TED treats the quality of its presentations."
+  caption="In the early days of the TED organization the accepted speakers were sent a physical stone plate as a prop. It was meant as playful reference to the biblical Ten Commandments given to Moses on Mount Sinai. But with the deliberate intent to (lightly) intimidate the speakers with the importance and seriousness with which TED treats the quality of its presentations."
   class="small right"
 %}
 Put some effort into the proposal, this is your first encounter with he program committee — and first impressions lasts. It exemplifies how you present ideas and how you convey information.

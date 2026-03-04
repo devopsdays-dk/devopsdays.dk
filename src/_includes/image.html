@@ -6,7 +6,19 @@
 {% assign img_title = include.title %}
 {% assign img_width = include.width %}
 
-{% if img_caption %}<div class="pic caption{% if img_class %} {{ img_class }}{% endif %}"{% if img_width %} style="width:{{ img_width }};"{% endif %}>{% endif %}
-{% if img_url %}<a href="{{ img_url }}"{% if img_url contains 'http' %} target="_blank"{% endif %}{% if img_title %} title="{{ img_title }}"{% endif %}>{% endif %}
-<img src="/{{ img_path }}" alt="{{ img_alt }}"{% if img_class %} class="pic {{ img_class }}"{% else %} class="pic"{% endif %}{% if img_title %} title="{{ img_title }}"{% endif %}{% if img_width %} width="{{ img_width }}"{% endif %}>{% if img_url %}</a>{% endif %}
+{% if img_caption %}
+<div class="pic caption{% if img_class %} {{ img_class }}{% endif %}"
+     {% if img_width %}style="width:{{ img_width }};"{% endif %}>
+{% endif %}
+{% if img_url %}
+<a href="{{ img_url }}"
+   {% if img_url contains 'http' %}target="_blank"{% endif %}
+   {% if img_title %}title="{{ img_title }}"{% endif %}>
+{% endif %}
+<img src="/{{ img_path }}"
+     alt="{{ img_alt }}"
+     class="pic{% if img_class %} {{ img_class }}{% endif %}"
+     {% if img_title %}title="{{ img_title }}"{% endif %}
+     {% if img_width %}width="{{ img_width }}"{% endif %}>
+{% if img_url %}</a>{% endif %}
 {% if img_caption %}{{ img_caption }}</div>{% endif %}
