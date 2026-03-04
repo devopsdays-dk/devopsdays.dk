@@ -1,6 +1,6 @@
 ---
-name: Alexandra Aldershaab
-headline: 
+name: Alexandra Hou Aldershaab
+headline: DevOps Consultant at Eficode
 image: alexandra-aldershaab.webp
 company: Eficode
 email: 
@@ -12,7 +12,8 @@ social:
   linkedin: housa
   github: 
   website:
-  email: alexandra.hou@gmail.com
+  email: alexandra@housa.dk
+  sessionize: https://sessionize.com/housa
 roles:
   - speaker
 events:
@@ -21,6 +22,6 @@ talks:
   - death-to-the-spreadsheet
 ---
 
-Alexandra is a seasoned DevOps Consultant at Eficode. She has a skilled and well-rounded profile. Not afraid to learn and solve the tasks that her colleagues tend to avoid, which has led her to have a diverse profile, covering mostly tasks surrounding traditional development like CI/CD, but has also landed her in the midst of SAP as well as Mainframe integration and development.
+Alexandra is a seasoned DevOps Consultant at Eficode. Having navigated diverse environments filled with legacy pipelines sprinkled with ancient scripts, she's become a passionate advocate for Developer Experience.
 
-Having navigated diverse environments filled with legacy pipelines sprinkled with ancient scripts, she has become a passionate advocate for Developer Experience. She is dedicated to optimizing both technical processes (modern pipelines) and interpersonal dynamics (team collaboration). Wholeheartedly believing that effective communication is crucial for delivering high-quality software and preventing burnout.
+She is dedicated to optimising both technical processes (modern pipelines) as well as interpersonal dynamics (team collaboration). Wholeheartedly believing that effective communication is crucial for delivering high-quality software and preventing burnout.
