@@ -1,5 +1,6 @@
 # General
 temp/
+default.code-workspace
 
 # Ruby Gem
 *.gem
