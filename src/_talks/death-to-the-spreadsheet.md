@@ -1,7 +1,7 @@
 ---
 id: death-to-the-spreadsheet
 title: "Death to the Spreadsheet: Breaking the Cycle of Security Theater"
-speaker: alexandra
+speaker: alexandra-aldershaab
 excerpt: "Compliance is not security, but for many organizations, they look identical: an annual fire drill of manual spreadsheets, stale screenshots, and \"check-the-box\" exercises. Pure Security Theater — a performance that satisfies auditors with a snapshot in time but fails to defend against a living threat landscape."
 events:
   - 2026-cph
