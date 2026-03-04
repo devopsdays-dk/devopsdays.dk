@@ -13,11 +13,11 @@ tags:
 # cspell:ignore devopsy
 ---
 
-{% responsive_image
-  path: "assets/images/posts/evolution/devops-evolution.jpg"
-  alt: "DevOps Evolution"
-  caption: "What is DevOps — we have discussed this since the #DevOps hashtag was first used, but maybe we don't need to define it; just reflect on what it embraces"
-  class: "center full top"
+{% include image.html
+  path="assets/images/posts/evolution/devops-evolution.jpg"
+  alt="DevOps Evolution"
+  caption="What is DevOps — we have discussed this since the #DevOps hashtag was first used, but maybe we don't need to define it; just reflect on what it embraces"
+  class="center full top"
 %}
 
 ## DevOps Evolution

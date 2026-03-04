@@ -47,14 +47,6 @@ jobs:
         run: |
           .scripts/contributor-done mark-pending
 
-      # Required by the rmagick gem, required by the jekyll-responsive-image gem/plugin used for the blog.
-      # Cadidate to be replaced by a more lightweight responsive-image solution in the future.
-      # As rmagick is without maintainer, the jekyll-responsive-image may enter it's sunset phase.
-      - name: Install imagemagick
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick libmagickwand-dev
-
       # Install Ruby, Bundler and all gems from Gemfile.
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1

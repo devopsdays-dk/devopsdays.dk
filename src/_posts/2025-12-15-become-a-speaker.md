@@ -11,12 +11,12 @@ tags:
 # cspell:ignore devopsy thau
 ---
 
-{% responsive_image
-  path: "assets/images/posts/cfp/dod-24-speaker.jpg"
-  alt: "Simon on stage"
-  caption: "Simon on stage at DevOpsDays 2022 - his first public speak. Schooling the community in 'DevOps for Entrepreneurs' click the image to see the full talk"
-  class: "center"
-  url: https://www.youtube.com/watch?v=3vYuaU44E0s
+{% include image.html
+  path="assets/images/posts/cfp/dod-24-speaker.jpg"
+  alt="Simon on stage"
+  caption="Simon on stage at DevOpsDays 2022 - his first public speak. Schooling the community in 'DevOps for Entrepreneurs' click the image to see the full talk"
+  class="center"
+  url="https://www.youtube.com/watch?v=3vYuaU44E0s"
 %}
 
 At DevOpsDays we are always on the look-out for speakers that can _teach_ us, _inspire_ us or simply _entertain_ us. We put on talks that balances the cultural and technical aspects of _anything_ DevOpsy. Speakers in our community range from first-time-on-stage talents to top-dog international keynote-for-a-living.
@@ -95,11 +95,11 @@ The type of presentations is free, and totally up to you - surprise us! I can ra
 
 ## How to get your proposal accepted
 
-{% responsive_image
-  path: "assets/images/posts/cfp/tedcommandments.png"
-  alt: "The TED Commandments"
-  caption: "In the early days of the TED organization the accepted speakers were sent a physical stone plate as a prop. It was meant as playful reference to the biblical Ten Commandments given to Moses on Mount Sinai. But with the deliberate intetn to (lightly) intimidate the speakers with the importance and seriousness with which TED treats the quality of its presentations."
-  class: "small right"
+{% include image.html
+  path="assets/images/posts/cfp/tedcommandments.png"
+  alt="The TED Commandments"
+  caption="In the early days of the TED organization the accepted speakers were sent a physical stone plate as a prop. It was meant as playful reference to the biblical Ten Commandments given to Moses on Mount Sinai. But with the deliberate intetn to (lightly) intimidate the speakers with the importance and seriousness with which TED treats the quality of its presentations."
+  class="small right"
 %}
 Put some effort into the proposal, this is your first encounter with he program committee — and first impressions lasts. It exemplifies how you present ideas and how you convey information.
 
