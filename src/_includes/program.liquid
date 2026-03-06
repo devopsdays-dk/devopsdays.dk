@@ -41,10 +41,11 @@ day-one:
 
 {% if program_data %}
   <div class="program-schedule">
+    
     {% if program_data.caption %}
       <h2 class="program-date">{{ program_data.caption }}</h2>
     {% endif %}
-
+    <details open><summary>👈 Click to toggle <code>expand|collapse</code></summary>
     <div class="program-items">
       {% comment %} Parse start time - may be string "8:30" or float 8.3 from YAML {% endcomment %}
       {% assign start_value = program_data.start | to_s %}
@@ -180,6 +181,7 @@ day-one:
         {% endif %}
       {% endfor %}
     </div>
+    </details>
   </div>
 
   <style>
