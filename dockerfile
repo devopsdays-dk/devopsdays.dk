@@ -13,11 +13,14 @@ RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | d
     chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg && \
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null && \
     apt-get update && \
-    apt-get install gh -y
+    apt-get install gh libvips-dev -y
 
 RUN apt-get install -y locales && \
     echo "en_US UTF-8" > /etc/locale.gen && \
     locale-gen en_US UTF-8
+
+# Required by jekyll_picture_tag (community standard responsive image plugin).
+RUN apt-get install -y libvips-dev
 
 ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US:en

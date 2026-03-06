@@ -41,19 +41,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Install libvips for jekyll_picture_tag image processing (lighter alternative to imagemagick)
+      - name: Install libvips
+        run: sudo apt-get install -y libvips-dev
+
       - name: Mark checks as pending
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           .scripts/contributor-done mark-pending
 
-      # Required by the rmagick gem, required by the jekyll-responsive-image gem/plugin used for the blog.
-      # Cadidate to be replaced by a more lightweight responsive-image solution in the future.
-      # As rmagick is without maintainer, the jekyll-responsive-image may enter it's sunset phase.
-      - name: Install imagemagick
+      # Required by jekyll_picture_tag (community standard responsive image plugin).
+      - name: Install libvips
         run: |
-          sudo apt-get update
-          sudo apt-get install -y imagemagick libmagickwand-dev
+          sudo apt-get install -y libvips-dev
 
       # Install Ruby, Bundler and all gems from Gemfile.
       - name: Set up Ruby
