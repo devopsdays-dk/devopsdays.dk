@@ -68,7 +68,6 @@ bundle exec rake jekyll:build
 
 Caveats and best practices
 
-- Image processing: the responsive-image plugin requires existing image files; missing images can break builds (ImageMagick errors). Always add the image file before referencing it.
 - Prefer `profile.url` when building links where available, but the include currently builds profile links from `profile.id`.
 - Add a CI check or small rake task to validate that for every `event` listed in a profile, a `sponsorship` entry exists. This prevents silent omissions.
 

@@ -20,7 +20,6 @@ RUN apt-get install -y locales && \
     locale-gen en_US UTF-8
 
 # Required by jekyll_picture_tag (community standard responsive image plugin).
-# libvips is lighter and faster than the old imagemagick/libmagickwand-dev approach.
 RUN apt-get install -y libvips-dev
 
 ENV LANG=en_US.UTF-8

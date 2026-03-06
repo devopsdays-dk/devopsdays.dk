@@ -338,7 +338,7 @@ defaults:
 
 
 # jekyll_picture_tag configuration
-# Community-standard responsive image plugin using libvips (lightweight) instead of imagemagick/rmagick
+# Community-standard responsive image plugin using libvips (lightweight)
 # Presets are configured in src/_data/picture.yml
 picture:
   source: ""
