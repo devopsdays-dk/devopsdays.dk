@@ -14,7 +14,9 @@
             "extensions": [
 				"DavidAnson.vscode-markdownlint",
 				"streetsidesoftware.code-spell-checker",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"mhutchie.git-graph",
+				"mk12.better-git-line-blame"
 			]
         }
     },

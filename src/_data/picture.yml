@@ -1,0 +1,17 @@
+# jekyll_picture_tag preset configuration
+# See: https://rbuchberger.github.io/jekyll_picture_tag/users/presets/
+#
+# The 'default' preset is used when no preset is specified in the picture tag.
+# It generates WebP + original format images at multiple widths for responsive images.
+presets:
+  default:
+    formats:
+      - webp
+      - original
+    widths:
+      - 400
+      - 800
+      - 1200
+    fallback_width: 800
+    fallback_format: original
+    quality: 100 # Balanced quality/file size tradeoff (gem default is 75)

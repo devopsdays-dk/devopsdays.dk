@@ -11,7 +11,7 @@
 			"version": "3.2"
 		},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "imagemagick,libmagickwand-dev"
+			"packages": "libvips-dev"
 		}
 	},
 	"customizations": {
@@ -20,8 +20,9 @@
 				"DavidAnson.vscode-markdownlint",
 				"streetsidesoftware.code-spell-checker",
 				"esbenp.prettier-vscode",
-				"Shopify.theme-check-vscode"
-			]	
+				"Shopify.theme-check-vscode",
+				"mhutchie.git-graph",
+				"mk12.better-git-line-blame"			]	
 		}
 	},
 
