@@ -14,4 +14,4 @@ presets:
       - 1200
     fallback_width: 800
     fallback_format: original
-    quality: 85 # Balanced quality/file size tradeoff (gem default is 75)
+    quality: 100 # Balanced quality/file size tradeoff (gem default is 75)

@@ -5,9 +5,14 @@
 {%- assign img_url = include.url -%}
 {%- assign img_title = include.title -%}
 {%- assign img_width = include.width -%}
+{%- assign img_raw = include.raw | default: false -%}
 {%- if img_class -%}{%- assign pic_class = "pic " | append: img_class -%}{%- else -%}{%- assign pic_class = "pic" -%}{%- endif -%}
 {%- if img_caption %}<div class="pic caption{%- if img_class %} {{ img_class }}{%- endif %}"{% if img_width %} style="width:{{ img_width }};"{% endif %}>{%- endif -%}
 {%- if img_url %}<a href="{{ img_url }}"{% if img_url contains 'http' %} target="_blank"{% endif %}{% if img_title %} title="{{ img_title }}"{% endif %}>{%- endif -%}
+{%- if img_raw -%}
+<img src="{{ img_path | relative_url }}" alt="{{ img_alt }}" class="{{ pic_class }}" {%- if img_title %} title="{{ img_title }}"{% endif %} {%- if img_width %} width="{{ img_width }}"{% endif %} />
+{%- else -%}
 {%- picture {{ img_path }} --alt {{ img_alt }} --img class="{{ pic_class }}" -%}
+{%- endif -%}
 {%- if img_url %}</a>{%- endif -%}
 {%- if img_caption %}{{ img_caption }}</div>{%- endif -%}

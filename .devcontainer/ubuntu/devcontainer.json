@@ -11,7 +11,7 @@
 			"version": "3.2"
 		},
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-			"packages": "imagemagick,libmagickwand-dev"
+			"packages": "imagemagick,libmagickwand-dev libvips-dev"
 		}
 	},
 	"customizations": {
