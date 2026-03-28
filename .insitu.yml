@@ -1,0 +1,123 @@
+# .insitu.yml – insitu self-hosting configuration
+# Run 'insitu plan' to preview  |  'insitu run' to execute
+# cspell:ignore markdownlint
+
+defaults:
+  die-on-error: true
+  timeout: 5m
+  verbose: false
+
+inventory:
+  - id: "cspell"
+    name: "Run cspell"
+    command: "cspell"
+
+  - id: "markdownlint"
+    name: "Run markdownlint"
+    command: "markdownlint-cli2"
+
+  - id: "build"
+    name: "Build site"
+    command: "bundle exec rake jekyll:build"
+
+  - id: "externallinks"
+    name: "Check external links"
+    command: "bundle exec rake proofer:check"
+
+  - id: "internallinks"
+    name: "Check internal links"
+    command: "bundle exec rake proofer:dev"
+
+  - id: "gh-auth"
+    name: "GitHub Authentication"
+    command: "gh auth status"
+
+  - id: "install-takt"
+    name: "Install Takt"
+    command: "gh extension install devx-cafe/gh-tt"
+
+  - id: "install-takt-shortcuts"
+    name: "Install Takt Shortcuts"
+    command: |
+      gh alias set workon '!gh tt workon "$@"' --clobber 
+      gh alias set wrapup '!gh tt wrapup "$@"' --clobber
+      gh alias set deliver '!gh tt deliver "$@"' --clobber
+      gh alias set semver '!gh tt semver "$@"' --clobber
+
+  - id: "safe-repo"
+    name: "Mark repository as safe for git operations"
+    command: "git config --global --add safe.directory $(pwd)"
+
+  - id: repo-gitconfig
+    name: "Use repo-root .gitconfig for consistent git settings"
+    command: |
+      git config --local --get include.path | grep -e ../.gitconfig >/dev/null 2>&1 || \
+      git config --local --add include.path ../.gitconfig
+  
+  - id: bundle-install
+    name: "Install project dependencies with bundle"
+    command: |
+      bundle config path vendor/bundle
+      bundle config set frozen true
+      bundle install
+      bundle config set frozen false
+ 
+  - id: "install-libvips"
+    name: "Install libvips"
+    command: |
+      sudo apt-get update
+      sudo apt-get install -y libvips-dev
+
+  - id: "install-lint-tools"
+    name: "Install linting and checker tools"
+    command: |
+      npm install -g cspell markdownlint-cli2 @cspell/dict-da-dk prettier
+
+  - id: bundle-install
+    name: "Install project dependencies with bundle"
+    command: |
+      bundle config set frozen true
+      bundle install
+      bundle config set frozen false
+
+waves:
+  - id: "post-create"
+    name: "Dev Container Post Create"
+    parallel: true
+    checks:
+      - "gh-auth"
+      - "install-takt"
+      - "install-takt-shortcuts"
+      - "safe-repo"
+      - "repo-gitconfig"
+      - "bundle-install"
+
+  - id: "runner-prep"
+    name: "GitHub Workflow Runner Preparation"
+    parallel: true
+    checks:
+      - "install-libvips"
+      - "install-lint-tools"
+      - "bundle-install"
+
+  - id: "bundle-install"
+    name: "Install dependencies from Gemfile.lock with bundle"
+    parallel: true
+    checks:
+      - "bundle-install"
+
+  - id: "build"
+    name: "Build site"
+    parallel: true
+    checks:
+      - "cspell"
+      - "markdownlint"
+      - "build"
+
+  - id: "proofing"
+    name: "Proofreading"
+    parallel: true
+    checks: 
+      - "externallinks"
+      - "internallinks"
+

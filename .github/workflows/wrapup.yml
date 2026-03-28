@@ -1,37 +1,4 @@
-name: Wrapup
-# This workflow is designed to run on intermediate commits done on development branches,
-# such as issue-branches and copilot branches.
-#
-# The workflow is expected to execute "the contract" that developers have with each other, regarding
-# which level of quality is expected in a commit before it's allowed to be merged onto main.
-#
-# This contract can conveniently be defined as the 'pre-commit' hook.
-# It's kinda the built-in purpose of the 'pre-commit' hook anyway! Only most teams don't use it
-# much nowadays - So this design is also a cheer to bring back the pre-commit hook as a first-class citizen
-# in the development process.
-#
-# For this to work well, the pre-commit hook should be designed to:
-# - Run all the checks that are expected to be green before a commit can be merged to the mainline.
-# - Report the results in a way that can be easily parsed and reported as commit status checks.
-# - Be self-contained and stored in the repository.
-#
-# Example:
-# create the pre-commit hook as '.githooks/pre-commit' in your repository and make it executable.
-# Setup your git to look for the hooks there by running:
-#
-#    git config core.hooksPath .githooks
-#
-# If you do it like this. then this flow only needs to:
-#   1. Prepare the environment to run the pre-commit hook (take off-set in ubuntu-latest, install dependencies, etc)
-#   2. Run the pre-commit hook
-#   3. Report the results as commit status checks
-#
-# This self-contained desing based on the 'pre-commit' hook has the following advantages.
-#
-# - Your workflow is generic across all your repos - It always does the same
-# - The contract in local dev vs CI runs is not 'similar' it is 'identical'.
-# - Developers can bypass the hook with '--no-verify' to allow 'dirty' commits to development branches.
-# - In agentic flows you can instruct the agent install the hook ('git config core.hooksPath .githooks') and they are forces to follow your standards.
+name: wrapup
 on:
   workflow_dispatch:
 
@@ -44,10 +11,22 @@ concurrency:
   group: "wrapup"
   cancel-in-progress: false
 
+
 jobs:
-  setup-and-run-precommit:
-    name: Setup and run pre-commit
+  trunk-worthy:
+    name: Check trunk worthyness
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       contents: read
       statuses: write
-    uses: ./.github/workflows/copilot-setup-steps.yml
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up and verify runner environment
+        uses: ./.github/actions/prep-runner
+        with:
+          verify: gh insitu run build proofing

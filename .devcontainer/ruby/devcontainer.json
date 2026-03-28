@@ -8,7 +8,7 @@
 		// Update the 'dockerFile' property if you aren't using the standard 'Dockerfile' filename.
 		"dockerfile": "../../dockerfile"
 	},
-	"postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+	"postCreateCommand": "gh ext install devx-cafe/gh-insitu && gh insitu run -c .insitu.prep.yml",
     "customizations": {
         "vscode": {
             "extensions": [

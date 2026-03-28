@@ -1,0 +1,37 @@
+name: Prep-runner
+description: Sets the GitHub workflow to do what we need
+
+inputs:
+  verify:
+    description: Script to run to verify the environment is set up correctly. If not provided, no verification will be done.
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - name: install insitu
+      shell: bash
+      run: |
+        gh extension install devx-cafe/gh-insitu
+
+    - name: Verify environment
+      if: ${{ inputs.verify }}
+      shell: bash
+      run: |
+        ${{ inputs.verify }} --mark-pending
+
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3'
+        bundler-cache: false # We will run bundle install ourselves to have more control        
+
+    - name: Prepare runner environment
+      shell: bash
+      run: |
+        gh insitu run runner-prep bundle-install
+
+    - name: Verify environment
+      if: ${{ inputs.verify }}
+      shell: bash
+      run: ${{ inputs.verify }}
+    

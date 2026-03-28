@@ -1,0 +1,42 @@
+# .insitu.yml – insitu self-hosting configuration
+# Run 'insitu plan' to preview  |  'insitu run' to execute
+# cspell:ignore markdownlint
+
+defaults:
+  die-on-error: true
+  timeout: 5m
+  verbose: false
+
+inventory:
+  - id: "configure-bundler"
+    name: "Configure Bundler"
+    command: "bundle config path vendor/bundle"
+
+  - id: "install-libvips"
+    name: "Install libvips"
+    command: |
+      sudo apt-get update
+      sudo apt-get install -y libvips-dev
+
+  - id: "install-lint-tools"
+    name: "Install linting and checker tools"
+    command: |
+      npm install -g cspell markdownlint-cli2 @cspell/dict-da-dk prettier
+
+  - id: bundle-install
+    name: "Install project dependencies with bundle"
+    command: |
+      bundle config set frozen true
+      bundle install
+      bundle config set frozen false
+
+waves:
+  - id: "prep"
+    name: "Preparation"
+    parallel: true
+    checks:
+      - "configure-bundler"
+      - "install-libvips"
+      - "install-lint-tools"
+      - "bundle-install"
+

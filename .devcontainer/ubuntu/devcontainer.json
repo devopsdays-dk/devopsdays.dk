@@ -26,7 +26,7 @@
 		}
 	},
 
-    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+    "postCreateCommand": "gh ext install devx-cafe/gh-insitu && gh insitu run -c .insitu.prep.yml",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 	"mounts": [
 		"source=${localEnv:HOME},target=/localhome,type=bind,consistency=cached"
