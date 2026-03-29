@@ -49,7 +49,7 @@ jobs:
     needs: verify-tag-on-main
     permissions:
       contents: read
-    uses: devx-cafe/takt-actions/deploy-to-repot@experimental
+    uses: devx-cafe/takt-actions/deploy-to-repo@experimental
     with:
       target_repository: devopsdays-dk/devopsdays-dk.github.io
       artifact_name: site-${{ github.sha }}
