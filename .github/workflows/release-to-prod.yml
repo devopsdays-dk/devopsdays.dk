@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Deploy with takt action
-        uses: devx-cafe/takt-actions/deploy-to-repo@experimental
+        uses: devx-cafe/takt-actions/deploy-to-repo@v1
         with:
           target_repository: devopsdays-dk/devopsdays-dk.github.io
           artifact_name: site-${{ github.sha }}

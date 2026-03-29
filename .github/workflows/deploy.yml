@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Deploy artifact
-        uses: devx-cafe/takt-actions/deploy-artifact@experimental
+        uses: devx-cafe/takt-actions/deploy-artifact@v1
         # with:
         #   artifact_name: # default "site-${{ github.sha }}"
         #   artifact_path: # default "_site"
