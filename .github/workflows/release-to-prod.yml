@@ -49,12 +49,15 @@ jobs:
     needs: verify-tag-on-main
     permissions:
       contents: read
-    uses: lakruzz/workflows/.github/workflows/deploy-to-repo.yml@experimental
+    uses: devx-cafe/takt-actions/deploy-to-repot@experimental
     with:
       target_repository: devopsdays-dk/devopsdays-dk.github.io
       artifact_name: site-${{ github.sha }}
       user_name: "Production Deployer"
       user_email: "deploy@devopsdays.dk"
       cname: "www.devopsdays.dk"
-    secrets:
       token: ${{ secrets.READY_PUSHER }}
+      # artifact_path: # Default: "_site"
+      # target_branch: # Default: "main"
+      # status_context: # Default: "deploy:repo"
+      # commit_message: # Default: "Deploy artifact from $GITHUB_REPOSITORY@$GITHUB_REF_NAME"
