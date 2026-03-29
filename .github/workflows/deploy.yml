@@ -20,8 +20,13 @@ jobs:
       statuses: write
       pages: write
       id-token: write
-    uses: devx-cafe/takt-actions/deploy-artifact@experimental
-    # with:
-    #   artifact_name: # default "site-${{ github.sha }}"
-    #   artifact_path: # default "_site"
-    #   status_context: # default "deploy:pages"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Deploy artifact
+        uses: devx-cafe/takt-actions/deploy-artifact@experimental
+        # with:
+        #   artifact_name: # default "site-${{ github.sha }}"
+        #   artifact_path: # default "_site"
+        #   status_context: # default "deploy:pages"
