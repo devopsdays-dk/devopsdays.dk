@@ -154,6 +154,7 @@ sessionize
 Shemsiu
 signup
 slowification
+Socio
 sociotechnical
 Sourceror
 specdriven
@@ -185,6 +186,7 @@ unconference
 Vemola
 Vigan
 Wardley
+webp
 Wenger
 worklog
 yadda
@@ -192,4 +194,3 @@ Yeman
 yipees
 Yxlon
 zoomers
-webp

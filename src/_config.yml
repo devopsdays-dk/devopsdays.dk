@@ -23,7 +23,7 @@ description              : &description "The Danish Chapter of the DevOpsDays co
 subtitle                 : # &subtitle "Part of Something Bigger" # site tagline that appears below site title in masthead
 name                     : *title
 masthead_title           : ' ' # overrides the website title displayed in the masthead, use " " for no title
-logo_link                : "/home/"
+logo_link                : "/"
 terms_url                : /terms/
 url                      : "https://www.devopsdays.dk"
 cfp_form_url             : /proposals/ #https://sessionize.com/devopsdays-2026/
