@@ -14,5 +14,4 @@ social:
   website: 
 events:
 roles:
-  - organizer
 ---

@@ -13,6 +13,7 @@ social:
   website: "https://medium.com/@mortensensc"
 roles:
   - speaker
+  - organizer
 events:
   - 2026-cph
 talks:

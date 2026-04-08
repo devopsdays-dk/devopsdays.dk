@@ -17,6 +17,7 @@ roles:
   - speaker
 events:
   - 2026-cph
+  - 2026-drink-up
 talks:
   - lessons-from-10-years-of-platform-engineering
 sessionize:
@@ -25,7 +26,7 @@ sessionize:
     - 1125798
 ---
 
- Kris Buytaert is a long time Linux and Open Source Consultant. He's one of instigators of the devops movement, currently working for Inuits
+Kris Buytaert is a long time Linux and Open Source Consultant. He's one of instigators of the devops movement, currently working for Inuits
 
 He is frequently speaking at, or organizing different international conferences and has written about the same subjects in different Books, Papers and Articles
 

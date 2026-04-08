@@ -5,6 +5,7 @@ speaker: kris-buytaert
 excerpt: "Platform Engineering is the new hype on the block. But we've been doing this for some 10 years,  we just didn't call it Platform Engineering We provided self service enabled platforms with guardrail..."
 events:
   - 2026-cph
+  - 2026-drink-up
 sessionize:
   id: 1125798
 ---

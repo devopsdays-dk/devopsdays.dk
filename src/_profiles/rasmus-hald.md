@@ -14,7 +14,6 @@ social:
   website:
 events:
 roles:
-  - organizer
 ---
 
 Rasmus is a seasoned technology leader with extensive experience in digital transformation, He is passionate about driving innovation and empowering teams to achieve excellence. His career has been dedicated to leveraging strategic direction to enable organizations to realize their full potential, both technically and operationally.
