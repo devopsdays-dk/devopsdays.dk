@@ -2,7 +2,7 @@
 title: DevOps is Broken
 author: Lars Kruse
 author_profile: false
-excerpt: Send five Colleagues to DevOpsDays to join the Community!
+excerpt: Is DevOps dead?  — No! but it transformed into Platform Engineering. OK WAIT, that's Ops, not DevOps. What happened to 'You Build It, You Run It' and the 'Break down the silos' promises?
 header:
   teaser: /assets/images/index/devops-is-broken.jpg
 tags:
