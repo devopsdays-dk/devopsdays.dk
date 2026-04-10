@@ -8,6 +8,7 @@ Andon
 Andreessen
 Andrey
 antipatterns
+apocaloptimistic
 artefacts
 Atmel
 automation
@@ -20,7 +21,9 @@ Bootc
 Borgergade
 Brønsted
 Brüel
+Bucka
 Buytaert
+cobot
 componentized
 CX'ers
 d'etre
@@ -121,6 +124,7 @@ Nyboder
 octocat
 ohhh
 operationalize
+Opsy
 Østerport
 Oticon
 outro
